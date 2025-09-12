@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>입점신청 (홈케어) | 킹즈마사지 Hybrid</title>
+  <meta name="description" content="입점신청 게시판 - 홈케어 전용. 브라우저 LocalStorage 저장.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="board-homecare.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="wrap">
+      <a class="logo" href="index.html"><span class="crown">♛</span> 킹즈마사지</a>
+      <nav class="gnb">
+        <a href="index.html#regions">지역</a>
+        <a href="index.html#event">스폰서</a>
+        <a href="index.html#list">업체목록</a>
+        <a href="apply-homecare.html" class="btn">입점(홈케어)</a>
+        <a href="apply-roadshop.html" class="btn">입점(로드샵)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" style="padding:28px 0">
+    <h1 style="margin:0 0 12px">입점신청 — 홈케어</h1>
+    <p class="small">서버 없이 동작하는 데모 게시판입니다. 브라우저(LocalStorage)에 저장됩니다.</p>
+
+    <form class="form" id="form-homecare" data-type="홈케어">
+      <label>업체명<input name="name" required></label>
+      <label>연락처<input name="phone" required></label>
+      <label>지역<select name="region" required>
+        <option value="서울">서울</option><option value="경기">경기</option><option value="인천">인천</option>
+      </select></label>
+      <label>소개<textarea name="desc" rows="4"></textarea></label>
+      <button type="submit" class="btn">등록</button>
+      <p class="hint">* 데모 저장: 브라우저(LocalStorage)</p>
+    </form>
+
+    <section style="margin-top:20px">
+      <div class="list-head">
+        <h2>신청 목록 (홈케어)</h2>
+        <div class="actions"><button id="resetBoard" class="btn small">전체 초기화</button></div>
+      </div>
+      <div id="board" class="board"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap"><p class="copy">© <span id="year"></span> 킹즈마사지 Hybrid</p></div>
+  </footer>
+</body>
+</html>

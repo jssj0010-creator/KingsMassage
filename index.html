@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>킹즈마사지 Hybrid | 전국 마사지 중개 포털</title>
+  <meta name="description" content="지역 랜딩/스폰서/입점목록 · 입점신청 게시판 분리(홈케어/로드샵)">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <span>24시간 문의 · 카톡 <a href="https://open.kakao.com/o/shGxbqRh" target="_blank" rel="noreferrer">@msg00100</a> · 대표번호 <b>010-4637-9556</b></span>
+      <nav class="topnav">
+        <a href="#how">이용안내</a>
+        <a href="#event">이벤트</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="wrap">
+      <a class="logo" href="/"><span class="crown">♛</span> 킹즈마사지</a>
+      <nav class="gnb">
+        <a href="#regions">지역</a>
+        <a href="#event">스폰서</a>
+        <a href="#list">업체목록</a>
+        <a href="apply-homecare.html" class="btn">입점(홈케어)</a>
+        <a href="apply-roadshop.html" class="btn">입점(로드샵)</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1><span>전국</span> 마사지 중개 <i>HYBRID</i></h1>
+      <p>지역 랜딩 · 스폰서 고정영역 · 입점 리스트를 한 곳에서</p>
+      <form id="searchForm" class="search">
+        <input name="q" type="search" placeholder="지역/업체 키워드 검색">
+        <button type="submit">검색</button>
+      </form>
+      <div class="quickcats">
+        <a href="#" class="chip">서울</a>
+        <a href="#" class="chip">경기</a>
+        <a href="#" class="chip">인천</a>
+        <a href="#" class="chip">홈케어</a>
+        <a href="#" class="chip">로드샵</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="regions" class="section wrap">
+    <h2>지역 랜딩</h2>
+    <div class="grid cols-3">
+      <a class="card region" href="regions/seoul.html"><b>서울</b><span>전 지역</span></a>
+      <a class="card region" href="regions/gg.html"><b>경기</b><span>전 지역</span></a>
+      <a class="card region" href="regions/incheon.html"><b>인천</b><span>전 지역</span></a>
+    </div>
+  </section>
+
+  <section id="event" class="section wrap">
+    <h2>스폰서 & 프로모션</h2>
+    <div class="sponsor-row">
+      <a class="sponsor" href="#"><img src="assets/s1.svg" alt="스폰서1"></a>
+      <a class="sponsor" href="#"><img src="assets/s2.svg" alt="스폰서2"></a>
+      <a class="sponsor" href="#"><img src="assets/s3.svg" alt="스폰서3"></a>
+      <a class="sponsor" href="#"><img src="assets/s4.svg" alt="스폰서4"></a>
+    </div>
+  </section>
+
+  <section id="list" class="section wrap">
+    <div class="list-head">
+      <h2>입점 업체</h2>
+      <div class="filters">
+        <select id="filter-region">
+          <option value="">전체 지역</option>
+          <option value="서울">서울</option>
+          <option value="경기">경기</option>
+          <option value="인천">인천</option>
+        </select>
+        <select id="filter-type">
+          <option value="">전체 유형</option>
+          <option value="홈케어">홈케어</option>
+          <option value="로드샵">로드샵</option>
+        </select>
+        <select id="filter-sort">
+          <option value="recent">최신순</option>
+          <option value="sponsor">스폰서 우선</option>
+          <option value="name">이름순</option>
+        </select>
+      </div>
+    </div>
+    <div id="listingGrid"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="fcols">
+        <div>
+          <div class="logo foot"><span class="crown">♛</span> 킹즈마사지</div>
+          <p class="small">샘플 포털 템플릿 · 로고/이미지/텍스트는 독자 제작</p>
+        </div>
+        <div>
+          <h4>바로가기</h4>
+          <ul>
+            <li><a href="#regions">지역 랜딩</a></li>
+            <li><a href="#list">업체 목록</a></li>
+            <li><a href="apply-homecare.html">입점(홈케어)</a></li>
+            <li><a href="apply-roadshop.html">입점(로드샵)</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>고객지원</h4>
+          <ul>
+            <li><a href="#how">이용안내</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copy">© <span id="year"></span> 킹즈마사지 Hybrid</p>
+    </div>
+  </footer>
+</body>
+</html>
