@@ -1,15 +1,16 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>커뮤니티 | 킹즈마사지</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>커뮤니티 | 킹즈마사지</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="app.js"></script>
 </head>
 <body>
-  <header class="header">
-    <div class="wrap">
-      <a class="logo" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="180" height="36" viewBox="0 0 180 36" style="height:32px;width:auto;display:block">
+<header class="header">
+  <div class="wrap">
+    <a class="logo" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="180" height="36" viewBox="0 0 180 36" style="height:32px;width:auto;display:block">
   <defs>
     <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#d4af37"/>
@@ -21,10 +22,62 @@
         stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   <text x="40" y="23" font-size="18" font-weight="800" fill="#f5f2e9">킹즈마사지</text>
 </svg></a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <nav class="mega-nav" aria-label="주요 카테고리">
+      <button class="mega-trigger" aria-expanded="false" aria-controls="megaPanel">
+        <span class="hamburger" aria-hidden="true">≡</span> 전체 카테고리 <span class="caret">▾</span>
+      </button>
+      <a class="mega-link" href="#" data-open="panel">지역별</a>
+      <a class="mega-link" href="#list">전국 매장</a>
+      <a class="mega-link" href="nearby.html">내주변</a>
+      <a class="mega-link" href="apply-homecare.html">홈케어</a>
+      <a class="mega-link" href="apply-roadshop.html">로드샵</a>
+      <a class="mega-link" href="community.html">커뮤니티</a>
+    </nav>
+    <!-- HERO TITLE will be injected here -->
+    <h1><span>커뮤니티</span> </h1>
+    <p>공지/이벤트/익명게시판 등</p>
+    <div id="megaPanel" class="mega-panel" hidden>
+      <div class="mega-col">
+        <h4>지역별</h4>
+        <ul>
+          <li><a href="regions/seoul.html">서울</a></li>
+          <li><a href="regions/gg.html">경기</a></li>
+          <li><a href="regions/incheon.html">인천</a></li>
+        </ul>
+      </div>
+      <div class="mega-col">
+        <h4>전국 매장</h4>
+        <ul>
+          <li><a href="#list">전체</a></li>
+          <li><a href="#list">서울</a></li>
+          <li><a href="#list">부산</a></li>
+        </ul>
+      </div>
+      <div class="mega-col">
+        <h4>내주변</h4>
+        <ul>
+          <li><a href="nearby.html">내주변</a></li>
+        </ul>
+      </div>
+      <div class="mega-col">
+        <h4>커뮤니티</h4>
+        <ul>
+          <li><a href="community.html">공지사항</a></li>
+          <li><a href="community.html">이벤트</a></li>
+        </ul>
+      </div>
     </div>
-  </header>
-  <main class="wrap" style="padding:28px 0">
-    <h1>커뮤니티</h1>
+  </div>
+</section>
+
+<main class="wrap" style="padding:28px 0">
+<section class="page-content">
+<h1>커뮤니티</h1>
     <div class="grid cols-3">
       <a class="card" href="#"><h3>공지사항</h3><p class="small">운영 공지 및 업데이트</p></a>
       <a class="card" href="#"><h3>이벤트</h3><p class="small">프로모션/이벤트 소식</p></a>
@@ -34,6 +87,25 @@
       <a class="card" href="#"><h3>오류/건의</h3><p class="small">사이트 개선 제안</p></a>
     </div>
     <p style="margin-top:24px"><a href="index.html">← 메인으로</a></p>
-  </main>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="logo foot"><svg xmlns="http://www.w3.org/2000/svg" width="180" height="36" viewBox="0 0 180 36" style="height:32px;width:auto;display:block">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d4af37"/>
+      <stop offset="1" stop-color="#b08d28"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="24" height="24" rx="8" fill="#0f0f0f" stroke="url(#gold)" stroke-width="1"/>
+  <path d="M14 11 v14 M14 18 l9 -7 M14 18 l9 7" stroke="url(#gold)" stroke-width="2.6"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <text x="40" y="23" font-size="18" font-weight="800" fill="#f5f2e9">킹즈마사지</text>
+</svg></div>
+  </div>
+</footer>
+
 </body>
 </html>
