@@ -198,3 +198,38 @@ h2{margin:0 0 16px;font-size:20px;border-left:4px solid var(--gold);padding-left
   .mega-trigger .label{ display:none; }  /* icon-only trigger to avoid wrapping */
   .mega-trigger .caret{ margin-left: 2px; }
 }
+
+
+/* --- Mobile V3 Fixes --- */
+.mega-nav{
+  display:flex;
+  flex-wrap: nowrap;           /* single row */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.mega-link, .mega-trigger{
+  display: inline-flex;        /* avoid block shrink that causes vertical stacking */
+  align-items: center;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  writing-mode: horizontal-tb !important;
+  line-height: 1.1;
+}
+
+/* some themes set a max-width: set to none for chips */
+.mega-link{ max-width: none; }
+
+/* Hide topbar on mobile to create space */
+@media (max-width: 640px){
+  .topbar{ display:none !important; }
+  .hero{ padding-top: 14px; padding-bottom: 16px; }
+  .hero h1{ font-size: 24px; }
+  .mega-link, .mega-trigger{ padding: 6px 10px; font-size: 13px; }
+}
+
+/* Footer link color normalization */
+.footer a{ color: var(--fg); text-decoration: none; }
+.footer a:hover{ text-decoration: underline; }
+
+/* Ensure container doesn't clip nav on mobile */
+.hero .wrap{ overflow: visible; }
