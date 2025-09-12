@@ -63,3 +63,18 @@ function renderListings(items){
     try { loadListings(); } catch(e) {}
   }
 })();
+
+
+// Open mega panel when clicking '지역별' link in mega bar
+document.querySelector('.mega-link[data-open="panel"]')?.addEventListener('click', (e)=>{
+  e.preventDefault();
+  const panel = document.getElementById('megaPanel');
+  const trigger = document.querySelector('.mega-trigger');
+  if (panel.hasAttribute('hidden')) {
+    panel.removeAttribute('hidden');
+    trigger?.setAttribute('aria-expanded','true');
+  } else {
+    panel.setAttribute('hidden','');
+    trigger?.setAttribute('aria-expanded','false');
+  }
+});

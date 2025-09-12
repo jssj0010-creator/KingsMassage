@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>내주변 | 킹즈마사지</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+  function getLoc(){
+    const out = document.getElementById('out');
+    if (!navigator.geolocation){ out.textContent = '이 브라우저는 위치 정보를 지원하지 않습니다.'; return; }
+    out.textContent = '위치 확인 중...';
+    navigator.geolocation.getCurrentPosition((pos)=>{
+      const {latitude, longitude} = pos.coords;
+      out.textContent = '현재 좌표: ' + latitude.toFixed(5) + ', ' + longitude.toFixed(5) + ' (데모 화면)';
+    }, (err)=>{
+      out.textContent = '위치 권한이 필요합니다. (' + err.message + ')';
+    });
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="wrap">
+      <a class="logo" href="index.html"><img class="logo-img" src="assets/logo-kingz.svg" alt="킹즈마사지 로고"></a>
+    </div>
+  </header>
+  <main class="wrap" style="padding:28px 0">
+    <h1>내주변</h1>
+    <p class="small">* 데모 페이지입니다. 위치 권한 허용 시 현재 좌표를 표시합니다.</p>
+    <button class="btn" onclick="getLoc()">내 위치 가져오기</button>
+    <p id="out" style="margin-top:12px"></p>
+    <p style="margin-top:24px"><a href="index.html">← 메인으로</a></p>
+  </main>
+</body>
+</html>
