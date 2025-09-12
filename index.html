@@ -35,62 +35,95 @@
 
   <section class="hero">
     <div class="wrap">
-      <h1><span>전국</span> 킹즈마사지 <i>KingS</i></h1>
+      
+    <!-- Mega menu bar -->
+    <nav class="mega-nav" aria-label="주요 카테고리">
+      <button class="mega-trigger" aria-expanded="false" aria-controls="megaPanel">
+        <span class="hamburger" aria-hidden="true">≡</span> 전체 카테고리 <span class="caret">▾</span>
+      </button>
+      <a class="mega-link" href="#regions">지역별</a>
+      <a class="mega-link" href="#list">전국 매장</a>
+      <a class="mega-link" href="#">내주변</a>
+      <a class="mega-link" href="apply-homecare.html">홈케어</a>
+      <a class="mega-link" href="apply-roadshop.html">로드샵</a>
+      <a class="mega-link" href="#">커뮤니티</a>
+    </nav>
+
+    <div id="megaPanel" class="mega-panel" hidden>
+      <div class="mega-col">
+        <h4>지역별</h4>
+        <ul>
+          <li><a href="regions/seoul.html">강남/서초/송파</a></li>
+          <li><a href="regions/seoul.html">서울</a></li>
+          <li><a href="regions/gg.html">수원/용인/화성/평택/오산</a></li>
+          <li><a href="regions/gg.html">분당/성남/위례/경기광주/하남</a></li>
+          <li><a href="regions/gg.html">안양/광명/안산/군포/시흥/의왕</a></li>
+          <li><a href="regions/incheon.html">인천/부천/부평</a></li>
+          <li><a href="#">고양/일산/김포/파주</a></li>
+          <li><a href="#">의정부/구리/남양주/포천/동두천</a></li>
+          <li><a href="#">대전/천안/세종/충청/강원</a></li>
+          <li><a href="#">부산/대구/울산/경상도/전라도/광주</a></li>
+          <li><a href="#">제주도</a></li>
+          <li><a href="apply-homecare.html">홈케어/방문관리</a></li>
+        </ul>
+      </div>
+      <div class="mega-col">
+        <h4>전국 매장</h4>
+        <ul>
+          <li><a href="#list">전체</a></li>
+          <li><a href="#list">서울</a></li>
+          <li><a href="#list">인천</a></li>
+          <li><a href="#list">세종</a></li>
+          <li><a href="#list">광주</a></li>
+          <li><a href="#list">대구</a></li>
+          <li><a href="#list">울산</a></li>
+          <li><a href="#list">부산</a></li>
+          <li><a href="#list">경기</a></li>
+          <li><a href="#list">강원</a></li>
+          <li><a href="#list">충북</a></li>
+          <li><a href="#list">충남</a></li>
+          <li><a href="#list">전북</a></li>
+          <li><a href="#list">전남</a></li>
+          <li><a href="#list">경북</a></li>
+          <li><a href="#list">경남</a></li>
+          <li><a href="#list">제주</a></li>
+        </ul>
+      </div>
+      <div class="mega-col">
+        <h4>내주변</h4>
+        <ul>
+          <li><a href="#">내주변</a></li>
+        </ul>
+      </div>
+      <div class="mega-col">
+        <h4>커뮤니티</h4>
+        <ul>
+          <li><a href="#">공지사항</a></li>
+          <li><a href="#">이벤트</a></li>
+          <li><a href="#">SNS</a></li>
+          <li><a href="#">아쉬워요</a></li>
+          <li><a href="#">매니저찾기</a></li>
+          <li><a href="#">익명게시판</a></li>
+          <li><a href="#">중고거래</a></li>
+          <li><a href="#">임대/매매</a></li>
+          <li><a href="#">예약/콜대행</a></li>
+          <li><a href="#">오류/건의</a></li>
+          <li><a href="#">마사지정보</a></li>
+        </ul>
+      </div>
+    </div>
+<h1><span>전국</span> 킹즈마사지 <i>KingS</i></h1>
       <p>킹즈마사지에서 마사지로 피로감 해방</p>
       <form id="searchForm" class="search">
         <input name="q" type="search" placeholder="지역/업체 키워드 검색">
         <button type="submit">검색</button>
       </form>
-      <div class="quickcats">
-        <a href="#" class="chip">서울</a>
-        <a href="#" class="chip">경기</a>
-        <a href="#" class="chip">인천</a>
-        <a href="#" class="chip">홈케어</a>
-        <a href="#" class="chip">로드샵</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="regions" class="section wrap">
-    <h2>지역 랜딩</h2>
-    <div class="grid cols-3">
-      <a class="card region" href="regions/seoul.html"><b>서울</b><span>전 지역</span></a>
-      <a class="card region" href="regions/gg.html"><b>경기</b><span>전 지역</span></a>
-      <a class="card region" href="regions/incheon.html"><b>인천</b><span>전 지역</span></a>
-    </div>
-  </section>
-
-  <section id="event" class="section wrap">
-    <h2>스폰서 & 프로모션</h2>
-    <div class="sponsor-row">
-      <a class="sponsor" href="#"><img src="assets/s1.svg" alt="스폰서1"></a>
-      <a class="sponsor" href="#"><img src="assets/s2.svg" alt="스폰서2"></a>
-      <a class="sponsor" href="#"><img src="assets/s3.svg" alt="스폰서3"></a>
-      <a class="sponsor" href="#"><img src="assets/s4.svg" alt="스폰서4"></a>
     </div>
   </section>
 
   <section id="list" class="section wrap">
     <div class="list-head">
-      <h2>입점 업체</h2>
-      <div class="filters">
-        <select id="filter-region">
-          <option value="">전체 지역</option>
-          <option value="서울">서울</option>
-          <option value="경기">경기</option>
-          <option value="인천">인천</option>
-        </select>
-        <select id="filter-type">
-          <option value="">전체 유형</option>
-          <option value="홈케어">홈케어</option>
-          <option value="로드샵">로드샵</option>
-        </select>
-        <select id="filter-sort">
-          <option value="recent">최신순</option>
-          <option value="sponsor">스폰서 우선</option>
-          <option value="name">이름순</option>
-        </select>
-      </div>
+      <h2>홈케어 인기 업체</h2>
     </div>
     <div id="listingGrid"></div>
   </section>
