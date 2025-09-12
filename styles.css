@@ -55,3 +55,12 @@ h2{margin:0 0 16px;font-size:20px;border-left:4px solid var(--gold);padding-left
 .board .meta{color:var(--muted);font-size:12px}
 .board .actions{display:flex;gap:8px;margin-top:8px}
 .btn.small{padding:8px 10px;border-radius:10px;border:1px solid #000;background:#222;color:#fff;cursor:pointer}
+
+
+/* Image logo styling */
+.logo-img{
+  display:block;
+  height:28px;  /* adjust 24~32px if needed */
+  width:auto;
+  filter: drop-shadow(0 0 12px rgba(255,255,255,.15));
+}
