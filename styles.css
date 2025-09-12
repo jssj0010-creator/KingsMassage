@@ -245,3 +245,16 @@ h2{margin:0 0 16px;font-size:20px;border-left:4px solid var(--gold);padding-left
 }
 .mega-details > summary::-webkit-details-marker{ display:none; }
 .mega-details[open] .mega-panel{ display:grid; }
+
+
+/* details 기반 메가메뉴 미세연출 */
+.mega-details .caret { transition: transform .2s ease; }
+.mega-details[open] .caret { transform: rotate(180deg); }
+
+.mega-details[open] .mega-panel {
+  animation: megaFade .18s ease-out;
+}
+@keyframes megaFade {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
