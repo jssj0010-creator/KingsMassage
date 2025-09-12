@@ -113,3 +113,71 @@ h2{margin:0 0 16px;font-size:20px;border-left:4px solid var(--gold);padding-left
 
 /* Footer logo alignment */
 .footer .logo.foot, .footer .logo.foot *{ text-align:left; justify-content:flex-start; }
+
+
+/* === Mobile tuning (<= 640px) === */
+@media (max-width: 640px){
+  :root{
+    --pad: 14px;
+  }
+  .wrap{ padding-left: var(--pad); padding-right: var(--pad); }
+
+  /* Header height + logo */
+  .header .wrap{ height: 48px; }
+  .logo svg{ height: 28px !important; }
+
+  /* Mega-nav: horizontal scroll chips */
+  .mega-nav{
+    gap: 10px;
+    padding: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .mega-nav::-webkit-scrollbar{ display:none; }
+  .mega-trigger, .mega-link{
+    padding: 8px 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    font-size: 14px;
+  }
+
+  /* Mega-panel: single column sheet */
+  .mega-panel{
+    grid-template-columns: 1fr;
+    padding: 12px;
+    border-radius: 12px;
+  }
+  .mega-panel .mega-col h4{ font-size: 13px; }
+  .mega-panel .mega-col li{ padding: 8px 0; }
+
+  /* Hero */
+  .hero{ padding: 20px 0; }
+  .hero h1{ font-size: 28px; line-height: 1.2; }
+  .hero p{ font-size: 14px; opacity: .9; }
+
+  /* Search bar */
+  .searchbar, .hero .searchbar, .hero input[type="search"]{ width: 100%; }
+  input[type="search"]{ height: 44px; font-size: 15px; }
+  .btn{ padding: 10px 14px; font-size: 14px; }
+
+  /* Cards grid */
+  .grid.cols-3{ grid-template-columns: 1fr; }
+  .card{ padding: 14px; border-radius: 14px; }
+
+  /* Footer: stack columns */
+  .footer .wrap{ padding-top: 16px; padding-bottom: 24px; }
+  .footer .cols-3, .footer .grid{ display: grid; grid-template-columns: 1fr; gap: 8px; }
+  .footer .logo.foot svg{ height: 28px !important; }
+  .footer nav a{ display: inline-block; padding: 6px 0; }
+}
+
+/* Slightly wider phones (641–900px) */
+@media (min-width: 641px) and (max-width: 900px){
+  .header .wrap{ height: 52px; }
+  .logo svg{ height: 30px !important; }
+  .mega-nav{ gap: 12px; }
+  .hero h1{ font-size: 34px; }
+  .grid.cols-3{ grid-template-columns: repeat(2, 1fr); }
+}
