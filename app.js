@@ -78,3 +78,41 @@ document.querySelector('.mega-link[data-open="panel"]')?.addEventListener('click
     trigger?.setAttribute('aria-expanded','false');
   }
 });
+
+
+// === Geolocation on page load (with 24h cooldown) ===
+(function(){
+  const COOLDOWN_HOURS = 24;
+  const ms = COOLDOWN_HOURS * 60 * 60 * 1000;
+  const last = parseInt(localStorage.getItem('geo:lastAsk') || '0', 10);
+  const now = Date.now();
+  if (location.pathname.endsWith('index.html') || location.pathname === '/' || location.pathname === '') {
+    if (now - last > ms) {
+      // Only prompt on secure contexts
+      if (location.protocol === 'https:' || location.hostname === 'localhost') {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(pos){
+            localStorage.setItem('geo:lastAsk', String(Date.now()));
+            localStorage.setItem('geo:coords', JSON.stringify({
+              lat: pos.coords.latitude,
+              lng: pos.coords.longitude,
+              acc: pos.coords.accuracy,
+              ts: Date.now()
+            }));
+            // Optional: light toast
+            try{
+              const t = document.createElement('div');
+              t.textContent = '위치 정보가 설정되었습니다.';
+              t.style.cssText = 'position:fixed;left:50%;transform:translateX(-50%);bottom:18px;background:#111;padding:10px 14px;border:1px solid #333;border-radius:12px;color:#fff;z-index:1000';
+              document.body.appendChild(t);
+              setTimeout(()=>t.remove(), 2000);
+            }catch(e){}
+          }, function(err){
+            localStorage.setItem('geo:lastAsk', String(Date.now()));
+            // Denied or error: no action needed
+          }, {enableHighAccuracy:false, timeout:8000, maximumAge:60000});
+        }
+      }
+    }
+  }
+})();
