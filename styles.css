@@ -181,3 +181,20 @@ h2{margin:0 0 16px;font-size:20px;border-left:4px solid var(--gold);padding-left
   .hero h1{ font-size: 34px; }
   .grid.cols-3{ grid-template-columns: repeat(2, 1fr); }
 }
+
+
+/* Fix footer link color */
+.footer a{ color: var(--fg); text-decoration: none; }
+.footer a:hover{ text-decoration: underline; }
+
+/* Very small phones (<= 480px) */
+@media (max-width: 480px){
+  .topbar{ display:none; }            /* hide the info strip to save space */
+  .hero{ padding: 16px 0; }
+  .hero h1{ font-size: 24px; line-height: 1.15; }
+  .mega-nav{ gap: 8px; padding: 6px; }
+  .mega-trigger, .mega-link{ padding: 6px 10px; font-size: 13px; }
+  .mega-link{ white-space: nowrap; }
+  .mega-trigger .label{ display:none; }  /* icon-only trigger to avoid wrapping */
+  .mega-trigger .caret{ margin-left: 2px; }
+}
