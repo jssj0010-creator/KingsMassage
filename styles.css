@@ -237,3 +237,11 @@ h2{margin:0 0 16px;font-size:20px;border-left:4px solid var(--gold);padding-left
 
 /* Mega z-index fix */
 .mega-panel{ position: relative; z-index: 50; }
+
+/* details-based mega */
+.mega-details{ display:inline; }
+.mega-details > summary{
+  list-style: none;
+}
+.mega-details > summary::-webkit-details-marker{ display:none; }
+.mega-details[open] .mega-panel{ display:grid; }
