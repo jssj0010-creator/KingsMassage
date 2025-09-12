@@ -150,3 +150,21 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 });
+
+
+// === Global toggle for Mega Panel (fallback-safe) ===
+window.toggleMega = function(){
+  try{
+    var panel = document.getElementById('megaPanel');
+    var trigger = document.querySelector('.mega-trigger');
+    if (!panel) return;
+    var isOpen = !panel.hasAttribute('hidden');
+    if (isOpen){
+      panel.setAttribute('hidden','');
+      if (trigger) trigger.setAttribute('aria-expanded','false');
+    }else{
+      panel.removeAttribute('hidden');
+      if (trigger) trigger.setAttribute('aria-expanded','true');
+    }
+  }catch(e){}
+};
