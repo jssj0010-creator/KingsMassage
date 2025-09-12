@@ -118,30 +118,35 @@ document.querySelector('.mega-link[data-open="panel"]')?.addEventListener('click
 })();
 
 
-// Mega menu toggle (safety re-add)
-document.querySelector('.mega-trigger')?.addEventListener('click', (e)=>{
-  const btn = e.currentTarget;
-  const panel = document.getElementById('megaPanel');
-  const open = panel.hasAttribute('hidden') ? false : true;
-  if (open){
-    panel.setAttribute('hidden','');
-    btn.setAttribute('aria-expanded','false');
-  }else{
-    panel.removeAttribute('hidden');
-    btn.setAttribute('aria-expanded','true');
-  }
-});
 
-// Open panel when clicking '지역별'
-document.querySelector('.mega-link[data-open="panel"]')?.addEventListener('click', (e)=>{
-  e.preventDefault();
-  const panel = document.getElementById('megaPanel');
+
+// === Mega menu toggle (robust) ===
+document.addEventListener('DOMContentLoaded', function(){
   const trigger = document.querySelector('.mega-trigger');
-  if (panel.hasAttribute('hidden')) {
-    panel.removeAttribute('hidden');
-    trigger?.setAttribute('aria-expanded','true');
-  } else {
-    panel.setAttribute('hidden','');
-    trigger?.setAttribute('aria-expanded','false');
+  const panel = document.getElementById('megaPanel');
+  const openers = document.querySelectorAll('.mega-link[data-open="panel"]');
+  if (trigger && panel){
+    trigger.addEventListener('click', function(){
+      const isOpen = !panel.hasAttribute('hidden');
+      if (isOpen){
+        panel.setAttribute('hidden','');
+        trigger.setAttribute('aria-expanded','false');
+      }else{
+        panel.removeAttribute('hidden');
+        trigger.setAttribute('aria-expanded','true');
+      }
+    });
   }
+  openers.forEach(a=>{
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      if (panel.hasAttribute('hidden')){
+        panel.removeAttribute('hidden');
+        trigger?.setAttribute('aria-expanded','true');
+      }else{
+        panel.setAttribute('hidden','');
+        trigger?.setAttribute('aria-expanded','false');
+      }
+    });
+  });
 });
