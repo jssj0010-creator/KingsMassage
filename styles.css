@@ -60,7 +60,7 @@ h2{margin:0 0 16px;font-size:20px;border-left:4px solid var(--gold);padding-left
 /* Image logo styling */
 .logo-img{
   display:block;
-  height:28px;  /* adjust 24~32px if needed */
+  height:32px;  /* adjust 24~32px if needed */
   width:auto;
   filter: drop-shadow(0 0 12px rgba(255,255,255,.15));
 }
