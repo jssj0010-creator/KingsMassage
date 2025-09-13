@@ -58,3 +58,20 @@ document.getElementById('searchForm')?.addEventListener('submit', (e)=>{
   const q = new FormData(e.currentTarget).get('q');
   alert(`검색어: ${q}\n(데모 동작입니다)`);
 });
+
+
+/* default filter homecare */
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.querySelector('#filter-type');
+  if (el && el.getAttribute('data-default') === 'homecare') {
+    // try to set select or button groups
+    if (el.tagName === 'SELECT') {
+      el.value = '홈케어';
+      el.dispatchEvent(new Event('change'));
+    } else {
+      // If it's a chips group, simulate click on 홈케어 chip
+      const chip = document.querySelector('[data-filter-type="homecare"], .chip-homecare');
+      if (chip) chip.click();
+    }
+  }
+});
