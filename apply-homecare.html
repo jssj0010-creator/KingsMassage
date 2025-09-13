@@ -1,58 +1,35 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>[킹즈마사지] 홈케어 입점 신청</title>
-  <meta name="description" content="입점신청 게시판 - 홈케어 전용. 브라우저 LocalStorage 저장.">
-  <link rel="stylesheet" href="styles.css?v10-1757744849">
-  <script defer src="board-homecare.js"></script>
-
-  <meta name="title" content="[킹즈마사지] 홈케어 입점 신청">
-  <meta name="description" content="홈케어 파트너 등록 및 심사 안내.">
-  <link rel="canonical" href="https://kingsmsg.com/apply-homecare">
-  <meta property="og:site_name" content="킹즈마사지">
-  <meta property="og:title" content="[킹즈마사지] 홈케어 입점 신청">
-  <meta property="og:description" content="홈케어 파트너 등록 및 심사 안내.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kingsmsg.com/apply-homecare">
-  <meta property="og:image" content="android-chrome-512x512.png">
-  <meta property="og:locale" content="ko_KR">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="[킹즈마사지] 홈케어 입점 신청">
-  <meta name="twitter:description" content="홈케어 파트너 등록 및 심사 안내.">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="alternate icon" href="favicon.ico">
-  <link rel="icon" sizes="32x32" href="icon-32.png">
-  <link rel="icon" sizes="16x16" href="icon-16.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#111111">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>홈케어 입점 | 킹즈마사지</title>
+<link rel="stylesheet" href="styles.css?v5_1-1757714211">
+<script defer src="app.js?v5_1-1757714211"></script>
 </head>
 <body>
-  <header class="header">
-    <div class="wrap">
-      <a class="logo" href="index.html"><span class="crown">♛</span> 킹즈마사지</a>
-      <nav class="gnb">
-        <a href="index.html#regions">지역</a>
-        <a href="index.html#event">스폰서</a>
-        <a href="index.html#list">업체목록</a>
-        <a href="apply-homecare.html" class="btn">입점(홈케어)</a>
-        <a href="apply-roadshop.html" class="btn">입점(로드샵)</a>
-      </nav>
-    </div>
-  </header>
+<header class="header">
+  <div class="wrap">
+    <a class="logo" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="180" height="36" viewBox="0 0 180 36" style="height:32px;width:auto;display:block">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d4af37"/>
+      <stop offset="1" stop-color="#b08d28"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="24" height="24" rx="8" fill="#0f0f0f" stroke="url(#gold)" stroke-width="1"/>
+  <path d="M14 11 v14 M14 18 l9 -7 M14 18 l9 7" stroke="url(#gold)" stroke-width="2.6"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <text x="40" y="23" font-size="18" font-weight="800" fill="#f5f2e9">킹즈마사지</text>
+</svg></a>
+  </div>
+</header>
 
 <section class="hero">
   <div class="wrap">
-    <nav class="mega-nav" aria-label="주요 카테고리">
+<nav class="mega-nav" aria-label="주요 카테고리">
   <details id="megaMenu" class="mega-details">
-    <summary class="mega-trigger">
-      <span class="hamburger" aria-hidden="true">≡</span>
-      <span class="label">전체 카테고리</span>
-      <span class="caret">▾</span>
-    </summary>
+    <summary class="mega-trigger"><span class="hamburger" aria-hidden="true">≡</span> <span class="label">전체 카테고리</span> <span class="caret">▾</span></summary>
     <div id="megaPanel" class="mega-panel">
       <div class="mega-col">
         <h4>지역별</h4>
@@ -87,27 +64,47 @@
   </details>
   <a class="mega-link" href="apply-homecare.html">홈케어</a>
   <a class="mega-link" href="apply-roadshop.html">로드샵</a>
-</nav>
-    <h1><span>전국</span> 킹즈마사지 KingS</h1>
-    <p>킹즈마사지에서 마사지로 피로감 해방</p>
+</nav></nav>
+    <!-- HERO TITLE will be injected here -->
+    <h1><span>홈케어</span> 입점</h1>
+    <p>홈케어 전문 파트너 등록</p>
+    <div id="megaPanel" class="mega-panel" hidden>
+      <div class="mega-col">
+        <h4>지역별</h4>
+        <ul>
+          <li><a href="regions/seoul.html">서울</a></li>
+          <li><a href="regions/gg.html">경기</a></li>
+          <li><a href="regions/incheon.html">인천</a></li>
+        </ul>
+      </div>
+      <div class="mega-col">
+        <h4>전국 매장</h4>
+        <ul>
+          <li><a href="#list">전체</a></li>
+          <li><a href="#list">서울</a></li>
+          <li><a href="#list">부산</a></li>
+        </ul>
+      </div>
+      <div class="mega-col">
+        <h4>내주변</h4>
+        <ul>
+          <li><a href="nearby.html">내주변</a></li>
+        </ul>
+      </div>
+      <div class="mega-col">
+        <h4>커뮤니티</h4>
+        <ul>
+          <li><a href="community.html">공지사항</a></li>
+          <li><a href="community.html">이벤트</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
-
-<section class="topbar">
-  <div class="wrap">
-    <p>24시간 문의 · 카톡 <a href="https://open.kakao.com/o/" target="_blank" rel="noopener">@msg00100</a> · 대표번호 <a href="tel:01046379556">010-4637-9556</a></p>
-    <nav class="links">
-      <a href="community.html">이용안내</a>
-      <a href="community.html">이벤트</a>
-      <a href="community.html#faq">FAQ</a>
-    </nav>
-  </div>
-</section>
-
-
-  <main class="wrap" style="padding:28px 0">
-    <h1 style="margin:0 0 12px">입점신청 — 홈케어</h1>
+<main class="wrap" style="padding:28px 0">
+<section class="page-content">
+<h1 style="margin:0 0 12px">입점신청 — 홈케어</h1>
     <p class="small">서버 없이 동작하는 데모 게시판입니다. 브라우저(LocalStorage)에 저장됩니다.</p>
 
     <form class="form" id="form-homecare" data-type="홈케어">
@@ -128,10 +125,25 @@
       </div>
       <div id="board" class="board"></div>
     </section>
-  </main>
+</section>
+</main>
 
-  <footer class="footer">
-    <div class="wrap"><p class="copy">© <span id="year"></span> 킹즈마사지 Hybrid</p></div>
-  </footer>
+<footer class="footer">
+  <div class="wrap">
+    <div class="logo foot"><svg xmlns="http://www.w3.org/2000/svg" width="180" height="36" viewBox="0 0 180 36" style="height:32px;width:auto;display:block">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d4af37"/>
+      <stop offset="1" stop-color="#b08d28"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="24" height="24" rx="8" fill="#0f0f0f" stroke="url(#gold)" stroke-width="1"/>
+  <path d="M14 11 v14 M14 18 l9 -7 M14 18 l9 7" stroke="url(#gold)" stroke-width="2.6"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <text x="40" y="23" font-size="18" font-weight="800" fill="#f5f2e9">킹즈마사지</text>
+</svg></div>
+  </div>
+</footer>
+
 </body>
 </html>
