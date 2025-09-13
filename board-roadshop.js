@@ -1,44 +1,51 @@
-const year = document.getElementById('year'); if (year) year.textContent = new Date().getFullYear();
-const STORAGE_KEY = 'km_apply_posts_roadshop_v1';
 
-function getPosts(){ try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e){ return []; } }
-function setPosts(v){ localStorage.setItem(STORAGE_KEY, JSON.stringify(v)); }
-function addPost(post){ const arr = getPosts(); arr.unshift(post); setPosts(arr); render(); }
-function removePost(idx){ const arr = getPosts(); arr.splice(idx,1); setPosts(arr); render(); }
-function resetBoard(){ if(!confirm('로드샵 게시판을 모두 초기화할까요?')) return; localStorage.removeItem(STORAGE_KEY); render(); }
-function formatDate(d){ const p=n=>n.toString().padStart(2,'0'); return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`; }
+// Hardened board script for ROADSHOP_BOARD_V1
+const LIST_KEY = "ROADSHOP_BOARD_V1";
 
-function render(){
-  const root = document.getElementById('board'); if(!root) return;
-  root.innerHTML = '';
-  const posts = getPosts();
-  if(posts.length === 0){ root.innerHTML = '<p class="small">아직 등록된 신청이 없습니다.</p>'; return; }
-  posts.forEach((p, idx)=>{
-    const el = document.createElement('div');
-    el.className = 'post';
-    el.innerHTML = `
-      <h3>로드샵 · ${p.name}</h3>
-      <div class="meta">${p.address || ''} · ${p.phone} · <time>${p.created}</time></div>
-      <p style="margin:8px 0 0;white-space:pre-wrap">${p.desc || ''}</p>
-      <div class="actions"><button class="btn small" data-del="${idx}">삭제</button></div>
-    `;
-    root.appendChild(el);
-  });
-  root.querySelectorAll('[data-del]').forEach(btn=>btn.addEventListener('click',()=>removePost(parseInt(btn.dataset.del,10))));
+function escapeHtml(str) {
+  return str.replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[s]);
 }
 
-document.getElementById('form-roadshop')?.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  const fd = new FormData(e.currentTarget);
-  const post = {
-    name: fd.get('name') || '',
-    phone: fd.get('phone') || '',
-    address: fd.get('address') || '',
-    desc: fd.get('desc') || '',
-    created: formatDate(new Date())
-  };
-  addPost(post); e.currentTarget.reset(); alert('등록되었습니다 (브라우저 저장).');
-});
+function $(sel){return document.querySelector(sel);}
+function getList(){ try{ return JSON.parse(localStorage.getItem(LIST_KEY)||"[]"); }catch(e){ return []; } }
+function setList(arr){ localStorage.setItem(LIST_KEY, JSON.stringify(arr)); }
 
-document.getElementById('resetBoard')?.addEventListener('click', resetBoard);
-render();
+function render(){
+  const list = getList();
+  const ul = $("#boardList");
+  if(!ul) return;
+  ul.innerHTML = "";
+  list.forEach(item => {
+    const li = document.createElement('li');
+    li.className = "board-item";
+    li.innerHTML = `
+      <strong class="title">\${escapeHtml(item.title)}</strong>
+      <span class="meta">\${escapeHtml(item.region||'')} · \${escapeHtml(item.type||'')}</span>
+      <p class="desc">\${escapeHtml(item.desc||'')}</p>
+    `;
+    ul.appendChild(li);
+  });
+}
+
+function onSubmit(e){
+  e.preventDefault();
+  const title = ($("#title").value||"").trim();
+  const region = ($("#region").value||"").trim();
+  const type = ($("#type").value||"").trim();
+  const desc = ($("#desc").value||"").trim();
+  if(title.length < 2) return alert("제목을 입력해 주세요.");
+  if(desc.length > 500) return alert("내용은 500자 이내로 입력해 주세요.");
+
+  const item = { title, region, type, desc, ts: Date.now() };
+  const list = getList();
+  list.unshift(item);
+  setList(list);
+  (e.target.reset && e.target.reset());
+  render();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  render();
+  const form = document.querySelector("#boardForm");
+  if(form) form.addEventListener("submit", onSubmit);
+});
