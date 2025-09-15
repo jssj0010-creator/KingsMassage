@@ -55,3 +55,12 @@ footer{padding:28px 0;color:var(--muted)}
   .pricing-table td{display:flex;justify-content:space-between;align-items:center;border:0;padding:8px 14px}
   .pricing-table td::before{content:attr(data-label);font-weight:600;color:#6b7280}
 }
+
+/* ===== v8.3 DARK PAGE BACKGROUND ===== */
+.bg-dark{background:#0f172a;padding:0 0 40px 0}
+.bg-dark .container{color:#e5e7eb}
+.bg-dark h1,.bg-dark h2,.bg-dark h3,.bg-dark .kicker{color:#e5e7eb}
+.bg-dark a{color:#e5e7eb}
+.hero{background:transparent}
+/* keep cards readable on dark bg */
+.pricing-wrap{background:#fff;box-shadow:0 8px 28px rgba(0,0,0,.32)}
