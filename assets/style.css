@@ -35,3 +35,23 @@ footer{padding:28px 0;color:var(--muted)}
 /* v8.1 header tweak */
 .actions .homeBtn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;text-decoration:none}
 .brand a{color:inherit;text-decoration:none}
+
+/* ===== v8.2 PRICING TABLE UPGRADE ===== */
+.pricing-wrap{margin-top:8px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 8px 28px rgba(0,0,0,.06)}
+.pricing-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:linear-gradient(180deg,#fbfbfc,#f6f7f9)}
+.pricing-head .badge{background:#eef2ff;border:1px solid #e5e7eb;color:#1f2937;font-weight:600}
+.pricing-table{width:100%;border-collapse:separate;border-spacing:0}
+.pricing-table thead th{position:sticky;top:0;background:#fafafa;border-bottom:1px solid var(--line);padding:14px 12px;font-weight:800}
+.pricing-table td{padding:16px 12px;border-top:1px solid var(--line)}
+.pricing-table tr:nth-child(odd) td{background:#fcfcfd}
+.pricing-table tr:hover td{background:#f7fafc}
+.price{font-weight:700;letter-spacing:.1px}
+.dim{color:var(--muted)}
+.note{color:var(--muted);font-size:13px;margin:10px 4px 0 4px}
+/* Mobile: stack rows */
+@media (max-width:700px){
+  .pricing-table thead{display:none}
+  .pricing-table tr{display:block;border-top:1px solid var(--line);padding:10px 0}
+  .pricing-table td{display:flex;justify-content:space-between;align-items:center;border:0;padding:8px 14px}
+  .pricing-table td::before{content:attr(data-label);font-weight:600;color:#6b7280}
+}
