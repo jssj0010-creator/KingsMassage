@@ -202,3 +202,13 @@ html{scroll-behavior:smooth}
 .region-quick li{list-style:none; margin:6px 0; color:#cfe8ff; font-size:14px}
 .region-quick a{color:#e8f5ff; text-decoration:none; font-weight:700}
 .region-quick a:hover{text-decoration:underline}
+
+/* ===== v8.16 Kakao OpenChat Button ===== */
+.btn-kakao{
+  display:inline-flex; align-items:center; gap:6px;
+  background:#FEE500; color:#111 !important; border:1px solid #d4b300;
+  border-radius:9999px; padding:6px 10px; font-weight:700; line-height:1;
+  box-shadow:0 4px 12px rgba(254,229,0,.25);
+}
+.btn-kakao:hover{filter:brightness(1.04); box-shadow:0 6px 16px rgba(254,229,0,.35)}
+.btn-kakao svg{fill:#111}
