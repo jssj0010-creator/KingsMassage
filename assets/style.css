@@ -183,3 +183,11 @@ html{scroll-behavior:smooth}
 }
 .btn-primary:hover{filter:brightness(1.05); box-shadow:0 12px 30px rgba(35,85,255,.5)}
 .btn-primary.btn-ghost{background:transparent;color:#cfe0ff!important;border-color:rgba(138,180,255,.6)}
+
+/* ===== v8.11 PRICE CELL CENTERING (desktop only) ===== */
+@media (min-width:701px){
+  .pricing-wrap .pricing-table th:not(:first-child),
+  .pricing-wrap .pricing-table td:not(:first-child){
+    text-align:center;
+  }
+}
