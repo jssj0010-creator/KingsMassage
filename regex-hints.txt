@@ -1,8 +1,0 @@
-정규식 힌트 (참고용)
---------------------
-<title>.*?</title>
-<meta\s+name="description"[^>]*>
-<meta\s+property="og:description"[^>]*>
-<meta\s+name="twitter:description"[^>]*>
-<meta\s+property="og:title"[^>]*>
-<meta\s+name="twitter:title"[^>]*>
