@@ -7,6 +7,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://kingsmsg.com/regions/gyeonggi.html</loc>
+    <lastmod>2025-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kingsmsg.com/regions/incheon.html</loc>
+    <lastmod>2025-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://kingsmsg.com/regions/seoul-강남.html</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>daily</changefreq>
@@ -151,12 +163,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://kingsmsg.com/regions/gyeonggi.html</loc>
-    <lastmod>2025-09-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://kingsmsg.com/regions/gyeonggi-성남.html</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>daily</changefreq>
@@ -289,12 +295,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://kingsmsg.com/regions/incheon.html</loc>
-    <lastmod>2025-09-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://kingsmsg.com/regions/incheon-인천.html</loc>
     <lastmod>2025-09-15</lastmod>
     <changefreq>daily</changefreq>
@@ -365,5 +365,11 @@
     <lastmod>2025-09-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kingsmsg.com/regions/index.html</loc>
+    <lastmod>2025-09-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
