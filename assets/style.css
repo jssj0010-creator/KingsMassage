@@ -64,3 +64,57 @@ footer{padding:28px 0;color:var(--muted)}
 .hero{background:transparent}
 /* keep cards readable on dark bg */
 .pricing-wrap{background:#fff;box-shadow:0 8px 28px rgba(0,0,0,.32)}
+
+/* ===== v8.4 DARKER BG + NEON PRICING ===== */
+.bg-dark{background:#060b14} /* darker navy-black */
+.bg-dark .container{color:#e8eef8}
+.bg-dark a{color:#dbeafe}
+
+/* Neon pricing variant */
+.pricing-wrap.neon{
+  background:linear-gradient(180deg, rgba(12,18,32,.96), rgba(8,12,24,.96));
+  border:1px solid rgba(0,255,224,.45);
+  border-radius:16px;
+  box-shadow:
+    0 0 0 1px rgba(0,255,224,.25) inset,
+    0 10px 30px rgba(0,0,0,.6),
+    0 0 28px rgba(0,255,224,.18);
+}
+.pricing-wrap.neon .pricing-head{
+  background:linear-gradient(180deg, rgba(18,26,44,.9), rgba(12,20,38,.9));
+  color:#e8faff;
+  border-bottom:1px solid rgba(0,255,224,.25);
+}
+.pricing-wrap.neon .badge{
+  background:rgba(0,255,224,.09);
+  border:1px solid rgba(0,255,224,.45);
+  color:#bffcff;
+}
+
+/* Table colors */
+.pricing-wrap.neon .pricing-table thead th{
+  background:transparent;
+  color:#cfefff;
+  border-bottom:1px solid rgba(0,255,224,.25);
+}
+.pricing-wrap.neon .pricing-table td{
+  border-top:1px solid rgba(255,255,255,.06);
+  color:#e9f3ff;
+}
+.pricing-wrap.neon .pricing-table tr:nth-child(odd) td{
+  background:rgba(255,255,255,.02);
+}
+.pricing-wrap.neon .pricing-table tr:hover td{
+  background:rgba(0,255,224,.06);
+}
+.pricing-wrap.neon .price{
+  color:#a5fff7;
+  text-shadow:0 0 10px rgba(0,255,224,.35), 0 0 2px rgba(0,255,224,.35);
+  font-weight:800;
+}
+.pricing-wrap.neon .dim{color:rgba(200,210,220,.6)}
+
+/* Mobile cards keep neon vibe */
+@media (max-width:700px){
+  .pricing-wrap.neon .pricing-table td::before{color:#9bdcff}
+}
