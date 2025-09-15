@@ -212,3 +212,31 @@ html{scroll-behavior:smooth}
 }
 .btn-kakao:hover{filter:brightness(1.04); box-shadow:0 6px 16px rgba(254,229,0,.35)}
 .btn-kakao svg{fill:#111}
+
+/* ===== v8.17 Header emphasis buttons ===== */
+.btn-brand{
+  background:linear-gradient(135deg, rgba(0,255,224,.18), rgba(11,59,243,.12));
+  color:#eafaff !important; border:1px solid rgba(0,255,224,.45);
+  box-shadow:0 6px 18px rgba(0,255,224,.25), inset 0 0 14px rgba(0,255,224,.12);
+  font-weight:800; letter-spacing:.2px; padding:.6rem 1rem;
+}
+.btn-brand:hover{box-shadow:0 8px 24px rgba(0,255,224,.35), inset 0 0 18px rgba(0,255,224,.18); transform:translateY(-1px)}
+
+.btn-call{
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:#0b3bf3; color:#fff !important; border:1px solid rgba(138,180,255,.6);
+  box-shadow:0 10px 22px rgba(35,85,255,.45), 0 0 0 2px rgba(11,59,243,.15) inset;
+  font-weight:900; letter-spacing:.3px; padding:.65rem 1.05rem; border-radius:9999px;
+}
+.btn-call .num{font-feature-settings:'tnum' 1; font-variant-numeric:tabular-nums}
+.btn-call:hover{filter:brightness(1.06); transform:translateY(-1px)}
+.btn-call svg{fill:#fff}
+.pulse{animation:callPulse 1.8s ease-out infinite}
+@keyframes callPulse{
+  0%{ box-shadow:0 0 0 0 rgba(35,85,255,.45) }
+  70%{ box-shadow:0 0 0 14px rgba(35,85,255,0) }
+  100%{ box-shadow:0 0 0 0 rgba(35,85,255,0) }
+}
+/* keep other header buttons slightly smaller to increase contrast */
+.header .btn{padding:.48rem .9rem}
+.header .btn.btn-brand, .header .btn.btn-call{padding:.65rem 1.05rem}
