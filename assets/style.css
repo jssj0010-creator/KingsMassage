@@ -130,3 +130,15 @@ html{scroll-behavior:smooth}
 .actions{gap:6px}
 
 /* v8.5 reapply CSS safe */
+
+/* ===== v8.7 NEON CTA BUTTONS ===== */
+.btn-neon{
+  position:relative;
+  background:rgba(0,255,224,.08);
+  border:1px solid rgba(0,255,224,.55);
+  color:#bffcff !important;
+  box-shadow:0 0 18px rgba(0,255,224,.25), inset 0 0 18px rgba(0,255,224,.12);
+  text-shadow:0 0 8px rgba(0,255,224,.35);
+}
+.btn-neon:hover{box-shadow:0 0 26px rgba(0,255,224,.45), inset 0 0 22px rgba(0,255,224,.18)}
+.btn-ghost{background:transparent;border:1px solid rgba(0,255,224,.35);color:#dffcff !important}
