@@ -156,3 +156,30 @@ html{scroll-behavior:smooth}
 .btn-ghost{background:transparent;border:1px solid rgba(0,255,224,.55);color:#eaffff !important}
 /* Hide kicker labels sitewide if any slipped through */
 .kicker{display:none!important}
+
+/* ===== v8.10 COURSE NAME EMPHASIS + DEEP BLUE BUTTONS ===== */
+:root{ --primary:#0b3bf3; --primary-ink:#ffffff; }
+.pricing-wrap.neon .pricing-table td:first-child{
+  text-align:left;
+  font-weight:800;
+  color:#c9f7ff;
+  letter-spacing:.2px;
+  background:linear-gradient(90deg, rgba(0,255,224,.08), rgba(0,255,224,0) 60%);
+  text-shadow:0 0 10px rgba(0,255,224,.22);
+  border-left:3px solid rgba(0,255,224,.35);
+}
+/* keep header cell aligned center but brighter */
+.pricing-wrap.neon .pricing-table thead th:first-child{
+  text-align:left;
+  color:#e0f7ff;
+}
+/* Deep blue CTA buttons */
+.btn-primary{
+  background:var(--primary);
+  color:var(--primary-ink) !important;
+  border:1px solid rgba(138,180,255,.5);
+  box-shadow:0 10px 24px rgba(35,85,255,.35), inset 0 -2px 0 rgba(255,255,255,.12);
+  font-weight:700;
+}
+.btn-primary:hover{filter:brightness(1.05); box-shadow:0 12px 30px rgba(35,85,255,.5)}
+.btn-primary.btn-ghost{background:transparent;color:#cfe0ff!important;border-color:rgba(138,180,255,.6)}
