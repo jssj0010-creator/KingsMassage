@@ -287,48 +287,63 @@ html{scroll-behavior:smooth}
   .header .btn{ font-size: 13px !important; padding:.38rem .62rem !important }
   .header .btn.btn-call, .header .btn.btn-brand{ font-size:13.5px !important; padding:.46rem .8rem !important }
 }
-/* --- Mobile Top Actions: fix wrapping/vertical text --- */
-.topbar { position: sticky; top: 0; z-index: 1000; }
+/* === FINAL: Mobile top actions stay horizontal (no vertical text) === */
+@media (max-width: 768px) {
 
-.topbar .actions {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  padding: 8px 12px;
-  overflow-x: auto;              /* 한 줄 가로 스크롤 */
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  /* 1) 상단 버튼 줄: 가로 1줄 + 가로 스크롤 강제 */
+  header .actions, .header .actions, .topbar .actions, .top-nav .actions, .navbar .actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  header .actions::-webkit-scrollbar,
+  .header .actions::-webkit-scrollbar,
+  .topbar .actions::-webkit-scrollbar { display: none; }
+
+  /* 2) 각 버튼: 세로쓰기/회전/줄바꿈 완전 차단 + 고정 높이 */
+  header .actions a, header .actions button,
+  .header .actions a, .header .actions button,
+  .topbar .actions a, .topbar .actions button,
+  .top-nav .actions a, .top-nav .actions button,
+  .navbar .actions a, .navbar .actions button {
+    writing-mode: horizontal-tb !important;  /* 세로쓰기 무효화 */
+    transform: none !important;              /* rotate(90deg) 등 회전 무효화 */
+    white-space: nowrap !important;          /* 줄바꿈 금지 */
+    word-break: keep-all !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 40px !important;
+    line-height: 40px !important;
+    padding: 0 12px !important;
+    border-radius: 12px !important;
+    max-width: none !important;
+  }
+
+  /* 3) 버튼 아이템은 줄바꿈 없이 가로로 흐르게 */
+  header .actions > *, .header .actions > *, .topbar .actions > *, .top-nav .actions > * {
+    flex: 0 0 auto !important;
+  }
+
+  /* 4) (선택) 가독성 위한 최소 폭 */
+  .btn--brand  { min-width: 118px !important; }
+  .btn--call   { min-width: 160px !important; }
+  .btn--intro  { min-width: 72px  !important; }
+  .btn--price  { min-width: 80px  !important; }
+  .btn--region { min-width: 100px !important; }
+
+  /* 5) 혹시 상단 바가 세로 쌓이도록 바뀌는 규칙이 있으면 해제 */
+  header .nav, .header .nav, .topbar .nav, .top-nav .nav, .navbar .nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-direction: row !important;
+  }
 }
-.topbar .actions::-webkit-scrollbar { display: none; }  /* iOS/Android 숨김 */
-
-.topbar .actions > * { flex: 0 0 auto; }                /* 줄바꿈 금지 */
-
-.btn,
-.topbar .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  padding: 0 12px;
-  border-radius: 12px;
-  line-height: 1;
-  white-space: nowrap;           /* 단어 줄바꿈 금지 */
-  word-break: keep-all;
-  writing-mode: horizontal-tb;   /* 혹시나 모를 세로모드 상속 차단 */
-}
-
-/* 버튼별 최소 폭(가독성) */
-.btn--brand   { min-width: 118px; }
-.btn--call    { min-width: 160px; }
-.btn--intro   { min-width: 72px;  }
-.btn--price   { min-width: 80px;  }
-.btn--region  { min-width: 100px; }
-
-/* 초소형 화면 폰트/패딩 미세 조정 */
-@media (max-width: 420px) {
-  .topbar .btn { font-size: 14px; padding: 0 10px; height: 38px; }
-}
-
-/* 혹시 상단 바를 감싸는 요소가 좁게 잡혀 있으면 넓힘 */
-.header, .top-nav, .topbar { width: 100%; }
-
