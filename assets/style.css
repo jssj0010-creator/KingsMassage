@@ -287,3 +287,48 @@ html{scroll-behavior:smooth}
   .header .btn{ font-size: 13px !important; padding:.38rem .62rem !important }
   .header .btn.btn-call, .header .btn.btn-brand{ font-size:13.5px !important; padding:.46rem .8rem !important }
 }
+/* --- Mobile Top Actions: fix wrapping/vertical text --- */
+.topbar { position: sticky; top: 0; z-index: 1000; }
+
+.topbar .actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  overflow-x: auto;              /* 한 줄 가로 스크롤 */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.topbar .actions::-webkit-scrollbar { display: none; }  /* iOS/Android 숨김 */
+
+.topbar .actions > * { flex: 0 0 auto; }                /* 줄바꿈 금지 */
+
+.btn,
+.topbar .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 12px;
+  line-height: 1;
+  white-space: nowrap;           /* 단어 줄바꿈 금지 */
+  word-break: keep-all;
+  writing-mode: horizontal-tb;   /* 혹시나 모를 세로모드 상속 차단 */
+}
+
+/* 버튼별 최소 폭(가독성) */
+.btn--brand   { min-width: 118px; }
+.btn--call    { min-width: 160px; }
+.btn--intro   { min-width: 72px;  }
+.btn--price   { min-width: 80px;  }
+.btn--region  { min-width: 100px; }
+
+/* 초소형 화면 폰트/패딩 미세 조정 */
+@media (max-width: 420px) {
+  .topbar .btn { font-size: 14px; padding: 0 10px; height: 38px; }
+}
+
+/* 혹시 상단 바를 감싸는 요소가 좁게 잡혀 있으면 넓힘 */
+.header, .top-nav, .topbar { width: 100%; }
+
