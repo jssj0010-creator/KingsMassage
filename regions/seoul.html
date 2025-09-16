@@ -21,7 +21,14 @@
 <link rel="stylesheet" href="/assets/region-map.css">
 <link rel="stylesheet" href="/assets/cta.css">
 </head>
-<body>
+<body data-hub-force>
+<!-- DEBUG: HUB FORCE PATCH -->
+<style>
+  .hub-force { padding:18px; margin:16px 0; background:#0b1220; color:#fff; border:1px solid rgba(255,255,255,.12); border-radius:12px }
+  #region-map{height:220px;max-width:960px;margin:18px 0 8px;border-radius:14px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.18);outline:1px solid rgba(255,255,255,.08);background:#111827}
+  #region-map .map-fallback{width:100%;height:100%;object-fit:cover;display:block}
+</style>
+<script>console.log("HUB FORCE PATCH LOADED: 서울");</script>>
 <div class='overlay'></div>
 <header class='header'>
   <div class='container nav'>
@@ -125,15 +132,18 @@
   <h1>킹즈출장마사지 | seoul 출장마사지 출장안마 홈케어 | 24시 후불제 · 호텔/자택 방문</h1>
   <p class="kicker">지역 키워드는 상단 <strong>지역출장 ▾</strong> 메뉴에서 확인하실 수 있어요.</p>
 
-<section class="region-hub-intro">
+<section class="hub-force">
   <h2>서울 출장 · 방문 가능 지역 안내</h2>
   <p>서울 전역(강남·서초·송파·마포·영등포·용산·관악·강서 등)으로 24시 방문 배정이 가능합니다. 교통상황/거리·시간대에 따라 도착 시간과 배정 가능 여부가 달라질 수 있습니다.</p>
 </section>
 
-<!-- 위치 지도 (seoul 허브 지도) -->
-<div id="region-map" aria-label="seoul 지역 위치 지도" data-lat="37.5665" data-lng="126.978"></div>
+<div id="region-map" aria-label="서울 지역 위치 지도" data-lat="37.5665" data-lng="126.978">
+  <noscript>
+    <img src="https://staticmap.openstreetmap.de/staticmap.php?center=37.5665,126.978&zoom=12&size=960x220&markers=37.5665,126.978,lightblue1" alt="서울 지역 위치 지도" class="map-fallback" width="960" height="220">
+  </noscript>
+</div>
 
-<section id="faq" data-faq>
+<section id="faq" data-faq class="hub-force">
   <div class="faq-item">
     <h3 class="faq-q">서울 전지역 방문 가능한가요?</h3>
     <div class="faq-a">네, 25개 전 자치구(강남·서초·송파·마포·영등포·용산·관악·강서·노원·은평·종로·중구 등)로 배정됩니다.</div>
