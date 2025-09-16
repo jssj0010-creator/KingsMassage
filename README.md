@@ -1,44 +1,87 @@
-# KingsMSG Region Map Pack (SEO-Optimized)
+# KingsMSG Region Map Pack v2 (Full 62-key mapping)
 
-이 패키지는 지역 페이지에 **지도+핀**을 추가하면서 **SEO 최적화(크롤러 친화)** 까지 한 번에 적용합니다.
+- 자동으로 리포의 `/regions/*.html` 파일명을 읽어 좌표 키를 모두 포함했습니다.
+- 좌표가 명확한 지역은 실제 중심 좌표를, 일부 불명확한 키는 시·도 중심좌표로 **안전 폴백**했습니다.
+- 지도는 **정적 이미지 폴백 + Leaflet 지연 로딩 + JSON-LD(Place/GeoCoordinates) 자동 주입** 구조.
 
-## 구성
-- `assets/region-map.css` — 지도 영역 스타일
-- `assets/region-map.js`  — 좌표 매핑, 지연 로딩, JSON‑LD(Place/GeoCoordinates) 자동 주입, OSM 정적 맵 폴백 포함
-- `partials/region-map-snippet.html` — 페이지에 붙여 넣을 스니펫(문구와 FAQ 사이)
+## 지역 키 개수
+총 62개
+```
+gyeonggi
+gyeonggi-고양
+gyeonggi-과천
+gyeonggi-광명
+gyeonggi-광주
+gyeonggi-구리
+gyeonggi-군포
+gyeonggi-김포
+gyeonggi-남양주
+gyeonggi-부천
+gyeonggi-분당
+gyeonggi-성남
+gyeonggi-수원
+gyeonggi-시흥
+gyeonggi-안산
+gyeonggi-안양
+gyeonggi-오산
+gyeonggi-용인
+gyeonggi-의정부
+gyeonggi-일산
+gyeonggi-파주
+gyeonggi-평택
+gyeonggi-하남
+incheon
+incheon-강화
+incheon-계양
+incheon-남동
+incheon-동구
+incheon-미추홀
+incheon-부평
+incheon-서구
+incheon-송도
+incheon-연수
+incheon-영종도
+incheon-인천
+incheon-중구
+index
+seoul
+seoul-강남
+seoul-강동
+seoul-강북
+seoul-강서
+seoul-관악
+seoul-광진
+seoul-구로
+seoul-금천
+seoul-노원
+seoul-도봉
+seoul-동대문
+seoul-동작
+seoul-마포
+seoul-서초
+seoul-성동
+seoul-성북
+seoul-송파
+seoul-양천
+seoul-영등포
+seoul-용산
+seoul-은평
+seoul-종로
+seoul-중구
+seoul-중랑
+```
 
 ## 설치
-1) 리포지토리에 폴더째 복사:
-```
-/assets/region-map.css
-/assets/region-map.js
-/partials/region-map-snippet.html
-```
-2) 지역 페이지의 **문구(※ 교통 상황…)와 FAQ 사이**에 `partials/region-map-snippet.html`의 `<div id="region-map">…` 블록을 붙여 넣습니다.
+`/assets/region-map.css`, `/assets/region-map.js`, `/partials/region-map-snippet.html` 추가 후
+문구와 FAQ 사이에 스니펫의 `<div id="region-map">` 블록을 넣고,
+`</body>` 직전에 스크립트를 로드하세요.
 
-3) `<head>`에 CSS를 연결합니다.
-```html
-<link rel="stylesheet" href="/assets/region-map.css">
-```
+## 안 보일 때 체크리스트
+1) 페이지에 `<div id="region-map">`가 **실제로 존재**하는지
+2) 스크립트 경로가 `/assets/region-map.js`로 **정확**한지 (404 여부)
+3) 페이지 파일명과 `REGION_COORDS` 키가 **일치**하는지 (예: `seoul-강남.html` → `"seoul-강남"`)
+4) `_headers`의 CSP가 외부 `unpkg.com`, `tile.openstreetmap.org`, `staticmap.openstreetmap.de` 허용하는지
+5) 브라우저 콘솔 오류: `Region map error` 또는 Mixed Content 없는지 (모두 https 사용)
+6) 캐시: 배포 후 하드리프레시 / Netlify 캐시 무효화
 
-4) `</body>` 직전에 스크립트를 연결합니다.
-```html
-<script src="/assets/region-map.js" defer></script>
-```
-
-## 작동 원리 (SEO 포인트)
-- **정적 폴백 이미지**: JS가 꺼져 있어도 `<noscript>`의 OSM 정적 이미지가 노출되어, 크롤러/저사양 환경에서도 위치 정보가 보입니다.
-- **JSON-LD 자동 주입**: 페이지 파일명(`/regions/seoul-강남.html`)을 키로 좌표를 찾고, `Place + GeoCoordinates` 스키마를 `<head>`에 자동 삽입합니다.
-- **지연 로딩**: `IntersectionObserver`로 뷰포트에 들어올 때 Leaflet과 타일만 로드 → 성능 최적화.
-- **접근성(ARIA)**: 지도 컨테이너에 `role="img"`/`aria-label` 부여.
-
-## 좌표 추가/수정
-`assets/region-map.js` 상단의 `REGION_COORDS`에 키와 `[위도,경도]`를 추가하세요.
-키 규칙: `/regions/파일명.html`의 파일명(확장자 제외). 예: `seoul-강동`, `gyeonggi-안산`, `incheon-서구`
-
-## 클릭 동작
-지도/마커 클릭 시 **Google Maps**로 새탭 연결(`https://maps.google.com/?q=lat,lng`).
-
-## 주의
-- OSM 정적 맵은 커뮤니티 서비스로 간헐적 레이트리밋이 있을 수 있습니다. 트래픽이 많아지면 정적 이미지를 사전에 생성/호스팅하거나, 타일 프록시를 준비하세요.
-- 전화번호는 기본값 `010-4637-9556`으로 JSON‑LD에 주입됩니다. 변경 시 JS 내 값을 수정하세요.
+필요시 키-좌표를 전부 **실측 좌표**로 세밀 보정해 드릴 수 있습니다.
