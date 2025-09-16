@@ -317,3 +317,19 @@ details.mega > .megaPanel{z-index:10005}
 .hero-visual, .hero-visual *, header .hero-visual{pointer-events:none}
 /* Make summary clearly clickable */
 details.mega > summary.megaBtn{cursor:pointer; user-select:none}
+
+/* ===== v8.25 Mega menu ultimate fallback ===== */
+.megaWrap{position:relative; display:inline-block; z-index:10020}
+.megaPanel{display:none; position:absolute; top:100%; right:0; min-width:320px;
+  background:rgba(5,10,18,.98); border:1px solid rgba(255,255,255,.08);
+  border-radius:12px; box-shadow:0 12px 32px rgba(0,0,0,.45); padding:12px; z-index:10025}
+.megaPanel.is-open{display:block; opacity:1; visibility:visible}
+/* Hover / focus-within fallback */
+.megaWrap:hover > .megaPanel,
+.megaWrap:focus-within > .megaPanel{display:block}
+/* Make trigger focusable */
+.megaBtn{cursor:pointer}
+.megaBtn:focus{outline:2px solid rgba(0,255,224,.6); outline-offset:2px}
+@media (max-width:700px){
+  .megaPanel{position:fixed; top:64px; left:8px; right:8px; max-height:70vh; overflow:auto}
+}
