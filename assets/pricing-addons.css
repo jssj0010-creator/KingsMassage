@@ -1,5 +1,5 @@
 
-/* Pricing add-ons (failsafe) */
+/* Pricing add-ons (global) */
 .pricing-sep td{padding:0!important;height:10px;border:none!important;background:transparent!important}
 .pricing-reco{outline:1px solid rgba(16,185,129,.25); box-shadow:inset 0 0 0 9999px rgba(16,185,129,.06)}
 .pricing-reco td:nth-child(n+2) strong{font-weight:700}
