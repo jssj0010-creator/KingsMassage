@@ -16,7 +16,6 @@ ROW_HTML = (
     '  <td data-label="60분"><span class="price">140,000원</span></td>\n'
     '  <td data-label="90분"><span class="price">180,000원</span></td>\n'
     '  <td data-label="120분"><span class="dim">-</span></td>\n'
-    '  <td data-label="150분"><span class="dim">-</span></td>\n'
     '</tr>\n'
 )
 
