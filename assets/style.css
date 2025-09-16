@@ -288,7 +288,10 @@ html{scroll-behavior:smooth}
   .header .btn.btn-call, .header .btn.btn-brand{ font-size:13.5px !important; padding:.46rem .8rem !important }
 }
 /* === FINAL: Mobile top actions stay horizontal (no vertical text) === */
-@media (max-width: 768px) {
+@media (max-width:768px){
+  .problem-button-or-class { writing-mode: horizontal-tb !important; transform: none !important; }
+}
+
 
   /* 1) 상단 버튼 줄: 가로 1줄 + 가로 스크롤 강제 */
   header .actions, .header .actions, .topbar .actions, .top-nav .actions, .navbar .actions {
