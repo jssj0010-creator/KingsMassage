@@ -295,3 +295,14 @@ html{scroll-behavior:smooth}
 @media (max-width:700px){
   .megaPanel{position:fixed; top:64px; left:0; right:0; max-height:70vh; overflow:auto; z-index:50; background:rgba(5,10,18,.98); border-top:1px solid rgba(255,255,255,.06)}
 }
+
+/* ===== v8.23 details/summary mega menu (JS-free) ===== */
+details.mega{display:inline-block; position:relative}
+details.mega > summary{list-style:none; cursor:pointer; user-select:none; display:inline-block}
+details.mega > summary::-webkit-details-marker{display:none}
+details.mega[open] > .megaPanel{display:block; visibility:visible; opacity:1}
+details.mega > .megaPanel{display:none; visibility:hidden; opacity:0; transition:opacity .18s ease}
+details.mega[open] > summary{filter:brightness(1.05)}
+@media (max-width:700px){
+  details.mega > .megaPanel{position:fixed; top:64px; left:0; right:0; max-height:70vh; overflow:auto; z-index:50; background:rgba(5,10,18,.98); border-top:1px solid rgba(255,255,255,.06)}
+}
