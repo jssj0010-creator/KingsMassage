@@ -2,8 +2,12 @@
 <div id="region-map" aria-label="지역 위치 지도">
   <noscript>
     <img src="https://staticmap.openstreetmap.de/staticmap.php?center=37.5665,126.9780&zoom=12&size=960x220&markers=37.5665,126.9780,lightblue1"
-         alt="지역 위치 지도" class="map-fallback">
+         alt="지역 위치 지도" class="map-fallback" width="960" height="220">
   </noscript>
 </div>
 <link rel="stylesheet" href="/assets/region-map.css">
+<script>
+  // 선택: v3에서 제공한 전체 좌표 매핑을 전달하면, 각 지역의 정확 좌표로 표시됩니다.
+  // window.__REGION_COORDS__ = { "seoul-강남":[37.5172,127.0473], ... };
+</script>
 <script src="/assets/region-map.js" defer></script>
