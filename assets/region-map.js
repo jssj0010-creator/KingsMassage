@@ -1,0 +1,117 @@
+(function () {
+  // ---- Helper: region key from pathname ----
+  function getRegionKey() {
+    var p = location.pathname;
+    var m = p.match(/\/regions\/([^\/]+)\.html$/);
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+
+  // ---- Coordinates map ----
+  var REGION_COORDS = {"seoul-강남": [37.5172, 127.0473], "seoul-서초": [37.4836, 127.0327], "seoul-송파": [37.5146, 127.1056], "seoul-마포": [37.5663, 126.9018], "seoul-용산": [37.5326, 126.9905], "seoul-영등포": [37.5259, 126.8963], "seoul-구로": [37.4954, 126.8874], "seoul-관악": [37.4784, 126.9516], "seoul-노원": [37.6542, 127.0568], "seoul-성동": [37.5636, 127.0364], "seoul-동작": [37.5124, 126.9392], "seoul-광진": [37.5387, 127.0822], "seoul-강서": [37.5509, 126.8495], "seoul-양천": [37.516, 126.8666], "seoul-강동": [37.5301, 127.1238], "seoul-중구": [37.5636, 126.9976], "seoul-종로": [37.573, 126.9794], "seoul-동대문": [37.5744, 127.0396], "seoul-은평": [37.6176, 126.9227], "seoul-서대문": [37.5791, 126.9368], "seoul-성북": [37.5894, 127.0167], "seoul-강북": [37.6396, 127.0257], "seoul-도봉": [37.6688, 127.0471], "seoul-중랑": [37.606, 127.0927], "gyeonggi-성남": [37.42, 127.1269], "gyeonggi-분당": [37.385, 127.1215], "gyeonggi-수원": [37.2636, 127.0286], "gyeonggi-용인": [37.2411, 127.1775], "gyeonggi-고양": [37.6584, 126.8312], "gyeonggi-일산": [37.6776, 126.7706], "gyeonggi-평택": [36.9907, 127.0885], "gyeonggi-부천": [37.5034, 126.766], "gyeonggi-안양": [37.3943, 126.9568], "gyeonggi-의정부": [37.7381, 127.0337], "gyeonggi-파주": [37.7599, 126.78], "gyeonggi-김포": [37.6152, 126.7159], "gyeonggi-남양주": [37.636, 127.2165], "gyeonggi-하남": [37.5393, 127.2147], "gyeonggi-시흥": [37.3802, 126.8031], "gyeonggi-안산": [37.3173, 126.8387], "gyeonggi-광명": [37.4784, 126.8644], "gyeonggi-오산": [37.1498, 127.0772], "gyeonggi-광주": [37.4096, 127.257], "gyeonggi-양주": [37.7853, 127.0458], "gyeonggi-구리": [37.5943, 127.1295], "gyeonggi-의왕": [37.3447, 126.9683], "incheon-송도": [37.3826, 126.6434], "incheon-연수": [37.41, 126.678], "incheon-미추홀": [37.4636, 126.65], "incheon-부평": [37.507, 126.7213], "incheon-계양": [37.5383, 126.7369], "incheon-중구": [37.4738, 126.6213], "incheon-동구": [37.4747, 126.6435], "incheon-남동": [37.4475, 126.7317]};
+
+  // ---- Build JSON-LD for SEO ----
+  function injectPlaceJsonLD(name, lat, lng, phone) {
+    var data = {
+      "@context":"https://schema.org",
+      "@type":"Place",
+      "name": name,
+      "telephone": phone,
+      "geo": {
+        "@type":"GeoCoordinates",
+        "latitude": lat,
+        "longitude": lng
+      },
+      "areaServed": name,
+      "hasMap": "https://maps.google.com/?q=" + lat + "," + lng,
+      "url": location.href
+    };
+    var s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(data);
+    document.head.appendChild(s);
+  }
+
+  // ---- Fallback static image URL (no key) ----
+  function staticMapUrl(lat, lng, z) {
+    // OpenStreetMap static map (community service). If it ever throttles, you can swap to a self-hosted tile proxy.
+    z = z || 12;
+    var marker = lat + "," + lng + ",lightblue1";
+    return "https://staticmap.openstreetmap.de/staticmap.php?center=" + lat + "," + lng + "&zoom=" + z + "&size=960x220&markers=" + marker;
+  }
+
+  function initMap(lat, lng, label) {
+    var holder = document.getElementById('region-map');
+    if (!holder) return;
+    holder.setAttribute('role','img');
+    holder.setAttribute('aria-label', (label || "지역") + " 위치 지도");
+
+    // noscript fallback image for SEO + no-JS users (also visible while JS loads)
+    var img = document.createElement('img');
+    img.src = staticMapUrl(lat, lng, 12);
+    img.alt = (label || "지역") + " 위치 지도";
+    img.className = "map-fallback";
+    holder.appendChild(img);
+
+    // Lazy-load Leaflet only when visible
+    var loadLeaflet = function() {
+      if (window.L) return renderLeaflet();
+      var lc = document.createElement('link');
+      lc.rel = 'stylesheet';
+      lc.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      lc.crossOrigin = '';
+      document.head.appendChild(lc);
+
+      var s = document.createElement('script');
+      s.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      s.crossOrigin = '';
+      s.onload = renderLeaflet;
+      document.head.appendChild(s);
+
+      // preconnect hints for tile server
+      var pc = document.createElement('link');
+      pc.rel = 'preconnect';
+      pc.href = 'https://tile.openstreetmap.org';
+      document.head.appendChild(pc);
+    };
+
+    var rendered = false;
+    function renderLeaflet() {
+      if (rendered) return; rendered = true;
+      try {
+        var map = L.map('region-map', { zoomControl:false, attributionControl:false }).setView([lat,lng], 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+        var m = L.marker([lat,lng]).addTo(map);
+        function openG() { window.open('https://maps.google.com/?q='+lat+','+lng, '_blank'); }
+        m.on('click', openG); map.on('click', openG);
+      } catch(e) { /* silent */ }
+    }
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(ent){ if(ent.isIntersecting){ loadLeaflet(); io.disconnect(); } });
+      });
+      io.observe(holder);
+    } else { loadLeaflet(); }
+
+    // Inject JSON-LD
+    injectPlaceJsonLD(label || document.title, lat, lng, "010-4637-9556");
+  }
+
+  function boot() {
+    var holder = document.getElementById('region-map');
+    if (!holder) return;
+    var key = getRegionKey();
+    if (!key || !Object.prototype.hasOwnProperty.call(REGION_COORDS, key)) {
+      // Hide if not a region page or coord not defined
+      holder.style.display = 'none';
+      return;
+    }
+    var coords = REGION_COORDS[key];
+    var label = (document.querySelector('h1') && document.querySelector('h1').textContent.trim()) || key;
+    initMap(coords[0], coords[1], label);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else { boot(); }
+})();

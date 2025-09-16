@@ -1,0 +1,14 @@
+<!-- 위치 지도 (문구와 FAQ 사이에 삽입) -->
+<div id="region-map" aria-label="지역 위치 지도">
+  <noscript>
+    <!-- JS 미사용/크롤러용 정적 지도 -->
+    <img src="https://staticmap.openstreetmap.de/staticmap.php?center=37.5172,127.0473&zoom=12&size=960x220&markers=37.5172,127.0473,lightblue1"
+         alt="지역 위치 지도" class="map-fallback" />
+  </noscript>
+</div>
+
+<!-- HEAD에 다음을 추가하세요 -->
+<link rel="stylesheet" href="/assets/region-map.css">
+
+<!-- BODY 하단(FAQ 아래나 </body> 직전)에 다음을 추가하세요 -->
+<script src="/assets/region-map.js" defer></script>
