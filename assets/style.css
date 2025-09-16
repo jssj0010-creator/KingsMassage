@@ -240,3 +240,50 @@ html{scroll-behavior:smooth}
 /* keep other header buttons slightly smaller to increase contrast */
 .header .btn{padding:.48rem .9rem}
 .header .btn.btn-brand, .header .btn.btn-call{padding:.65rem 1.05rem}
+
+/* ===== v8.19 Mobile polish: brand/copyright/btns ===== */
+@media (max-width: 480px){
+  /* Brand text left-top: keep on one line */
+  .header .site-title, .header .site-logo, .header .brand, header .brand, header .site-title{
+    font-size: 18px !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+    max-width: 46vw !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    font-weight: 800;
+  }
+
+  /* Header button row: smaller & no wrapping inside each */
+  .header .btn{
+    font-size: 14px !important;
+    padding: .42rem .72rem !important;
+    white-space: nowrap !important;
+  }
+  .header .btn.btn-call{ padding:.52rem .9rem !important; font-size:14.5px !important }
+  .header .btn.btn-brand{ padding:.52rem .9rem !important; font-size:14.5px !important }
+
+  /* Reduce inter-button gaps a bit if header uses gap */
+  .header .btn + .btn{ margin-left: 6px }
+
+  /* Keep dropdown trigger compact */
+  .header .megaBtn{ padding:.42rem .6rem }
+
+  /* Footer copyright: single line, smaller, ellipsis */
+  footer .copyright, .footer .copyright, footer .legal, .footer .legal .copyright{
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+}
+
+/* Slightly wider threshold for tiny phones (<=360px) */
+@media (max-width: 360px){
+  .header .site-title, .header .site-logo, .header .brand, header .brand, header .site-title{
+    font-size: 16px !important;
+    max-width: 52vw !important;
+  }
+  .header .btn{ font-size: 13px !important; padding:.38rem .62rem !important }
+  .header .btn.btn-call, .header .btn.btn-brand{ font-size:13.5px !important; padding:.46rem .8rem !important }
+}
