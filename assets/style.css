@@ -287,3 +287,11 @@ html{scroll-behavior:smooth}
   .header .btn{ font-size: 13px !important; padding:.38rem .62rem !important }
   .header .btn.btn-call, .header .btn.btn-brand{ font-size:13.5px !important; padding:.46rem .8rem !important }
 }
+
+/* ===== v8.22 Mega menu resilience ===== */
+.megaPanel{display:none; visibility:hidden; opacity:0; transition:opacity .18s ease}
+.megaPanel.open{display:block; visibility:visible; opacity:1}
+.megaBtn[aria-expanded="true"]{filter:brightness(1.05)}
+@media (max-width:700px){
+  .megaPanel{position:fixed; top:64px; left:0; right:0; max-height:70vh; overflow:auto; z-index:50; background:rgba(5,10,18,.98); border-top:1px solid rgba(255,255,255,.06)}
+}

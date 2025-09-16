@@ -1,16 +1,28 @@
-
+// v8.22 simple mega menu controller
 (function(){
-  const btn = document.querySelector('.megaBtn');
-  const panel = document.querySelector('.panel');
-  const overlay = document.querySelector('.overlay');
-  if(!btn || !panel || !overlay) return;
-  const toggle = (open) => {
-    panel.classList.toggle('open', open);
-    overlay.classList.toggle('show', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-    btn.setAttribute('aria-expanded', open ? 'true':'false');
-  };
-  btn.addEventListener('click', ()=> toggle(!panel.classList.contains('open')));
-  overlay.addEventListener('click', ()=> toggle(false));
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') toggle(false); });
+  function setup(panel, btn){
+    if(!panel || !btn) return;
+    if(btn.dataset.bound==="1") return;
+    btn.dataset.bound="1";
+    const closeAll = ()=>{
+      panel.classList.remove("open");
+      btn.setAttribute("aria-expanded","false");
+    };
+    btn.addEventListener("click", function(e){
+      e.preventDefault();
+      const opened = panel.classList.toggle("open");
+      btn.setAttribute("aria-expanded", opened ? "true" : "false");
+    });
+    document.addEventListener("click", function(e){
+      if(!panel.contains(e.target) && !btn.contains(e.target)) closeAll();
+    });
+    window.addEventListener("keydown", function(e){
+      if(e.key==="Escape") closeAll();
+    });
+  }
+  document.addEventListener("DOMContentLoaded", function(){
+    const panel = document.querySelector(".megaPanel");
+    const btn = document.querySelector(".megaBtn");
+    setup(panel, btn);
+  });
 })();
