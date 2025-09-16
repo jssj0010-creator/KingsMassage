@@ -1,4 +1,4 @@
-/*
+/* 
   Content-Security-Policy: default-src 'self' https:; img-src 'self' https: data:; script-src 'self' https://unpkg.com 'unsafe-inline'; style-src 'self' https://unpkg.com 'unsafe-inline'; connect-src 'self' https:; font-src 'self' https: data:; frame-ancestors 'self';
 
 /assets/*
