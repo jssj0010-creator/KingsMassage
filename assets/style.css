@@ -306,3 +306,14 @@ details.mega[open] > summary{filter:brightness(1.05)}
 @media (max-width:700px){
   details.mega > .megaPanel{position:fixed; top:64px; left:0; right:0; max-height:70vh; overflow:auto; z-index:50; background:rgba(5,10,18,.98); border-top:1px solid rgba(255,255,255,.06)}
 }
+
+/* ===== v8.24 Mega menu hardening ===== */
+header, .header{position:sticky; top:0; z-index:10000; background:rgba(255,255,255,.96); backdrop-filter:saturate(140%) blur(4px)}
+/* Dark theme header support */
+body[data-theme="dark"] header, body[data-theme="dark"] .header{background:rgba(5,10,18,.92)}
+details.mega{position:relative; z-index:10010}
+details.mega > .megaPanel{z-index:10005}
+/* Prevent hero image from catching taps over header area */
+.hero-visual, .hero-visual *, header .hero-visual{pointer-events:none}
+/* Make summary clearly clickable */
+details.mega > summary.megaBtn{cursor:pointer; user-select:none}
