@@ -1,1 +1,70 @@
-(function(){function e(){var e=location.pathname.match(/\/regions\/([^\/]+)\.html$/);return e?decodeURIComponent(e[1]):null}function t(e){var t=parseFloat(e.getAttribute("data-lat")),n=parseFloat(e.getAttribute("data-lng"));return isFinite(t)&&isFinite(n)?[t,n]:null}var n="킹즈마사지 KingsMSG",a="010-4637-9556",o="https://kingsmsg.com";function i(e){try{var t=document.createElement("script");t.type="application/ld+json",t.textContent=JSON.stringify(e),document.head.appendChild(t)}catch(e){}}function r(e,t,r){var s=e||"지역";return{"@context":"https://schema.org","@type":["LocalBusiness","Service"],name:n+" — "+s,brand:n,url:location.href,telephone:a,priceRange:"₩₩",areaServed:s,serviceArea:s,hasMap:"https://maps.google.com/?q="+t+","+r,geo:{"@type":"GeoCoordinates",latitude:t,longitude:r},address:{"@type":"PostalAddress",addressCountry:"KR",addressRegion:s.split(" ")[0]||"수도권",addressLocality:s},openingHoursSpecification:[{"@type":"OpeningHoursSpecification",dayOfWeek:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],opens:"00:00",closes:"23:59"}]}}function s(e){return{"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"홈",item:o+"/"},{"@type":"ListItem",position:2,name:e||"지역",item:location.href}]}}function l(){return{"@context":"https://schema.org","@type":"FAQPage",mainEntity:[{"@type":"Question",name:"후불제인가요?",acceptedAnswer:{"@type":"Answer",text:"후불제로 진행됩니다. 배정 확정 후 관리사가 도착하면 결제 안내를 도와드립니다."}},{"@type":"Question",name:"어디까지 방문 가능한가요?",acceptedAnswer:{"@type":"Answer",text:"서울·경기·인천 전지역 방문 배정이 가능합니다. 지역·시간대에 따라 배정 가능 여부가 달라질 수 있습니다."}},{"@type":"Question",name:"예약은 어떻게 하나요?",acceptedAnswer:{"@type":"Answer",text:"상담 번호로 연락 주시면 즉시 가능 지역과 대기 시간을 안내해 드립니다."}},{"@type":"Question",name:"불건전 서비스가 포함되나요?",acceptedAnswer:{"@type":"Answer",text:"불건전 서비스는 제공하지 않습니다. 건전한 힐링 마사지만 진행합니다."}}]}}function d(e,t,n){return n=n||12,"https://staticmap.openstreetmap.de/staticmap.php?center="+e+","+t+"&zoom="+n+"&size=960x220&markers="+e+","+t+",lightblue1"}function c(n,a,o){var r=document.getElementById("region-map");if(!r)return;r.setAttribute("role","img"),r.setAttribute("aria-label",(o||"지역")+" 위치 지도");var s=new Image;s.src=d(n,a,12),s.alt=(o||"지역")+" 위치 지도",s.width=960,s.height=220,s.decoding="async",s.loading="eager",s.className="map-fallback",r.appendChild(s);var l=!1;function c(){if(l)return;l=!0;try{var e=L.map("region-map",{zoomControl:!1,attributionControl:!1}).setView([n,a],12);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19}).addTo(e);var t=L.marker([n,a]).addTo(e),o=function(){window.open("https://maps.google.com/?q="+n+","+a,"_blank")};t.on("click",o),e.on("click",o)}catch(e){}}function u(){if(window.L)return c();var e=document.createElement("link");e.rel="stylesheet",e.href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css",e.crossOrigin="",document.head.appendChild(e);var t=document.createElement("script");t.src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",t.crossOrigin="",t.onload=c,document.head.appendChild(t)}"IntersectionObserver"in window?new IntersectionObserver(function(e){e.forEach(function(e){e.isIntersecting&&(u(),this.disconnect&&this.disconnect())})}).observe(r):u();var g=(o||document.title||"지역").replace(/\s+·\s+/g," ");i(r(g,n,a)),i(s(g)),i(l())}function u(){var n=document.getElementById("region-map");if(!n)return;var a=t(n);if(!a){var o=e(),i=window.__REGION_COORDS__||{};a=o&&Object.prototype.hasOwnProperty.call(i,o)?i[o]:null}a||(a=[37.5665,126.978]);var r=(document.querySelector("h1")&&document.querySelector("h1").textContent.trim())||"지역";c(a[0],a[1],r)}"loading"===document.readyState?document.addEventListener("DOMContentLoaded",u):u()})();
+
+// assets/region-map.js
+// - Detect region from URL or #region-map[data-region]
+// - Use window.REGION_COORDS from region-coords.js
+// - Render static OSM map with correct center/zoom/marker
+(function(){
+  function sel(q, root){ return (root||document).querySelector(q); }
+  function detectRegion(){
+    var el = sel('#region-map');
+    if (el && el.dataset && el.dataset.region) {
+      return el.dataset.region.toLowerCase();
+    }
+    var m = (location.pathname || '').match(/\/regions\/(seoul|gyeonggi|incheon)(?:\.html|$)/i);
+    return m ? m[1].toLowerCase() : 'seoul';
+  }
+  function coordsFor(region){
+    var data = (window.REGION_COORDS && window.REGION_COORDS[region]) || window.REGION_COORDS_DEFAULT;
+    if (!data) { // absolute fallback
+      data = { center:{lat:37.5665, lon:126.9780}, zoom:12, marker:{lat:37.5665, lon:126.9780} };
+    }
+    return data;
+  }
+  function render(){
+    var host = sel('#region-map');
+    if (!host) return;
+    // prevent double render
+    if (host.getAttribute('data-map-rendered') === '1') return;
+
+    var region = detectRegion();
+    var cfg = coordsFor(region);
+
+    var lat = (cfg.center && cfg.center.lat) || 37.5665;
+    var lon = (cfg.center && cfg.center.lon) || 126.9780;
+    var zoom = cfg.zoom || 12;
+    var mlat = (cfg.marker && cfg.marker.lat) || lat;
+    var mlon = (cfg.marker && cfg.marker.lon) || lon;
+
+    var width = Math.min(1280, Math.max(960, window.innerWidth || 960));
+    var height = 260;
+    var src = "https://staticmap.openstreetmap.de/staticmap.php"
+      + "?center=" + encodeURIComponent(lat + "," + lon)
+      + "&zoom=" + encodeURIComponent(zoom)
+      + "&size=" + encodeURIComponent(width + "x" + height)
+      + "&markers=" + encodeURIComponent(mlat + "," + mlon + ",lightblue1");
+
+    var img = new Image();
+    img.alt = "지역 위치 지도 (" + region + ")";
+    img.className = "map-fallback";
+    img.width = width;
+    img.height = height;
+    img.referrerPolicy = "no-referrer";
+    img.onload = function(){
+      host.innerHTML = "";
+      host.appendChild(img);
+      host.setAttribute('data-map-rendered', '1');
+    };
+    img.onerror = function(){
+      // graceful fallback text
+      host.textContent = "지도를 불러오지 못했습니다.";
+    };
+    img.src = src;
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', render);
+  } else {
+    render();
+  }
+  window.KingsMapRender = render; // debugging hook
+})();
