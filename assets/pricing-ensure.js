@@ -12,7 +12,7 @@
     if(headText.indexOf('60분') === -1 || headText.indexOf('90분') === -1) return;
 
     var tr = document.createElement('tr');
-    tr.innerHTML = '<td>한국인 스웨디시마사지</td><td>140,000원</td><td>180,000원</td><td>-</td><td>-</td>';
+    tr.innerHTML = ('<td data-label="코스"><strong>한국인 스웨디시마사지</strong></td>' +'<td class="price" data-label="60분">140,000원</td>' +'<td class="price" data-label="90분">180,000원</td>' +'<td class="dim" data-label="120분">-</td>' +'<td class="dim" data-label="150분">-</td>');
     tb.appendChild(tr);
   }
 
