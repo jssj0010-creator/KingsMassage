@@ -369,7 +369,3 @@ html{scroll-behavior:smooth}
   visibility: visible !important;
   opacity: 1 !important;
 }
-
-/* 혹시 내부 요소가 숨겨지는 경우까지 강제 노출 */
-.pricing-table td .price,
-.pricing-table td .dim { display:inline !important; opacity:1 !important; }
