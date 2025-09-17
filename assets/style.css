@@ -361,3 +361,31 @@ html{scroll-behavior:smooth}
 @media (max-width:480px){.brand-icon{width:32px;height:32px}.brand-logo .brand-text{font-size:16px}}
 @media (max-width:360px){.brand-logo .brand-text{font-size:15px}}
 
+/* 데스크톱(>700px): 진짜 테이블 레이아웃 강제 */
+@media (min-width:701px){
+  .pricing-table { display:table; width:100%; border-collapse:separate; border-spacing:0 }
+  .pricing-table thead { display:table-header-group !important; }
+  .pricing-table tbody { display:table-row-group !important; }
+  .pricing-table tr { display:table-row !important; }
+  .pricing-table th, .pricing-table td { display:table-cell !important; vertical-align:middle }
+}
+
+/* 모바일(<=700px): 카드형 레이아웃 */
+@media (max-width:700px){
+  .pricing-table thead{display:none !important}
+  .pricing-table tr{display:block; border-top:1px solid var(--line); padding:10px 0}
+  .pricing-table td{
+    display:flex !important;
+    justify-content:space-between;
+    align-items:center;
+    border:0;
+    padding:8px 14px;
+  }
+  .pricing-table td::before{
+    content:attr(data-label);
+    font-weight:600;
+    color:#9bdcff;
+    margin-right:10px;
+  }
+  .pricing-table td:first-child{ font-weight:800 }
+}
