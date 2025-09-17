@@ -1,56 +1,58 @@
 
-// assets/menu.js (with phone button normalization + auto-injected mega panel)
+// assets/menu.js (v3.1)
+// - Ensures button text never breaks into 2~3 lines (white-space:nowrap)
+// - Keeps compact mobile sizing & phone button normalization/black text
+// - Mega menu auto inject/toggle retained
 (function(){
   function $(sel, root){ return (root||document).querySelector(sel); }
-  function $all(sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); }
   function htmlToEl(html){ const t=document.createElement('template'); t.innerHTML=html.trim(); return t.content.firstElementChild; }
 
-  // --- 0) Inject minimal CSS overrides (applies to all pages) ---
+  // --- Inject CSS (compact + nowrap) ---
   (function injectCSS(){
     var css = `
-    .header .actions a[href^="tel:"].btn-call{
-      color:#111 !important;
-      text-shadow:none !important;
+    /* phone button text color */
+    .header .actions a[href^="tel:"].btn-call{ color:#111 !important; text-shadow:none !important; }
+
+    /* Never wrap text INSIDE buttons */
+    .header .actions .btn,
+    .header .actions .megaBtn{ white-space:nowrap; }
+
+    /* Compact header: fit more without horizontal scroll */
+    @media (max-width: 520px){
+      .header .brand-text{ display:none; } /* hide long brand text to free space */
+      .header .actions{ display:flex; flex-wrap:wrap; gap:8px; overflow:visible; }
+      .header .actions .btn, .header .actions .megaBtn{ padding:8px 12px; font-size:14px; line-height:1.1; border-radius:12px; }
     }
-    /* keep existing background/border from your theme; just ensure good contrast on focus/hover */
-    .header .actions a[href^="tel:"].btn-call:focus,
-    .header .actions a[href^="tel:"].btn-call:hover{
-      filter:brightness(0.98);
+    @media (max-width: 400px){
+      .header .actions{ gap:6px; }
+      .header .actions .btn, .header .actions .megaBtn{ padding:6px 10px; font-size:12.5px; border-radius:10px; }
     }`;
     var style = document.createElement('style');
-    style.setAttribute('data-kings', 'phone-call-style');
+    style.setAttribute('data-kings', 'header-compact-nowrap');
     style.textContent = css;
     document.head.appendChild(style);
   })();
 
-  // --- 1) Normalize phone button label ("전화 010-4637-9556" -> "010-4637-9556") ---
+  // --- Normalize phone button label ---
   (function normalizePhoneButton(){
-    var btn = $('.header .actions a[href^="tel:"]');
+    var btn = document.querySelector('.header .actions a[href^="tel:"]');
     if(!btn) return;
-    // Extract digits from href if possible
     var href = btn.getAttribute('href') || "";
     var num = href.replace(/^tel:\s*/, '').replace(/[^0-9]/g, '');
-    // Fallback: try textContent
     if(!num){
       var raw = (btn.textContent || '').replace(/[^0-9]/g, '');
       if(raw) num = raw;
     }
-    // Format as 010-XXXX-XXXX if it's KR mobile
     function fmtKR(n){
       if(n.length===11 && n.startsWith('010')) return n.replace(/(010)(\d{4})(\d{4})/, '$1-$2-$3');
       if(n.length===10) return n.replace(/(\d{2,3})(\d{3,4})(\d{4})/,'$1-$2-$3');
       return n;
     }
-    if(num){
-      btn.textContent = fmtKR(num);
-    }else{
-      // If cannot parse, remove leading '전화 ' only
-      btn.textContent = (btn.textContent||'').replace(/^\s*전화\s*/, '');
-    }
+    if(num){ btn.textContent = fmtKR(num); } else { btn.textContent = (btn.textContent||'').replace(/^\s*전화\s*/, ''); }
     btn.classList.add('btn-call');
   })();
 
-  // --- 2) Mega panel (same as previous robust version, auto-inject if missing) ---
+  // --- Mega panel (auto-inject/toggle) ---
   const PANEL_HTML = `
 <aside class='panel' role='dialog' aria-label='지역출장 메뉴'>
   <div class='hd'><strong>지역출장</strong><button class='close' type='button'>닫기</button></div>
@@ -121,52 +123,25 @@
 
   function ensureOverlay(){
     var ov = $('.overlay');
-    if (!ov) {
-      ov = htmlToEl("<div class='overlay'></div>");
-      document.body.insertBefore(ov, document.body.firstChild);
-    }
+    if (!ov) { ov = htmlToEl("<div class='overlay'></div>"); document.body.insertBefore(ov, document.body.firstChild); }
     return ov;
   }
-
   function ensurePanel(){
-    var panel = $('.panel');
-    if (!panel) {
-      panel = htmlToEl(PANEL_HTML);
-      document.body.appendChild(panel);
-    }
+    var panel = document.querySelector('.panel');
+    if (!panel) { panel = htmlToEl(PANEL_HTML); document.body.appendChild(panel); }
     return panel;
   }
-
   function wire(){
-    var btn = $('.megaBtn'); if(!btn) return;
+    var btn = document.querySelector('.megaBtn'); if(!btn) return;
     var overlay = ensureOverlay();
     var panel = ensurePanel();
     var closeBtn = panel.querySelector('.close');
-
-    function open(){
-      panel.classList.add('open');
-      btn.setAttribute('aria-expanded', 'true');
-      overlay.classList.add('show');
-      document.body.classList.add('noscroll');
-    }
-    function close(){
-      panel.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-      overlay.classList.remove('show');
-      document.body.classList.remove('noscroll');
-    }
-
+    function open(){ panel.classList.add('open'); btn.setAttribute('aria-expanded','true'); overlay.classList.add('show'); document.body.classList.add('noscroll'); }
+    function close(){ panel.classList.remove('open'); btn.setAttribute('aria-expanded','false'); overlay.classList.remove('show'); document.body.classList.remove('noscroll'); }
     btn.addEventListener('click', function(e){ e.preventDefault(); panel.classList.contains('open') ? close() : open(); });
     overlay.addEventListener('click', close);
     if (closeBtn) closeBtn.addEventListener('click', close);
-    document.addEventListener('keydown', function(e){
-      if (e.key === 'Escape' && panel.classList.contains('open')) close();
-    });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && panel.classList.contains('open')) close(); });
   }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', wire);
-  } else {
-    wire();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire); else wire();
 })();
