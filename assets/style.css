@@ -361,11 +361,3 @@ html{scroll-behavior:smooth}
 @media (max-width:480px){.brand-icon{width:32px;height:32px}.brand-logo .brand-text{font-size:16px}}
 @media (max-width:360px){.brand-logo .brand-text{font-size:15px}}
 
-.pricing-table th:nth-child(2),
-.pricing-table td:nth-child(2),
-.pricing-table th:nth-child(3),
-.pricing-table td:nth-child(3){
-  display: table-cell !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
