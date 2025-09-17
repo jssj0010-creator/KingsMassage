@@ -1,25 +1,26 @@
 
-// assets/menu.js (v3.1)
-// - Ensures button text never breaks into 2~3 lines (white-space:nowrap)
-// - Keeps compact mobile sizing & phone button normalization/black text
-// - Mega menu auto inject/toggle retained
+// assets/menu.js (v4)
+// - Phone button label fixed to "전화상담" (keeps tel: link intact)
+// - Black text for phone button
+// - No wrapping inside buttons; compact mobile sizing
+// - Mega menu auto-inject/toggle
 (function(){
   function $(sel, root){ return (root||document).querySelector(sel); }
   function htmlToEl(html){ const t=document.createElement('template'); t.innerHTML=html.trim(); return t.content.firstElementChild; }
 
-  // --- Inject CSS (compact + nowrap) ---
+  // --- Inject CSS (phone style + nowrap + compact) ---
   (function injectCSS(){
     var css = `
-    /* phone button text color */
-    .header .actions a[href^="tel:"].btn-call{ color:#111 !important; text-shadow:none !important; }
-
-    /* Never wrap text INSIDE buttons */
+    /* Phone button visual */
+    .header .actions a[href^="tel:"].btn-call{
+      color:#111 !important;
+      text-shadow:none !important;
+      white-space:nowrap;
+    }
     .header .actions .btn,
     .header .actions .megaBtn{ white-space:nowrap; }
-
-    /* Compact header: fit more without horizontal scroll */
     @media (max-width: 520px){
-      .header .brand-text{ display:none; } /* hide long brand text to free space */
+      .header .brand-text{ display:none; }
       .header .actions{ display:flex; flex-wrap:wrap; gap:8px; overflow:visible; }
       .header .actions .btn, .header .actions .megaBtn{ padding:8px 12px; font-size:14px; line-height:1.1; border-radius:12px; }
     }
@@ -28,31 +29,21 @@
       .header .actions .btn, .header .actions .megaBtn{ padding:6px 10px; font-size:12.5px; border-radius:10px; }
     }`;
     var style = document.createElement('style');
-    style.setAttribute('data-kings', 'header-compact-nowrap');
+    style.setAttribute('data-kings', 'header-compact-v4');
     style.textContent = css;
     document.head.appendChild(style);
   })();
 
-  // --- Normalize phone button label ---
+  // --- Normalize phone button label to "전화상담" ---
   (function normalizePhoneButton(){
     var btn = document.querySelector('.header .actions a[href^="tel:"]');
     if(!btn) return;
-    var href = btn.getAttribute('href') || "";
-    var num = href.replace(/^tel:\s*/, '').replace(/[^0-9]/g, '');
-    if(!num){
-      var raw = (btn.textContent || '').replace(/[^0-9]/g, '');
-      if(raw) num = raw;
-    }
-    function fmtKR(n){
-      if(n.length===11 && n.startsWith('010')) return n.replace(/(010)(\d{4})(\d{4})/, '$1-$2-$3');
-      if(n.length===10) return n.replace(/(\d{2,3})(\d{3,4})(\d{4})/,'$1-$2-$3');
-      return n;
-    }
-    if(num){ btn.textContent = fmtKR(num); } else { btn.textContent = (btn.textContent||'').replace(/^\s*전화\s*/, ''); }
+    btn.textContent = "전화상담";
     btn.classList.add('btn-call');
+    // keep existing href=tel:010... as-is for call
   })();
 
-  // --- Mega panel (auto-inject/toggle) ---
+  // --- Mega panel auto-inject/toggle ---
   const PANEL_HTML = `
 <aside class='panel' role='dialog' aria-label='지역출장 메뉴'>
   <div class='hd'><strong>지역출장</strong><button class='close' type='button'>닫기</button></div>
@@ -91,7 +82,7 @@
     <div class='kw'><a href='/regions/gyeonggi-일산.html'>일산출장마사지 | 일산출장안마 | 일산출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/gyeonggi-부천.html'>부천출장마사지 | 부천출장안마 | 부천출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/gyeonggi-김포.html'>김포출장마사지 | 김포출장안마 | 김포출장 | 호텔·전국 후불제 이용 가능</a></div>
-    <div class='kw'><a href='/regions/gyeonggi-의정부.html'>의정부출장마사지 | 의정부출장안마 | 의정부출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class='kw'><a href='/regions/gyeonggi-의정부.html'>의정부출장마사지 | 의정부찮ᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞᆞ'>의정부출장마사지 | 의정부출장안마 | 의정부출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/gyeonggi-평택.html'>평택출장마사지 | 평택출장안마 | 평택출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/gyeonggi-시흥.html'>시흥출장마사지 | 시흥출장안마 | 시흥출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/gyeonggi-안산.html'>안산출장마사지 | 안산출장안마 | 안산출장 | 호텔·전국 후불제 이용 가능</a></div>
@@ -113,7 +104,7 @@
     <div class='kw'><a href='/regions/incheon-연수.html'>연수출장마사지 | 연수출장안마 | 연수출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/incheon-송도.html'>송도출장마사지 | 송도출장안마 | 송도출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/incheon-남동.html'>남동출장마사지 | 남동출장안마 | 남동출장 | 호텔·전국 후불제 이용 가능</a></div>
-    <div class='kw'><a href='/regions/incheon-서구.html'>서구출장마사지 | 서구출장안마 | 서구출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class='kw'><a href='/regions/incheon-서구.html'>서구출장마사지 | 서구＼(^)'>서구출장마사지 | 서구출장안마 | 서구출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/incheon-강화.html'>강화출장마사지 | 강화출장안마 | 강화출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/incheon-영종도.html'>영종도출장마사지 | 영종도출장안마 | 영종도출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/incheon-중구.html'>중구출장마사지 | 중구출장안마 | 중구출장 | 호텔·전국 후불제 이용 가능</a></div>
