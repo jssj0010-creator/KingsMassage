@@ -1,12 +1,56 @@
 
-// assets/menu.js (robust)
-// - Opens/closes "지역출장" mega panel
-// - If the panel markup is missing on a page, it auto-injects a standard panel
-
+// assets/menu.js (with phone button normalization + auto-injected mega panel)
 (function(){
   function $(sel, root){ return (root||document).querySelector(sel); }
+  function $all(sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); }
   function htmlToEl(html){ const t=document.createElement('template'); t.innerHTML=html.trim(); return t.content.firstElementChild; }
 
+  // --- 0) Inject minimal CSS overrides (applies to all pages) ---
+  (function injectCSS(){
+    var css = `
+    .header .actions a[href^="tel:"].btn-call{
+      color:#111 !important;
+      text-shadow:none !important;
+    }
+    /* keep existing background/border from your theme; just ensure good contrast on focus/hover */
+    .header .actions a[href^="tel:"].btn-call:focus,
+    .header .actions a[href^="tel:"].btn-call:hover{
+      filter:brightness(0.98);
+    }`;
+    var style = document.createElement('style');
+    style.setAttribute('data-kings', 'phone-call-style');
+    style.textContent = css;
+    document.head.appendChild(style);
+  })();
+
+  // --- 1) Normalize phone button label ("전화 010-4637-9556" -> "010-4637-9556") ---
+  (function normalizePhoneButton(){
+    var btn = $('.header .actions a[href^="tel:"]');
+    if(!btn) return;
+    // Extract digits from href if possible
+    var href = btn.getAttribute('href') || "";
+    var num = href.replace(/^tel:\s*/, '').replace(/[^0-9]/g, '');
+    // Fallback: try textContent
+    if(!num){
+      var raw = (btn.textContent || '').replace(/[^0-9]/g, '');
+      if(raw) num = raw;
+    }
+    // Format as 010-XXXX-XXXX if it's KR mobile
+    function fmtKR(n){
+      if(n.length===11 && n.startsWith('010')) return n.replace(/(010)(\d{4})(\d{4})/, '$1-$2-$3');
+      if(n.length===10) return n.replace(/(\d{2,3})(\d{3,4})(\d{4})/,'$1-$2-$3');
+      return n;
+    }
+    if(num){
+      btn.textContent = fmtKR(num);
+    }else{
+      // If cannot parse, remove leading '전화 ' only
+      btn.textContent = (btn.textContent||'').replace(/^\s*전화\s*/, '');
+    }
+    btn.classList.add('btn-call');
+  })();
+
+  // --- 2) Mega panel (same as previous robust version, auto-inject if missing) ---
   const PANEL_HTML = `
 <aside class='panel' role='dialog' aria-label='지역출장 메뉴'>
   <div class='hd'><strong>지역출장</strong><button class='close' type='button'>닫기</button></div>
@@ -36,7 +80,6 @@
     <div class='kw'><a href='/regions/seoul-관악.html'>관악출장마사지 | 관악출장안마 | 관악출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/seoul-강북.html'>강북출장마사지 | 강북출장안마 | 강북출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/seoul-도봉.html'>도봉출장마사지 | 도봉출장안마 | 도봉출장 | 호텔·전국 후불제 이용 가능</a></div>
-
     <h4>경기</h4>
     <div class='kw'><a href='/regions/gyeonggi-성남.html'>성남출장마사지 | 성남출장안마 | 성남출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/gyeonggi-분당.html'>분당출장마사지 | 분당출장안마 | 분당출장 | 호텔·전국 후불제 이용 가능</a></div>
@@ -60,7 +103,6 @@
     <div class='kw'><a href='/regions/gyeonggi-군포.html'>군포출장마사지 | 군포출장안마 | 군포출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/gyeonggi-오산.html'>오산출장마사지 | 오산출장안마 | 오산출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/gyeonggi-광주.html'>광주출장마사지 | 광주출장안마 | 광주출장 | 호텔·전국 후불제 이용 가능</a></div>
-
     <h4>인천</h4>
     <div class='kw'><a href='/regions/incheon-인천.html'>인천출장마사지 | 인천출장안마 | 인천출장 | 호텔·전국 후불제 이용 가능</a></div>
     <div class='kw'><a href='/regions/incheon-계양.html'>계양출장마사지 | 계양출장안마 | 계양출장 | 호텔·전국 후불제 이용 가능</a></div>
