@@ -389,3 +389,28 @@ html{scroll-behavior:smooth}
   }
   .pricing-table td:first-child{ font-weight:800 }
 }
+
+/* 한국인 스웨디시 행: 60/90/120/150 셀을 항상 표시 */
+.pricing-table tr.course-kor-swedish td:nth-child(2),
+.pricing-table tr.course-kor-swedish td:nth-child(3),
+.pricing-table tr.course-kor-swedish td:nth-child(4),
+.pricing-table tr.course-kor-swedish td:nth-child(5){
+  display: table-cell !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* 모바일 카드형에서도 레이블이 나오도록 */
+@media (max-width:700px){
+  .pricing-table tr.course-kor-swedish td{
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pricing-table tr.course-kor-swedish td::before{
+    content: attr(data-label);
+    font-weight: 700;
+    color: #9bdcff;
+    margin-right: 8px;
+  }
+}
