@@ -16,7 +16,6 @@ ROW_HTML = (
     '  <td data-label="60분"><span class="price">140,000원</span></td>\n'
     '  <td data-label="90분"><span class="price">180,000원</span></td>\n'
     '  <td data-label="120분"><span class="dim">-</span></td>\n'
-    '  <td data-label="150분"><span class="dim">-</span></td>\n'  # ✅ 누락된 5번째 열 추가
     '</tr>\n'
 )
 
@@ -27,7 +26,6 @@ THEAD_STD = (
     "    <th>60분</th>\n"
     "    <th>90분</th>\n"
     "    <th>120분</th>\n"
-    "    <th>150분</th>\n"
     "  </tr>\n"
     "</thead>\n"
 )
