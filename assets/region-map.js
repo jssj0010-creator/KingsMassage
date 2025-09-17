@@ -1,73 +1,84 @@
 
-// assets/region-map.js (iframe, sub-region aware)
+// assets/region-map.js (v2.1) - robust to missing/late coords load
 (function(){
-  function sel(q, root){ return (root||document).querySelector(q); }
-  function detectKey(){
-    var el = sel('#region-map');
-    if (el) {
-      var r = el.getAttribute('data-region');
-      var s = el.getAttribute('data-subregion');
-      if (r && s) return (r.toLowerCase() + "-" + s).trim();
-      if (r) return r.toLowerCase();
+  // Default fallback (Seoul City Hall area)
+  var DEFAULT = {center:[37.5665,126.9780], marker:[37.5665,126.9780], zoom:12};
+
+  function getCoordsDict(){
+    var K = window.KINGS_REGION_COORDS;
+    if (K && typeof K === 'object') return K;
+    return {}; // could be empty if coords file didn't load yet
+  }
+
+  function parseKey(){
+    // 1) data attributes
+    var c = document.getElementById('region-map');
+    if (c){
+      var region = c.getAttribute('data-region');
+      var sub = c.getAttribute('data-subregion');
+      if (region && sub) return (region + '-' + sub);
+      if (region) return region;
     }
-    var path = decodeURIComponent(location.pathname || "");
-    // matches: /regions/seoul-강남.html OR /regions/seoul.html
-    var m = path.match(/\/regions\/(seoul|gyeonggi|incheon)(?:-([^.\/]+))?\.html/i);
-    if (m) {
-      if (m[2]) return (m[1].toLowerCase() + "-" + m[2]).trim();
-      return m[1].toLowerCase();
+    // 2) path
+    try{
+      var path = decodeURIComponent(location.pathname);
+      var m = path.match(/\/regions\/([^\/]+)\.html$/);
+      if (m) return m[1];
+    }catch(e){}
+    return 'seoul';
+  }
+
+  function buildOSM(info){
+    info = info || DEFAULT;
+    var lat = (info.marker && info.marker[0]) || (info.center && info.center[0]) || DEFAULT.center[0];
+    var lon = (info.marker && info.marker[1]) || (info.center && info.center[1]) || DEFAULT.center[1];
+    var z = info.zoom || DEFAULT.zoom;
+    var src = "https://www.openstreetmap.org/export/embed.html?layer=mapnik&marker=" +
+              encodeURIComponent(lat + ',' + lon) + "&zoom=" + encodeURIComponent(z);
+    return src;
+  }
+
+  function ensureContainer(){
+    var el = document.getElementById('region-map');
+    if (!el){
+      el = document.createElement('div');
+      el.id = 'region-map';
+      el.style.minHeight = '260px';
+      // Try to insert after existing coverage title or map placeholder
+      var anchor = document.querySelector('#coverage, h3#coverage, section#coverage, .map-wrap');
+      if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(el, anchor.nextSibling);
+      else document.body.appendChild(el);
     }
-    return "seoul";
+    return el;
   }
-  function getCfg(key){
-    var cfg = (window.REGION_COORDS && window.REGION_COORDS[key]);
-    if (!cfg){
-      // try parent key if sub not found
-      var p = key.split("-")[0];
-      cfg = (window.REGION_COORDS && window.REGION_COORDS[p]);
+
+  function mount(){
+    try{
+      var key = parseKey();
+      var K = getCoordsDict();
+      var info = K[key] || K[key.split('-')[0]] || K['seoul'] || DEFAULT;
+      var src = buildOSM(info);
+      var el = ensureContainer();
+      el.innerHTML = '';
+      var iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.style.width = '100%';
+      iframe.style.height = '280px';
+      iframe.style.border = '0';
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer';
+      iframe.title = (key + ' 위치 지도').replace(/-/g,' ');
+      el.appendChild(iframe);
+    }catch(err){
+      // As a last resort, still render a default Seoul map so UI doesn't break
+      var el = ensureContainer();
+      el.innerHTML = '<iframe src="https://www.openstreetmap.org/export/embed.html?layer=mapnik&marker=37.5665,126.9780&zoom=12" style="width:100%;height:280px;border:0" loading="lazy" referrerpolicy="no-referrer" title="지도"></iframe>';
+      console.error('[region-map] fallback due to error:', err);
     }
-    return cfg || window.REGION_COORDS_DEFAULT;
   }
-  function zoomToDelta(zoom){
-    if (zoom <= 9)  return { dlat: 0.6,  dlon: 0.8 };
-    if (zoom === 10) return { dlat: 0.35, dlon: 0.5 };
-    if (zoom === 11) return { dlat: 0.2,  dlon: 0.3 };
-    if (zoom === 12) return { dlat: 0.1,  dlon: 0.15 };
-    if (zoom >= 13) return { dlat: 0.05, dlon: 0.08 };
-    return { dlat: 0.1, dlon: 0.15 };
-  }
-  function render(){
-    var host = sel('#region-map'); if (!host) return;
-    if (host.getAttribute('data-map-rendered') === '1') return;
 
-    var key = detectKey();
-    var cfg = getCfg(key);
-    var lat = +cfg.center.lat, lon = +cfg.center.lon;
-    var mlat = +cfg.marker.lat, mlon = +cfg.marker.lon;
-    var zoom = +cfg.zoom || 12;
-
-    var d = zoomToDelta(zoom);
-    var minlon = lon - d.dlon, maxlon = lon + d.dlon;
-    var minlat = lat - d.dlat, maxlat = lat + d.dlat;
-
-    var url = "https://www.openstreetmap.org/export/embed.html"
-      + "?bbox=" + encodeURIComponent([minlon, minlat, maxlon, maxlat].join(","))
-      + "&layer=mapnik"
-      + "&marker=" + encodeURIComponent(mlat + "," + mlon);
-
-    var iframe = document.createElement('iframe');
-    iframe.src = url;
-    iframe.setAttribute('style', 'border:0;width:100%;height:260px');
-    iframe.setAttribute('loading', 'lazy');
-    iframe.setAttribute('referrerpolicy', 'no-referrer');
-    iframe.setAttribute('aria-label', '지역 위치 지도');
-
-    iframe.addEventListener('error', function(){ host.textContent = "지도를 불러오지 못했습니다."; });
-
-    host.innerHTML = "";
-    host.appendChild(iframe);
-    host.setAttribute('data-map-rendered', '1');
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render); else render();
-  window.KingsMapRender = render;
+  // If coords file loads after this (defer order issue), run once now and once on load
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);
+  else mount();
+  window.addEventListener('load', function(){ try{ mount(); }catch(e){} });
 })();
