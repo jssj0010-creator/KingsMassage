@@ -42,14 +42,17 @@
   </a>
 </div>
     <div class='actions'>
-      <a class='btn' href='tel:01046379556' class='btn-neon' class='btn-neon'>전화 010-4637-9556</a>
-      <a <a class='btn' href='#about' aria-label='소개 섹션으로 이동'>소개</a> <a class='btn btn-pricing' href='#pricing' aria-label='코스표 바로가기'>코스표</a> <button class='megaBtn' aria-haspopup='dialog' aria-expanded='false'>지역출장 ▾</button>
+      <a class="btn btn-neon" href="tel:01046379556">전화 010-4637-9556</a>
+      <a class="btn" href="#about" aria-label="소개 섹션으로 이동">소개</a>
+      <a class="btn btn-pricing" href="#pricing" aria-label="코스표 바로가기">코스표</a>
+      <button class="megaBtn" aria-haspopup="dialog" aria-expanded="false">지역출장 ▾</button>
     </div>
   </div>
 </header>
 <aside class='panel' role='dialog' aria-label='지역출장 메뉴'>
   <div class='hd'><strong>지역출장</strong><button class='close' onclick="document.querySelector('.overlay').click()">닫기</button></div>
   <div class='body'><h4>서울</h4>
+<div class='kw'><a href='/regions/seoul.html'>서울 전체 보기</a></div>
 <div class='kw'><a href='/regions/seoul-강남.html'>강남출장마사지 | 강남출장안마 | 강남출장 | 호텔·전국 후불제 이용 가능</a></div>
 <div class='kw'><a href='/regions/seoul-서초.html'>서초출장마사지 | 서초출장안마 | 서초출장 | 호텔·전국 후불제 이용 가능</a></div>
 <div class='kw'><a href='/regions/seoul-송파.html'>송파출장마사지 | 송파출장안마 | 송파출장 | 호텔·전국 후불제 이용 가능</a></div>
@@ -75,6 +78,7 @@
 <div class='kw'><a href='/regions/seoul-강북.html'>강북출장마사지 | 강북출장안마 | 강북출장 | 호텔·전국 후불제 이용 가능</a></div>
 <div class='kw'><a href='/regions/seoul-도봉.html'>도봉출장마사지 | 도봉출장안마 | 도봉출장 | 호텔·전국 후불제 이용 가능</a></div>
 <h4>경기</h4>
+<div class='kw'><a href='/regions/gyeonggi.html'>경기 전체 보기</a></div>
 <div class='kw'><a href='/regions/gyeonggi-성남.html'>성남출장마사지 | 성남출장안마 | 성남출장 | 호텔·전국 후불제 이용 가능</a></div>
 <div class='kw'><a href='/regions/gyeonggi-분당.html'>분당출장마사지 | 분당출장안마 | 분당출장 | 호텔·전국 후불제 이용 가능</a></div>
 <div class='kw'><a href='/regions/gyeonggi-수원.html'>수원출장마사지 | 수원출장안마 | 수원출장 | 호텔·전국 후불제 이용 가능</a></div>
@@ -98,6 +102,7 @@
 <div class='kw'><a href='/regions/gyeonggi-오산.html'>오산출장마사지 | 오산출장안마 | 오산출장 | 호텔·전국 후불제 이용 가능</a></div>
 <div class='kw'><a href='/regions/gyeonggi-광주.html'>광주출장마사지 | 광주출장안마 | 광주출장 | 호텔·전국 후불제 이용 가능</a></div>
 <h4>인천</h4>
+<div class='kw'><a href='/regions/incheon.html'>인천 전체 보기</a></div>
 <div class='kw'><a href='/regions/incheon-인천.html'>인천출장마사지 | 인천출장안마 | 인천출장 | 호텔·전국 후불제 이용 가능</a></div>
 <div class='kw'><a href='/regions/incheon-계양.html'>계양출장마사지 | 계양출장안마 | 계양출장 | 호텔·전국 후불제 이용 가능</a></div>
 <div class='kw'><a href='/regions/incheon-부평.html'>부평출장마사지 | 부평출장안마 | 부평출장 | 호텔·전국 후불제 이용 가능</a></div>
@@ -121,13 +126,22 @@
   </picture>
 </section>
 
-  
-
   <section class="hero">
     <h1>킹즈출장마사지 | 서울·경기·인천 출장마사지 · 24시 후불제</h1>
     <p>서울·경기·인천 전지역 24시 배정. 후불제, 합리적 요금, 빠른 도착. 상담: 010-4637-9556 /  카톡 <a class='btn btn-kakao' href='https://open.kakao.com/o/shGxbqRh' target='_blank' rel='noopener' aria-label='카카오 오픈채팅으로 연결'><svg aria-hidden='true' focusable='false' viewBox='0 0 24 24' width='16' height='16' style='vertical-align:-2px'><path d='M12 3C6.48 3 2 6.69 2 11c0 2.45 1.49 4.63 3.83 6.05L5 22l4.02-2.2c.94.18 1.93.27 2.98.27 5.52 0 10-3.69 10-8.08C22 6.69 17.52 3 12 3z'/></svg><span> 오픈채팅</span></a></p>
     <p class="kicker">우측 상단 <strong>지역출장 ▾</strong> 버튼을 눌러 지역별 바로가기를 확인하세요.</p>
-  
+  </section>
+
+  <!-- 지역 바로가기 섹션 (추가) -->
+  <section class="region-quick container" style="margin:28px 0;">
+    <h2 class="kicker">지역 바로가기</h2>
+    <div class="chips">
+      <a class="chip" href="/regions/seoul.html" aria-label="서울 출장마사지">서울</a>
+      <a class="chip" href="/regions/gyeonggi.html" aria-label="경기 출장마사지">경기</a>
+      <a class="chip" href="/regions/incheon.html" aria-label="인천 출장마사지">인천</a>
+    </div>
+  </section>
+
 <section id="about" class="container" style="margin-top:28px">
   <h2>킹즈출장마사지 소개</h2>
   <p>킹즈출장마사지는 <strong>서울·경기·인천 전지역</strong>을 중심으로 스웨디시, 홈케어, 출장안마 등 방문형 관리를 제공합니다. 원하는 장소(자택·호텔·오피스텔·숙소)로 전문 관리사가 이동하여 진행하므로, 이동 시간 없이 편안하게 케어를 받으실 수 있습니다. 모든 서비스는 <strong>후불제</strong>로 안전하게 이용하실 수 있습니다.</p>
@@ -210,7 +224,7 @@
     <li><strong>배정</strong> – 관리사 배정 후 도착 안내</li>
     <li><strong>이용</strong> – 도착 후 결제(후불제), 관리 진행</li>
   </ol>
-  <p><a class="btn" href="tel:01046379556" class='btn-neon'>전화 상담하기</a></p>
+  <p><a class="btn btn-neon" href="tel:01046379556">전화 상담하기</a></p>
 </section>
 
 <section id="notice" class="container">
@@ -239,7 +253,10 @@
 <section id="cta" class="container" style="padding-bottom:32px">
   <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
     <div><strong>지금 바로 편하게 관리 받아보세요.</strong><br><span class="dim">24시 상담 · 후불제 · 지역 즉시 배정</span></div>
-    <div><a class="btn" href="tel:01046379556" class='btn-neon' class='btn-neon'>전화 010-4637-9556</a> <a class="btn" href="#pricing" class='btn-neon btn-ghost' class='btn-neon btn-ghost'>코스표</a> 보기</a></div>
+    <div>
+      <a class="btn btn-neon" href="tel:01046379556">전화 010-4637-9556</a>
+      <a class="btn btn-ghost" href="#pricing">코스표 보기</a>
+    </div>
   </div>
 </section>
   
@@ -248,6 +265,10 @@
 
 <footer>
   <div class="container">© 2025 킹즈마사지. 상담 010-4637-9556 ·  카톡 <a class='btn btn-kakao' href='https://open.kakao.com/o/shGxbqRh' target='_blank' rel='noopener' aria-label='카카오 오픈채팅으로 연결'><svg aria-hidden='true' focusable='false' viewBox='0 0 24 24' width='16' height='16' style='vertical-align:-2px'><path d='M12 3C6.48 3 2 6.69 2 11c0 2.45 1.49 4.63 3.83 6.05L5 22l4.02-2.2c.94.18 1.93.27 2.98.27 5.52 0 10-3.69 10-8.08C22 6.69 17.52 3 12 3z'/></svg><span> 오픈채팅</span></a></div>
+  <!-- (선택) chips 스타일이 style.css에 없다면 아래 3줄을 style.css 맨 아래에 추가
+  .chips{display:flex;gap:10px;flex-wrap:wrap}
+  .chip{display:inline-block;border:1px solid var(--line);padding:8px 12px;border-radius:999px}
+  -->
 </footer>
 <script src="/assets/pricing-ensure.js" defer></script>
 </body></html>
