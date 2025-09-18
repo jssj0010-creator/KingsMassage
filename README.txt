@@ -1,7 +1,7 @@
 
 # 킹즈마사지 정적 사이트 패키지 v2 (풀 메가메뉴 + 지역별 마이크로카피)
 
-- 홈: `/index.html`
+- 홈: `/`
 - 지역: `/regions/index.html` (서울/경기/인천 및 세부 랜딩 전부)
 - 공유 CSS: `/assets/style.css`
 
