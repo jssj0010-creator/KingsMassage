@@ -7,7 +7,7 @@
   if(!/\/regions\/[^\/]+\.html$/i.test(location.pathname)) return;
 
   // === SETTINGS ===
-  var MAIN_URL = "/"; // e.g., "/index.html" or "/#about" etc.
+  var MAIN_URL = "/"; // e.g., "/" or "/#about" etc.
   var MAP = {
     "소개": "/",
     "코스표": "/"
