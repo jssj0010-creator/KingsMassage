@@ -1,11 +1,38 @@
 // /assets/region-coords.js
 // Updated: 2025-09-19
-// Purpose: Provide precise coordinates for all Gyeonggi/Incheon region pages so each page's map pin centers correctly.
-// It merges with any existing window.__REGION_COORDS__ (won't overwrite existing keys).
-
+// Provides coordinates for ALL Seoul, Gyeonggi, and Incheon region pages.
+// Merges into window.__REGION_COORDS__ without overwriting existing keys.
 (function(){
   var src = {
-    // ----- GYEONGGI (경기) -----
+    // ---------- SEOUL (서울 25개 구 + 전체) ----------
+    "seoul":        [37.5665, 126.9780],
+    "seoul-강남":   [37.5172, 127.0473],
+    "seoul-서초":   [37.4836, 127.0327],
+    "seoul-송파":   [37.5146, 127.1059],
+    "seoul-마포":   [37.5638, 126.9084],
+    "seoul-용산":   [37.5326, 126.9905],
+    "seoul-종로":   [37.5730, 126.9794],
+    "seoul-성동":   [37.5634, 127.0364],
+    "seoul-광진":   [37.5386, 127.0827],
+    "seoul-동대문": [37.5744, 127.0396],
+    "seoul-성북":   [37.5894, 127.0166],
+    "seoul-은평":   [37.6029, 126.9291],
+    "seoul-노원":   [37.6543, 127.0565],
+    "seoul-중랑":   [37.6063, 127.0927],
+    "seoul-중구":   [37.5636, 126.9976],
+    "seoul-강동":   [37.5301, 127.1238],
+    "seoul-강서":   [37.5601, 126.8226],
+    "seoul-양천":   [37.5172, 126.8664],
+    "seoul-구로":   [37.4955, 126.8878],
+    "seoul-금천":   [37.4569, 126.8951],
+    "seoul-동작":   [37.5124, 126.9393],
+    "seoul-영등포":[37.5263, 126.8963],
+    "seoul-관악":   [37.4781, 126.9516],
+    "seoul-강북":   [37.6398, 127.0256],
+    "seoul-도봉":   [37.6688, 127.0471],
+
+    // ---------- GYEONGGI (경기) ----------
+    "gyeonggi":       [37.2899, 127.0530],
     "gyeonggi-성남":   [37.4200, 127.1265],
     "gyeonggi-분당":   [37.3826, 127.1180],
     "gyeonggi-수원":   [37.2636, 127.0286],
@@ -29,8 +56,8 @@
     "gyeonggi-오산":   [37.1499, 127.0770],
     "gyeonggi-광주":   [37.4090, 127.2560],
 
-    // ----- INCHEON (인천) -----
-    "incheon-인천":   [37.4563, 126.7052],
+    // ---------- INCHEON (인천) ----------
+    "incheon":       [37.4563, 126.7052],
     "incheon-계양":   [37.5383, 126.7364],
     "incheon-부평":   [37.5074, 126.7210],
     "incheon-미추홀": [37.4630, 126.6500],
@@ -44,7 +71,6 @@
     "incheon-동구":   [37.4743, 126.6430]
   };
 
-  // Merge without clobbering existing keys
   var base = (window.__REGION_COORDS__ = window.__REGION_COORDS__ || {});
   for (var k in src) if (!(k in base)) base[k] = src[k];
 })();
