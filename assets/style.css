@@ -431,3 +431,28 @@ html{scroll-behavior:smooth}
 #sticky-cta a.kakao:focus{ filter: brightness(0.95); }
 
 #sticky-cta a.kakao svg{ fill: currentColor; }  /* 아이콘 색 = 글자색 */
+
+/* ── 헤더 '전화상담'을 코스표 보기(고스트) 스타일로 ── */
+.header .actions a[href^="tel"]{
+  background: transparent !important;
+  border: 2px solid rgba(0,255,224,.55) !important; /* 코스표 보기와 같은 윤곽선 */
+  color: #111 !important;         /* 글자: 검정 */
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border-radius: 18px !important;
+  padding: 10px 18px !important;
+  font-weight: 800;
+  line-height: 1;
+}
+.header .actions a[href^="tel"]:hover  { background: rgba(0,255,224,.06); }
+.header .actions a[href^="tel"]:active { background: rgba(0,255,224,.12); }
+
+/* 혹시 다른 스타일이 강제로 입혀지는 경우 무력화 */
+.header .actions a[href^="tel"].btn-neon,
+.header .actions a[href^="tel"].btn-primary,
+.header .actions a[href^="tel"].btn-brand,
+.header .actions a[href^="tel"].btn-call{
+  background: transparent !important;
+  box-shadow: none !important;
+  color:#111 !important;
+}
