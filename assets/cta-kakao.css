@@ -1,0 +1,9 @@
+/* Kakao CTA style */
+.btn-kakao{
+  background:#FEE500;
+  color:#111;
+  font-weight:700;
+  border: none;
+}
+.btn-kakao:focus,
+.btn-kakao:hover{ filter:brightness(0.95); }
