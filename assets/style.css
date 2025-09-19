@@ -414,3 +414,20 @@ html{scroll-behavior:smooth}
     margin-right: 8px;
   }
 }
+
+/* 하단 고정바 신규 버튼 스타일 */
+#sticky-cta a.home{
+  background:#3B82F6;   /* 파란색 홈 버튼 */
+  color:#fff;
+  font-weight:700;
+}
+
+#sticky-cta a.kakao{
+  background:#FEE500;   /* 카카오 옐로우 */
+  color:#111;           /* 글자/아이콘 검정 */
+  font-weight:700;
+}
+#sticky-cta a.kakao:hover,
+#sticky-cta a.kakao:focus{ filter: brightness(0.95); }
+
+#sticky-cta a.kakao svg{ fill: currentColor; }  /* 아이콘 색 = 글자색 */
