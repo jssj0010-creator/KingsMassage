@@ -1,24 +1,25 @@
-# kingsmsg — region-coords.js
+# kingsmsg — region map fix (v2)
 
-This package supplies `/assets/region-coords.js` which defines coordinates for all Gyeonggi and Incheon region pages.
-It fixes the issue where pins defaulted to central Seoul because the mapping for keys like `gyeonggi-성남` or `incheon-영종도`
-was missing.
+This package adds **complete coordinates** for Seoul (25 districts), Gyeonggi and Incheon,
+and a robust `region-map.js` that decodes slugs and honors the coordinate map.
 
-## Install
-1. Upload `assets/region-coords.js` to your site.
-2. On every region page, load **before** your map initializer (e.g. `region-map.js`):
+## Files
+- `assets/region-coords.js` — all coordinates; merges into `window.__REGION_COORDS__`.
+- `assets/region-map.js` — initializer that reads `/regions/{slug}.html` (with `decodeURIComponent`).
+
+## How to use
+1. Upload both files to `/assets/` (overwrite your existing `region-map.js`).
+2. Ensure the order in every region page is:
 
 ```html
 <script src="/assets/region-coords.js" defer></script>
 <script src="/assets/region-map.js" defer></script>
 ```
 
-> Keys match the file slug without `.html`. Example:
-> - `/regions/gyeonggi-성남.html` -> `gyeonggi-성남`
-> - `/regions/incheon-영종도.html` -> `incheon-영종도`
-
-No other changes are required.
+> Order matters when using `defer`: files execute in HTML order.
 
 ## Notes
-- The script merges into an existing `window.__REGION_COORDS__` without overwriting.
-- Ensure your map code decodes the pathname: `decodeURIComponent(slug)`.
+- If a page provides `<div id="region-map" data-lat="..." data-lng="...">`, those coordinates win.
+- If a slug has URL-encoded Korean (e.g. `gyeonggi-%EA%B3%A0%EC%96%91`), `region-map.js` decodes it to `gyeonggi-고양` before lookup.
+- Default fallbacks: Seoul / Gyeonggi / Incheon centers.
+- Check the browser console for `[region-map] slug: ... coords: ...` to verify.
