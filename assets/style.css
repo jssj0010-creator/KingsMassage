@@ -432,27 +432,29 @@ html{scroll-behavior:smooth}
 
 #sticky-cta a.kakao svg{ fill: currentColor; }  /* 아이콘 색 = 글자색 */
 
-/* ── 헤더 '전화상담'을 코스표 보기(고스트) 스타일로 ── */
+/* ── 헤더 '전화상담' = 테두리색으로 꽉 채움(오버라이드) ── */
 .header .actions a[href^="tel"]{
-  background: transparent !important;
-  border: 2px solid rgba(0,255,224,.55) !important; /* 코스표 보기와 같은 윤곽선 */
-  color: #111 !important;         /* 글자: 검정 */
-  text-shadow: none !important;
-  box-shadow: none !important;
-  border-radius: 18px !important;
-  padding: 10px 18px !important;
-  font-weight: 800;
-  line-height: 1;
+  --callColor: rgba(0,255,224,.55);       /* 테두리색과 동일하게 사용 */
+  border: 2px solid var(--callColor) !important;
+  background: var(--callColor) !important; /* 배경 = 테두리색 */
+  color:#111 !important;                   /* 글자: 검정 */
+  text-shadow:none !important;
+  box-shadow:none !important;
+  border-radius:18px !important;
+  padding:10px 18px !important;
+  font-weight:800;
+  line-height:1;
 }
-.header .actions a[href^="tel"]:hover  { background: rgba(0,255,224,.06); }
-.header .actions a[href^="tel"]:active { background: rgba(0,255,224,.12); }
+.header .actions a[href^="tel"]:hover  { filter: brightness(0.96); }
+.header .actions a[href^="tel"]:active { filter: brightness(0.92); }
 
-/* 혹시 다른 스타일이 강제로 입혀지는 경우 무력화 */
+/* 다른 버튼 스킨이 붙어 있어도 강제로 동일하게 */
 .header .actions a[href^="tel"].btn-neon,
 .header .actions a[href^="tel"].btn-primary,
 .header .actions a[href^="tel"].btn-brand,
 .header .actions a[href^="tel"].btn-call{
-  background: transparent !important;
-  box-shadow: none !important;
+  background: var(--callColor) !important;
+  border-color: var(--callColor) !important;
   color:#111 !important;
+  box-shadow:none !important;
 }
