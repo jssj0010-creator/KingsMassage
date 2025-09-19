@@ -458,26 +458,3 @@ html{scroll-behavior:smooth}
   color:#111 !important;
   box-shadow:none !important;
 }
-
-/* === Sticky CTA : 지역페이지와 동일 스타일(트레이 없음) === */
-#sticky-cta{
-  position:fixed; left:50%; transform:translateX(-50%);
-  bottom:16px; display:flex; gap:14px; z-index:9999;
-}
-#sticky-cta a{
-  display:inline-flex !important; align-items:center; justify-content:center;
-  height:66px; padding:0 28px; border-radius:28px;
-  font-weight:900; text-decoration:none;
-  box-shadow:0 14px 30px rgba(0,0,0,.28);
-}
-#sticky-cta a.tel   { background:#10b981; color:#fff; }
-#sticky-cta a.home  { background:#3B82F6; color:#fff; }
-#sticky-cta a.kakao { background:#FEE500; color:#111; border:1px solid #d4b300; }
-#sticky-cta a svg{ margin-right:6px; vertical-align:-2px }
-
-/* 컨텐츠 가림 방지 */
-body.has-sticky-cta{ padding-bottom:96px; }
-@media (max-width:380px){
-  #sticky-cta a{ height:58px; padding:0 22px; border-radius:22px; }
-  body.has-sticky-cta{ padding-bottom:84px; }
-}
