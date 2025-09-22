@@ -64,3 +64,60 @@
   if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', enhance); }
   else { enhance(); }
 })();
+
+/* === v9.2 PRICE PATCH: 감성 힐링마사지 60분 → 90,000원 (sitewide) === */
+;(function () {
+  function plain(s){
+    // 태그 제거 + 공백 제거
+    return (s||'').replace(/<[^>]*>/g,'').replace(/\s+/g,'');
+  }
+
+  function patchHealing60() {
+    try {
+      var tables = document.querySelectorAll('.pricing-table, table');
+      var changed = 0;
+
+      tables.forEach(function(tbl){
+        var rows = tbl.querySelectorAll('tbody tr, tr');
+        rows.forEach(function(tr){
+          var first = tr.querySelector('td');
+          if(!first) return;
+
+          var name = plain(first.innerHTML || first.textContent);
+          // 스페셜 제외 + 감성힐링마사지(띄어쓰기/태그 무시) 매칭
+          if (name.indexOf('스페셜') !== -1) return;
+          if (!(name.indexOf('감성') !== -1 && name.indexOf('힐링마사지') !== -1)) return;
+
+          // 60분 셀: data-label="60분" 우선, 없으면 두 번째 <td>
+          var cell60 = tr.querySelector('td[data-label="60분"], td[data-label="60 분"]') || tr.children[1];
+          if(!cell60) return;
+
+          var current = plain(cell60.innerHTML || cell60.textContent);
+          if (current !== '90,000원' && current !== '90000원') {
+            cell60.textContent = '90,000원';
+            cell60.classList.add('price');
+            changed++;
+          }
+        });
+      });
+
+      if (changed > 0 && window.console) {
+        console.log('[pricing-ensure] 힐링 60분 가격 패치 적용:', changed, 'row(s)');
+      }
+    } catch (e) {
+      // 표 없는 페이지 등은 조용히 패스
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', patchHealing60);
+  } else {
+    patchHealing60();
+  }
+
+  // 동적 삽입 대비해 한 번 더 감시
+  try {
+    var mo = new MutationObserver(function(){ patchHealing60(); });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+})();
