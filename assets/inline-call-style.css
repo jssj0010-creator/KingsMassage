@@ -1,0 +1,13 @@
+/* inline-call-style.css
+   Very light helper to ensure inline .btn-call sits nicely inside paragraphs/lists.
+   We intentionally do NOT restyle .btn-call colors/shapes (reuse your existing header styles).
+*/
+.content .btn-call,
+.article .btn-call,
+.post .btn-call,
+.page .btn-call,
+main .btn-call {
+  vertical-align: middle;
+  margin: 0 6px 8px 0;
+  display: inline-block;
+}
