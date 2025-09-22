@@ -1,7 +1,4 @@
-/* inline-call-style.css
-   Very light helper to ensure inline .btn-call sits nicely inside paragraphs/lists.
-   We intentionally do NOT restyle .btn-call colors/shapes (reuse your existing header styles).
-*/
+/* inline-call-style.css */
 .content .btn-call,
 .article .btn-call,
 .post .btn-call,
