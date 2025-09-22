@@ -1,0 +1,18 @@
+/* phone-boost-min.css
+   Minimal patch: make tel numbers slightly larger and bolder without changing layout/colors.
+   Usage: Add <link rel="stylesheet" href="/assets/phone-boost-min.css"> before </head> on all pages.
+*/
+
+:root { --km-phone-font: clamp(17px, 2.6vw, 22px); }
+
+/* Apply to existing tel anchors in header/footer/sticky bars */
+.header a[href^="tel:"],
+.bottom-sticky a[href^="tel:"],
+.sticky-bottom a[href^="tel:"],
+footer a[href^="tel:"] {
+  font-weight: 800;
+  font-size: var(--km-phone-font);
+  letter-spacing: .3px;
+  line-height: 1.1;
+  text-decoration: none;
+}
