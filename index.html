@@ -83,6 +83,14 @@
  ]
 }
 </script>
+<!-- GA4 base (inserted by full patch) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX'); /* TODO: GA4 측정ID로 교체 */
+</script>
 </head>
 <body>
 <div class="overlay"></div>
@@ -106,7 +114,7 @@
 </a>
 </div>
 <div class="actions">
-<a aria-label="전화 상담 연결" class="btn" href="tel:01083461193">전화상담</a>
+<a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a>
 <a aria-label="소개 섹션으로 이동" class="btn" href="#about">소개</a>
 <a aria-label="코스표 바로가기" class="btn btn-pricing" href="#pricing">코스표</a>
 <button aria-expanded="false" aria-haspopup="dialog" class="megaBtn">지역출장 ▾</button>
@@ -190,7 +198,7 @@
 </section>
 <section class="hero">
 <h1>킹즈출장마사지 | 서울·경기·인천 출장마사지 · 24시 후불제</h1>
-서울·경기·인천 전지역 24시 배정. 후불제, 합리적 요금, 빠른 도착. <a class="btn-call" href="tel:01083461193">상담 010-8346-1193</a> /  카톡 <p><a aria-label="카카오 오픈채팅으로 연결" class="btn btn-kakao" href="https://open.kakao.com/o/swv2PsUh" rel="noopener" target="_blank"><svg aria-hidden="true" focusable="false" height="16" style="vertical-align:-2px" viewbox="0 0 24 24" width="16"><path d="M12 3C6.48 3 2 6.69 2 11c0 2.45 1.49 4.63 3.83 6.05L5 22l4.02-2.2c.94.18 1.93.27 2.98.27 5.52 0 10-3.69 10-8.08C22 6.69 17.52 3 12 3z"></path></svg><span> 오픈채팅</span></a></p>
+서울·경기·인천 전지역 24시 배정. 후불제, 합리적 요금, 빠른 도착. <a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a> /  카톡 <p><a aria-label="카카오 오픈채팅으로 연결" class="btn btn-kakao" href="https://open.kakao.com/o/swv2PsUh" rel="noopener" target="_blank"><svg aria-hidden="true" focusable="false" height="16" style="vertical-align:-2px" viewbox="0 0 24 24" width="16"><path d="M12 3C6.48 3 2 6.69 2 11c0 2.45 1.49 4.63 3.83 6.05L5 22l4.02-2.2c.94.18 1.93.27 2.98.27 5.52 0 10-3.69 10-8.08C22 6.69 17.52 3 12 3z"></path></svg><span> 오픈채팅</span></a></p>
 <p class="kicker">우측 상단 <strong>지역출장 ▾</strong> 버튼을 눌러 지역별 바로가기를 확인하세요.</p>
 </section>
 <section class="container" id="about" style="margin-top:28px">
@@ -267,12 +275,12 @@
 <section class="container" id="howto">
 <h3>예약 및 이용 방법</h3>
 <ol class="list">
- – <a class="btn-call" href="tel:01083461193">전화 010-8346-1193</a><li><strong>연락</strong></li>
+ – <a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a><li><strong>연락</strong></li>
 <li><strong>상담</strong> – 지역/위치, 코스·시간 선택</li>
 <li><strong>배정</strong> – 관리사 배정 후 도착 안내</li>
 <li><strong>이용</strong> – 도착 후 결제(후불제), 관리 진행</li>
 </ol>
-<p><a class="btn-call btn" href="tel:01083461193">전화 상담하기</a></p>
+<p><a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a></p>
 </section>
 <section class="container" id="notice">
 <h3>이용 전 안내사항</h3>
@@ -314,7 +322,7 @@
 <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
 <div><strong>지금 바로 편하게 관리 받아보세요.</strong><br/><span class="dim">24시 상담 · 후불제 · 지역 즉시 배정</span></div>
 <div>
-<a class="btn-call btn" href="tel:01083461193">전화 010-8346-1193</a>
+<a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a>
 <a class="btn btn-ghost" href="#pricing">코스표 보기</a>
 </div>
 </div>

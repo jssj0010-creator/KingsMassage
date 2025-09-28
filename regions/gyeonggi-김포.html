@@ -12,7 +12,7 @@
 <link href='/assets/style.css' rel='stylesheet'>
 <script defer src='/assets/menu.js'></script>
 <meta property='og:title' content='킹즈출장마사지 | 경기 김포 출장마사지 안내'>
-<meta property='og:description' content='경기 김포 출장마사지 배정. 킹즈마사지 요금표/예약/주의사항, 전화 010-8346-1193</a>.'>
+<meta property='og:description' content='경기 김포 출장마사지 배정. 킹즈마사지 요금표/예약/주의사항, 전화 010-8346-1193.'>
 <meta property='og:url' content='https://kingsmsg.com/regions/gyeonggi-김포.html'>
 <meta property='og:type' content='website'>
 <meta property='og:image' content='https://kingsmsg.com/og-kingsmsg-1200x630.png'>
@@ -45,7 +45,7 @@
   </a>
 </div>
     <div class='actions'>
-      <a class='btn' href='tel:01083461193' class='btn-neon' class='btn-neon'>전화 010-8346-1193</a>
+      <a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a>
       <a <a class='btn' href='#about' aria-label='소개 섹션으로 이동'>소개</a> <a class='btn btn-pricing' href='#pricing' aria-label='코스표 바로가기'>코스표</a> <button class='megaBtn' aria-haspopup='dialog' aria-expanded='false'>지역출장 ▾</button>
     </div>
   </div>
@@ -140,7 +140,7 @@
   <p style="color:#9ca3af">※ 의료행위는 제공하지 않으며, 건전하고 합법적인 관리만 진행합니다.</p>
 <!-- region top notice / CTA (re-injected) -->
 <div class="region-top-cta" role="note" aria-label="지역 공통 안내">
-  <span>서울·경기·인천 전지역 24시 배정. 후불제, 합리적 요금, 빠른 도착. 상담: <a href="tel:010-8346-1193">010-8346-1193</a> / 카톡</span>
+  <span>서울·경기·인천 전지역 24시 배정. 후불제, 합리적 요금, 빠른 도착. 상담: <a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a> / 카톡</span>
   <a class="kakao" href="https://open.kakao.com/o/swv2PsUh" target="_blank" rel="noopener">오픈채팅</a>
 </div>
 
@@ -217,7 +217,7 @@
     <li><strong>배정</strong> – 관리사 배정 후 도착 안내</li>
     <li><strong>이용</strong> – 도착 후 결제(후불제), 관리 진행</li>
   </ol>
-  <p><a class="btn" href="tel:01083461193" class='btn-neon'>전화 상담하기</a></p>
+  <p><a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a></p>
 </section>
 
 <section id="notice" class="container">
@@ -255,7 +255,7 @@
 <section id="cta" class="container" style="padding-bottom:32px">
   <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
     <div><strong>지금 바로 편하게 관리 받아보세요.</strong><br><span class="dim">24시 상담 · 후불제 · 지역 즉시 배정</span></div>
-    <div><a class="btn" href="tel:01083461193" class='btn-neon' class='btn-neon'>전화 010-8346-1193</a> <a class="btn" href="#pricing" class='btn-neon btn-ghost' class='btn-neon btn-ghost'>코스표</a> 보기</a></div>
+    <div><a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a> <a class="btn" href="#pricing" class='btn-neon btn-ghost' class='btn-neon btn-ghost'>코스표</a> 보기</a></div>
   </div>
 </section>
 </main>
@@ -267,6 +267,14 @@
 <script src="/assets/region-coords.js"></script>
 <script src="/assets/region-map.js" defer></script>
 <script src="/assets/faq-jsonld.js" defer></script>
+<!-- GA4 base (inserted by full patch) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX'); /* TODO: GA4 측정ID로 교체 */
+</script>
 <script src="/assets/ga4-events.js" defer></script>
 <script src="/assets/cta-inject.js" defer></script>
 <script src="/assets/pricing-ensure.js" defer></script>
