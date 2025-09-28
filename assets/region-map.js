@@ -1,7 +1,7 @@
 /* /assets/region-map.js */
 (function () {
   const MAP_ID = "region-map";
-  const KAKAO_OPENCHAT = "https://open.kakao.com/o/shGxbqRh";
+  const KAKAO_OPENCHAT = "https://open.kakao.com/o/swv2PsUh";
 
   // 1) Leaflet CSS/JS 없으면 주입
   function ensureLeaflet(cb) {

@@ -50,7 +50,7 @@
 
     // Intro
     var p = el('p'); p.className = 'kicker';
-    p.textContent = info.desc + " 상담 010-4637-9556 · 카톡 오픈채팅 이용 가능.";
+    p.textContent = info.desc + " 상담 010-8346-1193 · 카톡 오픈채팅 이용 가능.";
     root.appendChild(p);
 
     // Area chips

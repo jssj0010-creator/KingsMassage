@@ -1,8 +1,8 @@
 \
 // index-call-unify.js
 (function(){
-  var TEL_NUM = "010-4637-9556";
-  var TEL_HREF = "tel:01046379556";
+  var TEL_NUM = "010-8346-1193";
+  var TEL_HREF = "tel:01083461193";
 
   function makeBtn(label, number){
     var a = document.createElement('a');
@@ -13,7 +13,7 @@
   }
 
   function wrapHeroConsult(){
-    // Find text like "상담: 010-4637-9556" in hero/lead paragraphs
+    // Find text like "상담: 010-8346-1193" in hero/lead paragraphs
     var re = /(상담)\s*[:：]\s*(010-\d{3,4}-\d{4})/;
     document.querySelectorAll('h1, h2, h3, p, .lead, .sub, .subtitle, .hero, .hero *').forEach(function(el){
       if (!el || !el.childNodes) return;
@@ -38,7 +38,7 @@
   }
 
   function wrapListCall(){
-    // Find "전화(010-4637-9556)" in lists
+    // Find "전화(010-8346-1193)" in lists
     var re = /(전화)\s*[\(（]\s*(010-\d{3,4}-\d{4})\s*[\)）]/;
     document.querySelectorAll('ol li, ul li, p').forEach(function(el){
       if (!el || !el.childNodes) return;
