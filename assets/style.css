@@ -481,3 +481,57 @@ html{scroll-behavior:smooth}
   color:#e5e7eb; opacity:.95;
 }
 /* === end scoped hero overlay === */
+
+
+/* === hero single-line at bottom === */
+.hero-visual.has-caption .hero-caption{
+  position:absolute; left:50%; bottom:6%; top:auto; transform:translateX(-50%);
+  text-align:center; z-index:2; padding:0 .75rem;
+}
+.hero-visual.has-caption .hero-title{
+  font-size:clamp(26px,4.8vw,44px); font-weight:800; letter-spacing:-.01em;
+  color:#fff; text-shadow:0 2px 22px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.5);
+  line-height:1.15; margin:0;
+}
+.hero-visual.has-caption .king-main{opacity:.98}
+.hero-visual.has-caption .king-brand{opacity:.9; font-weight:700}
+/* === end hero single-line === */
+
+
+/* === hero bottom strict override === */
+.hero-visual.has-caption .hero-caption{
+  position:absolute !important;
+  left:50% !important;
+  right:auto !important;
+  top:auto !important;
+  bottom:4% !important;
+  transform:translateX(-50%) !important;
+  text-align:center !important;
+  z-index:2 !important;
+  padding:0 .75rem !important;
+}
+.hero-visual.has-caption .hero-title{
+  margin:0 !important;
+  line-height:1.1 !important;
+}
+.hero-visual.has-caption .hero-sub{ display:none !important; }
+/* === end hero bottom strict override === */
+
+
+/* === hero precise band placement === */
+.hero-visual.has-caption .hero-caption{
+  bottom: 16% !important; /* desktop default inside highlighted band */
+}
+@media (max-width: 1024px){
+  .hero-visual.has-caption .hero-caption{ bottom: 14% !important; }
+}
+@media (max-width: 640px){
+  .hero-visual.has-caption .hero-caption{ bottom: 12% !important; }
+  .hero-visual.has-caption .hero-title{ font-size: clamp(22px, 6.2vw, 34px) !important; }
+}
+/* optional: slight background blur for readability without hiding image text */
+.hero-visual.has-caption .hero-title{
+  padding: .15rem .5rem !important;
+  text-shadow: 0 2px 22px rgba(0,0,0,.65), 0 1px 2px rgba(0,0,0,.6) !important;
+}
+/* === end hero precise band placement === */
