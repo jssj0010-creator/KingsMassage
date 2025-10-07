@@ -533,3 +533,56 @@ html{scroll-behavior:smooth}
   }
 }
 /* === End enforced patch === */
+
+/* === Sticky CTA bar (global) === */
+#sticky-cta{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px calc(env(safe-area-inset-right) + 12px) calc(env(safe-area-inset-bottom) + 12px) calc(env(safe-area-inset-left) + 12px);
+  background: rgba(10, 12, 20, 0.84);
+  backdrop-filter: saturate(1.1) blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 -6px 24px rgba(0,0,0,.35);
+}
+#sticky-cta a{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+#sticky-cta a.kakao{
+  background: #FFE812;
+  color: #111;
+  box-shadow: 0 8px 22px rgba(255,232,18,.35);
+}
+#sticky-cta a.tel{
+  background: #0B1120;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.12);
+}
+#sticky-cta a.home{
+  background: #3B82F6;
+  color: #fff;
+}
+@media (min-width: 1024px){
+  #sticky-cta{ display:none; }
+}
+/* === End Sticky CTA bar === */
+
+/* === Sticky CTA look (match region pages): transparent background, no bar strip === */
+#sticky-cta{
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0 calc(env(safe-area-inset-right) + 12px) calc(env(safe-area-inset-bottom) + 12px) calc(env(safe-area-inset-left) + 12px) !important;
+}
+/* keep fixed positioning & layout from previous rules (unchanged) */
+/* === End override === */
