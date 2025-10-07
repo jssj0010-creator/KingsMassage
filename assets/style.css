@@ -575,3 +575,13 @@ html{scroll-behavior:smooth}
   #sticky-cta{ display:none; }
 }
 /* === End Sticky CTA bar === */
+
+/* === Sticky CTA tuning (centered layout + green phone button) — v2 === */
+#sticky-cta{ justify-content: center !important; }
+#sticky-cta a.tel{
+  background: #22C55E !important;
+  color: #111 !important;
+  border: none !important;
+  box-shadow: 0 8px 22px rgba(34,197,94,.30) !important;
+}
+#sticky-cta a.tel svg{ filter: none !important; }
