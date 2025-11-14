@@ -21,7 +21,7 @@
 
 ## 작동 원리
 - `index.html`: 메인 전용 OG 메타 템플릿 삽입
-- `regions/*.html`: 파일명/경로에서 지역명을 파싱(예: `regions/seoul-강남.html`)하여 `title/description/url/canonical`을 지역 최적화 문구로 생성
+- `regions/*.html`: 파일명/경로에서 지역명을 파싱(예: `regions/gangnam.html`)하여 `title/description/url/canonical`을 지역 최적화 문구로 생성
 - 기존 중복 `og:image`, `twitter:image`, `og:title/description/url`, `canonical`은 우선 제거한 후 새 템플릿을 삽입 (idempotent)
 
 ## 되돌리기(백업)
