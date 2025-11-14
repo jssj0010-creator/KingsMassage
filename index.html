@@ -21,7 +21,33 @@
   .chips{display:flex;gap:10px;flex-wrap:wrap}
   .chip{display:inline-block;padding:.5rem .75rem;border-radius:999px;border:1px solid var(--line,#1f2937);background:#0f172a;color:#e5e7eb;font-weight:600}
   .chip:hover{background:#111827}
-  @media (max-width:640px){.chip{font-size:.9rem;padding:.45rem .7rem}}
+  @media (max-width:640px){
+    .chip{font-size:.9rem;padding:.45rem .7rem}
+    
+    /* ✅ 모바일에서 본문 섹션들 강제 좌측 정렬 */
+    #service,
+    #benefits,
+    #howto,
+    #notice,
+    #coverage,
+    #compare,
+    #faq,
+    #cta {
+      text-align:left;
+    }
+
+    /* 리스트 안 내용도 혹시 몰라 한 번 더 확실히 */
+    #service .list,
+    #benefits .list,
+    #howto .list,
+    #notice .list,
+    #coverage .list,
+    #compare .list,
+    #faq .list,
+    #cta .list {
+      text-align:left;
+    }
+  }
 </style>
 <!-- JS -->
 <script defer="" src="/assets/menu.js"></script>
