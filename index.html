@@ -1,384 +1,471 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>출장마사지 | 출장스웨디시 | 출장안마 | 킹즈마사지 · 서울·경기·인천</title>
-<meta content="선입금 없는 후불제, 서울·경기·인천 모든지역 즉시 배정(연중무휴). 20·30대 전문 관리사, 마사지·스웨디시·아로마·타이 홈타이, 호텔/자택/오피스 방문. 24시 상담 010-8346-1193" name="description"/>
-<link href="https://kingsmsg.com/" rel="canonical"/>
-<!-- hreflang / robots -->
-<link href="https://kingsmsg.com/" hreflang="ko-KR" rel="alternate"/>
-<link href="https://kingsmsg.com/" hreflang="x-default" rel="alternate"/>
-<meta content="index,follow" name="robots"/>
-<!-- Icons / CSS -->
-<link href="/favicon.ico" rel="icon" sizes="any"/>
-<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
-<link href="/assets/pricing-addons.css" rel="stylesheet"/>
-<link href="/assets/style.css?v=20251005c" rel="stylesheet"/>
-<!-- Small inline CSS for region chips (no other files to edit) -->
-<style>
-  .chips{display:flex;gap:10px;flex-wrap:wrap}
-  .chip{display:inline-block;padding:.5rem .75rem;border-radius:999px;border:1px solid var(--line,#1f2937);background:#0f172a;color:#e5e7eb;font-weight:600}
-  .chip:hover{background:#111827}
-  @media (max-width:640px){
-    .chip{font-size:.9rem;padding:.45rem .7rem}
-    
-    /* ✅ 모바일에서 본문 섹션들 강제 좌측 정렬 */
-    #service,
-    #benefits,
-    #howto,
-    #notice,
-    #coverage,
-    #compare,
-    #faq,
-    #cta {
-      text-align:left;
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <title>출장마사지 | 출장스웨디시 | 출장안마 | 킹즈마사지 · 서울·경기·인천</title>
+  <meta name="description" content="선입금 없는 후불제, 서울·경기·인천 모든지역 즉시 배정(연중무휴). 20·30대 전문 관리사, 마사지·스웨디시·아로마·타이 홈타이, 호텔/자택/오피스 방문. 24시 상담 010-8346-1193"/>
+
+  <link rel="canonical" href="https://kingsmsg.com/"/>
+
+  <!-- hreflang / robots -->
+  <link rel="alternate" hreflang="ko-KR" href="https://kingsmsg.com/"/>
+  <link rel="alternate" hreflang="x-default" href="https://kingsmsg.com/"/>
+  <meta name="robots" content="index,follow"/>
+
+  <!-- Icons / CSS -->
+  <link rel="icon" sizes="any" href="/favicon.ico"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="stylesheet" href="/assets/pricing-addons.css"/>
+  <link rel="stylesheet" href="/assets/style.css?v=20251005c"/>
+
+  <!-- Small inline CSS for region chips + 모바일 좌측정렬 -->
+  <style>
+    .chips{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-block;
+      padding:.5rem .75rem;
+      border-radius:999px;
+      border:1px solid var(--line,#1f2937);
+      background:#0f172a;
+      color:#e5e7eb;
+      font-weight:600;
+    }
+    .chip:hover{
+      background:#111827;
     }
 
-    /* 리스트 안 내용도 혹시 몰라 한 번 더 확실히 */
-    #service .list,
-    #benefits .list,
-    #howto .list,
-    #notice .list,
-    #coverage .list,
-    #compare .list,
-    #faq .list,
-    #cta .list {
-      text-align:left;
+    @media (max-width:640px){
+      .chip{
+        font-size:.9rem;
+        padding:.45rem .7rem;
+      }
+
+      /* ✅ 모바일에서 요금표 아래 본문 전체 좌측 정렬 강제 */
+      .bg-dark main,
+      .bg-dark main .container,
+      .bg-dark main section,
+      .bg-dark main section p,
+      .bg-dark main section h2,
+      .bg-dark main section h3,
+      .bg-dark main section h4,
+      .bg-dark main section ul,
+      .bg-dark main section li {
+        text-align:left !important;
+      }
     }
+  </style>
+
+  <!-- JS -->
+  <script defer src="/assets/menu.js"></script>
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="출장마사지 | 출장스웨디시 | 출장안마 | 킹즈마사지 · 서울·경기·인천"/>
+  <meta property="og:description" content="선입금 없는 후불제, 서울·경기·인천 모든지역 즉시 배정(연중무휴). 20·30대 전문 관리사, 마사지·스웨디시·아로마·타이 홈타이, 호텔/자택/오피스 방문. 24시 상담 010-8346-1193"/>
+  <meta property="og:url" content="https://kingsmsg.com/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://kingsmsg.com/og-kingsmsg-1200x630.png"/>
+  <meta property="og:site_name" content="킹즈마사지"/>
+  <meta property="og:locale" content="ko_KR"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="킹즈마사지 | 서울·경기·인천 출장마사지 · 24시 후불제"/>
+  <meta name="twitter:description" content="전지역 스웨디시·아로마·타이·감성힐링 홈케어. 요금표/빠른 배정/후불제 상담."/>
+  <meta name="twitter:image" content="https://kingsmsg.com/og-kingsmsg-1200x630.png"/>
+
+  <!-- LCP 개선: 히어로 이미지 프리로드 -->
+  <link rel="preload"
+        as="image"
+        href="/assets/hero-desktop.webp"
+        imagesrcset="/assets/hero-mobile.webp 640w, /assets/hero-desktop.webp 2400w"
+        imagesizes="(max-width:640px) 100vw, 100vw"/>
+
+  <!-- 스키마 -->
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Organization", "name": "킹즈마사지", "url": "https://kingsmsg.com", "logo": "https://kingsmsg.com/kingsmsg-logo-512.png"}
+  </script>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "후불제 이용이 가능한가요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 모든 코스는 후불제로 안전하게 이용하실 수 있습니다."}}, {"@type": "Question", "name": "방문 가능한 지역은 어디인가요?", "acceptedAnswer": {"@type": "Answer", "text": "서울·경기·인천 전지역을 기본으로, 인접 지역도 상황에 따라 배정 가능합니다."}}, {"@type": "Question", "name": "예약 방법은 어떻게 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "전화(010-8346-1193) 또는 카카오톡(msg00100)으로 연락 주시면 지역/코스 상담 후 배정해 드립니다."}}, {"@type": "Question", "name": "불건전 서비스가 포함되나요?", "acceptedAnswer": {"@type": "Answer", "text": "포함되지 않습니다. 건전하고 합법적인 관리만 제공합니다."}}]}
+  </script>
+
+  <!-- LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"킹즈마사지",
+    "url":"https://kingsmsg.com/",
+    "telephone":"+82-10-8346-1193",
+    "areaServed":[
+      {"@type":"AdministrativeArea","name":"서울특별시"},
+      {"@type":"AdministrativeArea","name":"경기도"},
+      {"@type":"AdministrativeArea","name":"인천광역시"}
+    ],
+    "serviceType":["스웨디시","아로마","타이","출장마사지","홈타이"],
+    "openingHoursSpecification":[{
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens":"00:00","closes":"23:59"
+    }],
+    "priceRange":"₩₩"
   }
-</style>
-<!-- JS -->
-<script defer="" src="/assets/menu.js"></script>
-<!-- Open Graph / Twitter -->
-<meta content="출장마사지 | 출장스웨디시 | 출장안마 | 킹즈마사지 · 서울·경기·인천" property="og:title"/>
-<meta content="선입금 없는 후불제, 서울·경기·인천 모든지역 즉시 배정(연중무휴). 20·30대 전문 관리사, 마사지·스웨디시·아로마·타이 홈타이, 호텔/자택/오피스 방문. 24시 상담 010-8346-1193" property="og:description"/>
-<meta content="https://kingsmsg.com/" property="og:url"/>
-<meta content="website" property="og:type"/>
-<meta content="https://kingsmsg.com/og-kingsmsg-1200x630.png" property="og:image"/>
-<meta content="킹즈마사지" property="og:site_name"/>
-<meta content="ko_KR" property="og:locale"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="킹즈마사지 | 서울·경기·인천 출장마사지 · 24시 후불제" name="twitter:title"/>
-<meta content="전지역 스웨디시·아로마·타이·감성힐링 홈케어. 요금표/빠른 배정/후불제 상담." name="twitter:description"/>
-<meta content="https://kingsmsg.com/og-kingsmsg-1200x630.png" name="twitter:image"/>
-<!-- LCP 개선: 히어로 이미지 프리로드 -->
-<link as="image" href="/assets/hero-desktop.webp" imagesizes="(max-width:640px) 100vw, 100vw" imagesrcset="/assets/hero-mobile.webp 640w, /assets/hero-desktop.webp 2400w" rel="preload"/>
-<!-- 기존 스키마(Organization / FAQ) 예시: 필요 시 유지/병행 -->
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "킹즈마사지", "url": "https://kingsmsg.com", "logo": "https://kingsmsg.com/kingsmsg-logo-512.png"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "후불제 이용이 가능한가요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 모든 코스는 후불제로 안전하게 이용하실 수 있습니다."}}, {"@type": "Question", "name": "방문 가능한 지역은 어디인가요?", "acceptedAnswer": {"@type": "Answer", "text": "서울·경기·인천 전지역을 기본으로, 인접 지역도 상황에 따라 배정 가능합니다."}}, {"@type": "Question", "name": "예약 방법은 어떻게 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "전화(010-8346-1193) 또는 카카오톡(msg00100)으로 연락 주시면 지역/코스 상담 후 배정해 드립니다."}}, {"@type": "Question", "name": "불건전 서비스가 포함되나요?", "acceptedAnswer": {"@type": "Answer", "text": "포함되지 않습니다. 건전하고 합법적인 관리만 제공합니다."}}]}</script>
-<!-- LocalBusiness: 광역 서비스 신호 강화 -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"LocalBusiness",
-  "name":"킹즈마사지",
-  "url":"https://kingsmsg.com/",
-  "telephone":"+82-10-8346-1193",
-  "areaServed":[
-    {"@type":"AdministrativeArea","name":"서울특별시"},
-    {"@type":"AdministrativeArea","name":"경기도"},
-    {"@type":"AdministrativeArea","name":"인천광역시"}
-  ],
-  "serviceType":["스웨디시","아로마","타이","출장마사지","홈타이"],
-  "openingHoursSpecification":[{
-    "@type":"OpeningHoursSpecification",
-    "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens":"00:00","closes":"23:59"
-  }],
-  "priceRange":"₩₩"
-}
-</script>
-<!-- ItemList: 홈→핵심 지역 내부링크 힌트 -->
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"ItemList",
- "itemListElement":[
-  {"@type":"ListItem","position":1,"url":"https://kingsmsg.com/regions/mapo.html","name":"마포 출장마사지"},
-  {"@type":"ListItem","position":2,"url":"https://kingsmsg.com/regions/gangnam.html","name":"강남 출장마사지"},
-  {"@type":"ListItem","position":3,"url":"https://kingsmsg.com/regions/songpa.html","name":"송파 출장마사지"},
-  {"@type":"ListItem","position":4,"url":"https://kingsmsg.com/regions/yongsan.html","name":"용산 출장마사지"},
-  {"@type":"ListItem","position":5,"url":"https://kingsmsg.com/regions/bundang.html","name":"분당 출장마사지"},
-  {"@type":"ListItem","position":6,"url":"https://kingsmsg.com/regions/suwon.html","name":"수원 출장마사지"},
-  {"@type":"ListItem","position":7,"url":"https://kingsmsg.com/regions/ilsan.html","name":"일산 출장마사지"},
-  {"@type":"ListItem","position":8,"url":"https://kingsmsg.com/regions/goyang.html","name":"고양 출장마사지"},
-  {"@type":"ListItem","position":9,"url":"https://kingsmsg.com/regions/songdo.html","name":"송도 출장마사지"},
-  {"@type":"ListItem","position":10,"url":"https://kingsmsg.com/regions/yeonsu.html","name":"연수 출장마사지"}
- ]
-}
-</script>
-<!-- GA4 base (inserted by full patch) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX'); /* TODO: GA4 측정ID로 교체 */
-</script>
+  </script>
+
+  <!-- ItemList: 홈→핵심 지역 내부링크 -->
+  <script type="application/ld+json">
+  {
+   "@context":"https://schema.org",
+   "@type":"ItemList",
+   "itemListElement":[
+    {"@type":"ListItem","position":1,"url":"https://kingsmsg.com/regions/mapo.html","name":"마포 출장마사지"},
+    {"@type":"ListItem","position":2,"url":"https://kingsmsg.com/regions/gangnam.html","name":"강남 출장마사지"},
+    {"@type":"ListItem","position":3,"url":"https://kingsmsg.com/regions/songpa.html","name":"송파 출장마사지"},
+    {"@type":"ListItem","position":4,"url":"https://kingsmsg.com/regions/yongsan.html","name":"용산 출장마사지"},
+    {"@type":"ListItem","position":5,"url":"https://kingsmsg.com/regions/bundang.html","name":"분당 출장마사지"},
+    {"@type":"ListItem","position":6,"url":"https://kingsmsg.com/regions/suwon.html","name":"수원 출장마사지"},
+    {"@type":"ListItem","position":7,"url":"https://kingsmsg.com/regions/ilsan.html","name":"일산 출장마사지"},
+    {"@type":"ListItem","position":8,"url":"https://kingsmsg.com/regions/goyang.html","name":"고양 출장마사지"},
+    {"@type":"ListItem","position":9,"url":"https://kingsmsg.com/regions/songdo.html","name":"송도 출장마사지"},
+    {"@type":"ListItem","position":10,"url":"https://kingsmsg.com/regions/yeonsu.html","name":"연수 출장마사지"}
+   ]
+  }
+  </script>
+
+  <!-- GA4 base -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX'); /* TODO: GA4 측정ID로 교체 */
+  </script>
 </head>
+
 <body>
 <div class="overlay"></div>
+
 <header class="header">
-<div class="container nav">
-<div class="brand brand-logo">
-<a aria-label="킹즈출장마사지 메인으로" href="/">
-<span aria-hidden="true" class="brand-icon">
-<svg focusable="false" height="36" role="img" viewbox="0 0 48 48" width="36">
-<defs>
-<lineargradient id="kGrad" x1="0%" x2="100%" y1="0%" y2="100%">
-<stop offset="0%" stop-color="#0E1628"></stop>
-<stop offset="100%" stop-color="#0B1120"></stop>
-</lineargradient>
-</defs>
-<circle cx="24" cy="24" fill="url(#kGrad)" r="22"></circle>
-<path d="M16 34V14h4v7.6L27.2 14H32l-8.2 9.1L32 34h-5l-7-8V34h-4z" fill="#FFFFFF"></path>
-</svg>
-</span>
-<span class="brand-text">킹즈출장마사지</span>
-</a>
-</div>
-<div class="actions">
-<a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a>
-<a aria-label="소개 섹션으로 이동" class="btn" href="#about">소개</a>
-<a aria-label="코스표 바로가기" class="btn btn-pricing" href="#pricing">코스표</a>
-<button aria-expanded="false" aria-haspopup="dialog" class="megaBtn">지역출장 ▾</button>
-</div>
-</div>
+  <div class="container nav">
+    <div class="brand brand-logo">
+      <a href="/" aria-label="킹즈출장마사지 메인으로">
+        <span class="brand-icon" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 48 48" role="img" focusable="false">
+            <defs>
+              <linearGradient id="kGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0E1628"></stop>
+                <stop offset="100%" stop-color="#0B1120"></stop>
+              </linearGradient>
+            </defs>
+            <circle cx="24" cy="24" r="22" fill="url(#kGrad)"></circle>
+            <path d="M16 34V14h4v7.6L27.2 14H32l-8.2 9.1L32 34h-5l-7-8V34h-4z" fill="#FFFFFF"></path>
+          </svg>
+        </span>
+        <span class="brand-text">킹즈출장마사지</span>
+      </a>
+    </div>
+    <div class="actions">
+      <a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a>
+      <a class="btn" href="#about" aria-label="소개 섹션으로 이동">소개</a>
+      <a class="btn btn-pricing" href="#pricing" aria-label="코스표 바로가기">코스표</a>
+      <button class="megaBtn" aria-haspopup="dialog" aria-expanded="false">지역출장 ▾</button>
+    </div>
+  </div>
 </header>
-<aside aria-label="지역출장 메뉴" class="panel" role="dialog">
-<div class="hd"><strong>지역출장</strong><button class="close" onclick="document.querySelector('.overlay').click()">닫기</button></div>
-<div class="body">
-<h4>서울</h4>
-<div class="kw"><a href="/regions/gangnam.html">강남출장마사지 | 강남출장안마 | 강남출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/seocho.html">서초출장마사지 | 서초출장안마 | 서초출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/songpa.html">송파출장마사지 | 송파출장안마 | 송파출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/mapo.html">마포출장마사지 | 마포출장안마 | 마포출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/yongsan.html">용산출장마사지 | 용산출장안마 | 용산출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/jongno.html">종로출장마사지 | 종로출장안마 | 종로출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/seongdong.html">성동출장마사지 | 성동출장안마 | 성동출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/gwangjin.html">광진출장마사지 | 광진출장안마 | 광진출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/dongdaemun.html">동대문출장마사지 | 동대문출장안마 | 동대문출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/seongbuk.html">성북출장마사지 | 성북출장안마 | 성북출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/eunpyeong.html">은평출장마사지 | 은평출장안마 | 은평출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/nowon.html">노원출장마사지 | 노원출장안마 | 노원출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/jungnang.html">중랑출장마사지 | 중랑출장안마 | 중랑출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/junggu-seoul.html">중구출장마사지 | 중구출장안마 | 중구출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/gangdong.html">강동출장마사지 | 강동출장안마 | 강동출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/gangseo.html">강서출장마사지 | 강서출장안마 | 강서출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/yangcheon.html">양천출장마사지 | 양천출장안마 | 양천출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/guro.html">구로출장마사지 | 구로출장안마 | 구로출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/geumcheon.html">금천출장마사지 | 금천출장안마 | 금천출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/dongjak.html">동작출장마사지 | 동작출장안마 | 동작출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/yeongdeungpo.html">영등포출장마사지 | 영등포출장안마 | 영등포출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/gwanak.html">관악출장마사지 | 관악출장안마 | 관악출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/gangbuk.html">강북출장마사지 | 강북출장안마 | 강북출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/dobong.html">도봉출장마사지 | 도봉출장안마 | 도봉출장 | 호텔·전국 후불제 이용 가능</a></div>
-<h4>경기</h4>
-<div class="kw"><a href="/regions/seongnam.html">성남출장마사지 | 성남출장안마 | 성남출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/bundang.html">분당출장마사지 | 분당출장안마 | 분당출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/suwon.html">수원출장마사지 | 수원출장안마 | 수원출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/yongin.html">용인출장마사지 | 용인출장안마 | 용인출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/goyang.html">고양출장마사지 | 고양출장안마 | 고양출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/ilsan.html">일산출장마사지 | 일산출장안마 | 일산출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/bucheon.html">부천출장마사지 | 부천출장안마 | 부천출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/gimpo.html">김포출장마사지 | 김포출장안마 | 김포출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/uijeongbu.html">의정부출장마사지 | 의정부출장안마 | 의정부출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/pyeongtaek.html">평택출장마사지 | 평택출장안마 | 평택출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/siheung.html">시흥출장마사지 | 시흥출장안마 | 시흥출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/ansan.html">안산출장마사지 | 안산출장안마 | 안산출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/anyang.html">안양출장마사지 | 안양출장안마 | 안양출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/gwacheon.html">과천출장마사지 | 과천출장안마 | 과천출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/gwangmyeong.html">광명출장마사지 | 광명출장안마 | 광명출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/paju.html">파주출장마사지 | 파주출장안마 | 파주출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/hanam.html">하남출장마사지 | 하남출장안마 | 하남출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/guri.html">구리출장마사지 | 구리출장안마 | 구리출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/namyangju.html">남양주출장마사지 | 남양주출장안마 | 남양주출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/gunpo.html">군포출장마사지 | 군포출장안마 | 군포출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/osan.html">오산출장마사지 | 오산출장안마 | 오산출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/gwangju.html">광주출장마사지 | 광주출장안마 | 광주출장 | 호텔·전국 후불제 이용 가능</a></div>
-<h4>인천</h4>
-<div class="kw"><a href="/regions/incheon-si.html">인천출장마사지 | 인천출장안마 | 인천출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/gyeyang.html">계양출장마사지 | 계양출장안마 | 계양출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/bupyeong.html">부평출장마사지 | 부평출장안마 | 부평출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/michuhol.html">미추홀출장마사지 | 미추홀출장안마 | 미추홀출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/yeonsu.html">연수출장마사지 | 연수출장안마 | 연수출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/songdo.html">송도출장마사지 | 송도출장안마 | 송도출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/namdong.html">남동출장마사지 | 남동출장안마 | 남동출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/seogu.html">서구출장마사지 | 서구출장안마 | 서구출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/ganghwa.html">강화출장마사지 | 강화출장안마 | 강화출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/yeongjongdo.html">영종도출장마사지 | 영종도출장안마 | 영종도출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/junggu-incheon.html">중구출장마사지 | 중구출장안마 | 중구출장 | 호텔·전국 후불제 이용 가능</a></div>
-<div class="kw"><a href="/regions/donggu.html">동구출장마사지 | 동구출장안마 | 동구출장 | 호텔·전국 후불제 이용 가능</a></div>
-</div>
+
+<aside class="panel" role="dialog" aria-label="지역출장 메뉴">
+  <div class="hd">
+    <strong>지역출장</strong>
+    <button class="close" onclick="document.querySelector('.overlay').click()">닫기</button>
+  </div>
+  <div class="body">
+    <h4>서울</h4>
+    <div class="kw"><a href="/regions/gangnam.html">강남출장마사지 | 강남출장안마 | 강남출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/seocho.html">서초출장마사지 | 서초출장안마 | 서초출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/songpa.html">송파출장마사지 | 송파출장안마 | 송파출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/mapo.html">마포출장마사지 | 마포출장안마 | 마포출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/yongsan.html">용산출장마사지 | 용산출장안마 | 용산출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/jongno.html">종로출장마사지 | 종로출장안마 | 종로출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/seongdong.html">성동출장마사지 | 성동출장안마 | 성동출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/gwangjin.html">광진출장마사지 | 광진출장안마 | 광진출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/dongdaemun.html">동대문출장마사지 | 동대문출장안마 | 동대문출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/seongbuk.html">성북출장마사지 | 성북출장안마 | 성북출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/eunpyeong.html">은평출장마사지 | 은평출장안마 | 은평출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/nowon.html">노원출장마사지 | 노원출장안마 | 노원출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/jungnang.html">중랑출장마사지 | 중랑출장안마 | 중랑출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/junggu-seoul.html">중구출장마사지 | 중구출장안마 | 중구출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/gangdong.html">강동출장마사지 | 강동출장안마 | 강동출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/gangseo.html">강서출장마사지 | 강서출장안마 | 강서출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/yangcheon.html">양천출장마사지 | 양천출장안마 | 양천출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/guro.html">구로출장마사지 | 구로출장안마 | 구로출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/geumcheon.html">금천출장마사지 | 금천출장안마 | 금천출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/dongjak.html">동작출장마사지 | 동작출장안마 | 동작출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/yeongdeungpo.html">영등포출장마사지 | 영등포출장안마 | 영등포출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/gwanak.html">관악출장마사지 | 관악출장안마 | 관악출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/gangbuk.html">강북출장마사지 | 강북출장안마 | 강북출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/dobong.html">도봉출장마사지 | 도봉출장안마 | 도봉출장 | 호텔·전국 후불제 이용 가능</a></div>
+
+    <h4>경기</h4>
+    <div class="kw"><a href="/regions/seongnam.html">성남출장마사지 | 성남출장안마 | 성남출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/bundang.html">분당출장마사지 | 분당출장안마 | 분당출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/suwon.html">수원출장마사지 | 수원출장안마 | 수원출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/yongin.html">용인출장마사지 | 용인출장안마 | 용인출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/goyang.html">고양출장마사지 | 고양출장안마 | 고양출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/ilsan.html">일산출장마사지 | 일산출장안마 | 일산출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/bucheon.html">부천출장마사지 | 부천출장안마 | 부천출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/gimpo.html">김포출장마사지 | 김포출장안마 | 김포출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/uijeongbu.html">의정부출장마사지 | 의정부출장안마 | 의정부출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/pyeongtaek.html">평택출장마사지 | 평택출장안마 | 평택출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/siheung.html">시흥출장마사지 | 시흥출장안마 | 시흥출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/ansan.html">안산출장마사지 | 안산출장안마 | 안산출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/anyang.html">안양출장마사지 | 안양출장안마 | 안양출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/gwacheon.html">과천출장마사지 | 과천출장안마 | 과천출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/gwangmyeong.html">광명출장마사지 | 광명출장안마 | 광명출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/paju.html">파주출장마사지 | 파주출장안마 | 파주출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/hanam.html">하남출장마사지 | 하남출장안마 | 하남출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/guri.html">구리출장마사지 | 구리출장안마 | 구리출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/namyangju.html">남양주출장마사지 | 남양주출장안마 | 남양주출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/gunpo.html">군포출장마사지 | 군포출장안마 | 군포출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/osan.html">오산출장마사지 | 오산출장안마 | 오산출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/gwangju.html">광주출장마사지 | 광주출장안마 | 광주출장 | 호텔·전국 후불제 이용 가능</a></div>
+
+    <h4>인천</h4>
+    <div class="kw"><a href="/regions/incheon-si.html">인천출장마사지 | 인천출장안마 | 인천출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/gyeyang.html">계양출장마사지 | 계양출장안마 | 계양출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/bupyeong.html">부평출장마사지 | 부평출장안마 | 부평출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/michuhol.html">미추홀출장마사지 | 미추홀출장안마 | 미추홀출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/yeonsu.html">연수출장마사지 | 연수출장안마 | 연수출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/songdo.html">송도출장마사지 | 송도출장안마 | 송도출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/namdong.html">남동출장마사지 | 남동출장안마 | 남동출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/seogu.html">서구출장마사지 | 서구출장안마 | 서구출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/ganghwa.html">강화출장마사지 | 강화출장안마 | 강화출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/yeongjongdo.html">영종도출장마사지 | 영종도출장안마 | 영종도출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/junggu-incheon.html">중구출장마사지 | 중구출장안마 | 중구출장 | 호텔·전국 후불제 이용 가능</a></div>
+    <div class="kw"><a href="/regions/donggu.html">동구출장마사지 | 동구출장안마 | 동구출장 | 호텔·전국 후불제 이용 가능</a></div>
+  </div>
 </aside>
+
 <div class="bg-dark">
-<main class="container">
-<section class="hero-visual">
-<picture>
-<source media="(max-width: 640px)" srcset="/assets/hero-mobile.webp" type="image/webp"/>
-<source srcset="/assets/hero-desktop.webp" type="image/webp"/>
-<img alt="전문 관리사가 출장마사지 출장스웨디시 출장안마를 통해 어깨와 등을 케어하는 장면" decoding="async" fetchpriority="high" height="1200" loading="eager" sizes="(max-width:640px) 100vw, 100vw" src="/assets/hero-desktop.jpg" srcset="/assets/hero-mobile.webp 640w, /assets/hero-desktop.webp 2400w" width="2400"/>
-</picture>
-</section>
-<section class="hero">
-<h1>출장마사지 | 서울·경기·인천 출장스웨디시 출장안마 홈타이 · 24시 후불제</h1>
-서울·경기·인천 전지역 24시 배정. 후불제, 합리적 요금, 빠른 도착. <a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a> /  카톡 <a aria-label="카카오 오픈채팅으로 연결" class="btn btn-kakao" href="https://open.kakao.com/me/swv2PsUh" rel="noopener" target="_blank"><svg aria-hidden="true" focusable="false" height="16" style="vertical-align:-2px" viewbox="0 0 24 24" width="16"><path d="M12 3C6.48 3 2 6.69 2 11c0 2.45 1.49 4.63 3.83 6.05L5 22l4.02-2.2c.94.18 1.93.27 2.98.27 5.52 0 10-3.69 10-8.08C22 6.69 17.52 3 12 3z"></path></svg><span> 오픈채팅</span></a>
-<p class="kicker">우측 상단 <strong>지역출장 ▾</strong> 버튼을 눌러 지역별 바로가기를 확인하세요.</p>
-</section>
-<section class="container" id="about" style="margin-top:28px">
-<h2>출장마사지 소개</h2>
-<p>출장마사지는 <strong>서울·경기·인천 전지역</strong>을 중심으로 출장마사지, 출장스웨디시, 홈타이, 출장안마 등 방문형 관리를 제공합니다. 원하는 장소(자택·호텔·오피스텔·숙소)로 전문 관리사가 이동하여 진행하므로, 이동 시간 없이 편안하게 케어를 받으실 수 있습니다. 모든 서비스는 <strong>후불제</strong>로 안전하게 이용하실 수 있습니다.</p>
-</section>
-<section id="pricing">
-<h2>요금표</h2>
-<div aria-label="요금표" class="pricing-wrap neon" role="region">
-<div class="pricing-head">
-<div><strong>코스별 이용요금</strong></div>
-<span class="badge">후불제 · 24시 상담</span>
+  <main class="container">
+    <section class="hero-visual">
+      <picture>
+        <source type="image/webp" srcset="/assets/hero-mobile.webp" media="(max-width: 640px)"/>
+        <source type="image/webp" srcset="/assets/hero-desktop.webp"/>
+        <img src="/assets/hero-desktop.jpg"
+             srcset="/assets/hero-mobile.webp 640w, /assets/hero-desktop.webp 2400w"
+             sizes="(max-width:640px) 100vw, 100vw"
+             width="2400"
+             height="1200"
+             loading="eager"
+             fetchpriority="high"
+             decoding="async"
+             alt="전문 관리사가 출장마사지 출장스웨디시 출장안마를 통해 어깨와 등을 케어하는 장면"/>
+      </picture>
+    </section>
+
+    <section class="hero">
+      <h1>출장마사지 | 서울·경기·인천 출장스웨디시 출장안마 홈타이 · 24시 후불제</h1>
+      서울·경기·인천 전지역 24시 배정. 후불제, 합리적 요금, 빠른 도착.
+      <a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a> /
+      카톡
+      <a class="btn btn-kakao"
+         href="https://open.kakao.com/me/swv2PsUh"
+         target="_blank"
+         rel="noopener"
+         aria-label="카카오 오픈채팅으로 연결">
+        <svg width="16" height="16" viewBox="0 0 24 24" style="vertical-align:-2px" aria-hidden="true" focusable="false">
+          <path d="M12 3C6.48 3 2 6.69 2 11c0 2.45 1.49 4.63 3.83 6.05L5 22l4.02-2.2c.94.18 1.93.27 2.98.27 5.52 0 10-3.69 10-8.08C22 6.69 17.52 3 12 3z"></path>
+        </svg>
+        <span> 오픈채팅</span>
+      </a>
+      <p class="kicker">우측 상단 <strong>지역출장 ▾</strong> 버튼을 눌러 지역별 바로가기를 확인하세요.</p>
+    </section>
+
+    <section class="container" id="about" style="margin-top:28px">
+      <h2>출장마사지 소개</h2>
+      <p>출장마사지는 <strong>서울·경기·인천 전지역</strong>을 중심으로 출장마사지, 출장스웨디시, 홈타이, 출장안마 등 방문형 관리를 제공합니다. 원하는 장소(자택·호텔·오피스텔·숙소)로 전문 관리사가 이동하여 진행하므로, 이동 시간 없이 편안하게 케어를 받으실 수 있습니다. 모든 서비스는 <strong>후불제</strong>로 안전하게 이용하실 수 있습니다.</p>
+    </section>
+
+    <section id="pricing">
+      <h2>요금표</h2>
+      <div class="pricing-wrap neon" role="region" aria-label="요금표">
+        <div class="pricing-head">
+          <div><strong>코스별 이용요금</strong></div>
+          <span class="badge">후불제 · 24시 상담</span>
+        </div>
+        <table class="pricing-table">
+          <thead>
+            <tr><th>코스</th><th>60분</th><th>90분</th><th>120분</th><th>150분</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="코스"><strong>기본 타이</strong></td>
+              <td class="price" data-label="60분">70,000원</td>
+              <td class="price" data-label="90분">80,000원</td>
+              <td class="price" data-label="120분">100,000원</td>
+              <td class="dim" data-label="150분">-</td>
+            </tr>
+            <tr>
+              <td data-label="코스"><strong>기본 아로마</strong></td>
+              <td class="price" data-label="60분">80,000원</td>
+              <td class="price" data-label="90분">90,000원</td>
+              <td class="price" data-label="120분">110,000원</td>
+              <td class="dim" data-label="150분">-</td>
+            </tr>
+            <tr>
+              <td data-label="코스"><strong>감성 힐링마사지</strong></td>
+              <td class="price" data-label="60분">90,000원</td>
+              <td class="price" data-label="90분">100,000원</td>
+              <td class="price" data-label="120분">120,000원</td>
+              <td class="price" data-label="150분">150,000원</td>
+            </tr>
+            <tr>
+              <td data-label="코스"><strong>스페셜 감성 힐링마사지</strong></td>
+              <td class="price" data-label="60분">100,000원</td>
+              <td class="price" data-label="90분">120,000원</td>
+              <td class="price" data-label="120분">140,000원</td>
+              <td class="price" data-label="150분">160,000원</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">* 지역/이동거리/시간대에 따라 변동될 수 있습니다.</p>
+      </div>
+    </section>
+
+    <!-- 코스 비교 -->
+    <section class="container" id="compare">
+      <h3>출장 코스별 어떤 차이가 있나요?</h3>
+      <p>모두 방문형 마사지라는 공통점이 있지만, 관리 방향과 느낌에는 차이가 있습니다.</p>
+      <ul class="list">
+        <li><strong>출장마사지</strong> – 집·호텔·오피스텔로 관리사가 직접 방문해 진행하는 전체적인 방문형 마사지 서비스를 넓게 부르는 표현입니다.</li>
+        <li><strong>출장안마</strong> – 뭉친 부위를 중심으로 압을 주어 근육 피로를 풀어주는 관리 중심의 안마 코스에 가깝습니다.</li>
+        <li><strong>출장스웨디시</strong> – 아로마 오일을 사용해 부드럽게 미끄러지듯 진행되는 릴렉싱 중심의 스웨디시 마사지로, 휴식·힐링에 초점이 맞춰져 있습니다.</li>
+      </ul>
+    </section>
+
+    <!-- 어떤 코스를 선택할까 -->
+    <section class="container" id="service">
+      <h3>어떤 코스를 선택할까요?</h3>
+      <p>컨디션과 원하는 느낌에 따라 아래 코스 중에서 선택해 보세요.</p>
+      <ul class="list">
+        <li><strong>빠르게 피로를 풀고 싶을 때 – 출장안마 코스</strong><br/>
+          장시간 운전·서서 일하는 직업, 어깨·허리 등 특정 부위가 뭉친 느낌이라면 압 위주의 안마 코스로 근육 피로를 집중적으로 풀어드립니다.</li>
+        <li><strong>편안한 힐링과 숙면이 필요할 때 – 출장스웨디시 마사지</strong><br/>
+          강한 압보다는 부드럽게 풀어주는 힐링 위주의 마사지를 원하시면 오일을 활용한 스웨디시 마사지 코스를 추천드립니다.</li>
+        <li><strong>전체적인 컨디션 관리가 필요할 때 – 기본 출장마사지</strong><br/>
+          전신을 고르게 풀어주는 방문형 마사지 코스로, 집·호텔·오피스텔 어디서나 균형 잡힌 관리를 원하실 때 적합합니다.</li>
+        <li><strong>집·숙소에서 편하게 받고 싶을 때 – 홈타이 마사지</strong><br/>
+          장거리 이동이 번거롭거나 퇴근 후 바로 쉬고 싶으신 분들께 자택·호텔로 바로 방문하는 홈타이 마사지 코스를 권장드립니다.</li>
+      </ul>
+      <p style="color:#9ca3af">※ 모든 코스는 방문형 마사지·안마 서비스이며, 의료행위나 불건전 서비스는 제공하지 않습니다.</p>
+    </section>
+
+    <section class="container" id="benefits">
+      <h3>출장안마가 좋은 이유</h3>
+      <div class="cards">
+        <div class="card"><strong>시간 절약</strong><br/>이동 없이 원하는 시간·장소에서 바로 관리</div>
+        <div class="card"><strong>개인 공간</strong><br/>편안한 환경에서 집중 휴식</div>
+        <div class="card"><strong>맞춤 코스</strong><br/>컨디션에 맞춘 코스/강도 조절</div>
+      </div>
+      <ul class="list">
+        <li><strong>스트레스 완화</strong> – 근육 이완과 휴식으로 긴장 완화</li>
+        <li><strong>근육통 완화</strong> – 굳은 부위의 피로감 완화 도움</li>
+        <li><strong>순환 개선</strong> – 컨디션 회복에 도움</li>
+      </ul>
+    </section>
+
+    <section class="container" id="howto">
+      <h3>예약 및 이용 방법</h3>
+      <ol class="list">
+        <li><strong>연락</strong> – 전화 010-8346-1193</li>
+        <li><strong>상담</strong> – 지역/위치, 코스·시간 선택</li>
+        <li><strong>배정</strong> – 관리사 배정 후 도착 안내</li>
+        <li><strong>이용</strong> – 도착 후 결제(후불제), 관리 진행</li>
+      </ol>
+      <p><a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a></p>
+    </section>
+
+    <section class="container" id="notice">
+      <h3>이용 전 안내사항</h3>
+      <ul class="list">
+        <li>음주 상태, 불건전 요구, 의료행위 요구 시 서비스가 제한될 수 있습니다.</li>
+        <li>오일 알레르기 등 민감 사항은 사전에 알려주세요.</li>
+        <li>과도한 시간 이용은 컨디션에 무리가 될 수 있으므로 권장하지 않습니다.</li>
+      </ul>
+    </section>
+
+    <section class="container" id="coverage">
+      <h3>서비스 가능 지역</h3>
+      <p>서울(강남·서초·송파·마포·용산 등), 경기(성남·분당·수원·용인·고양·일산·평택 등), 인천(송도·연수·미추홀·영종도 등) <strong>전지역</strong> 배정 가능합니다.</p>
+      <p style="color:#9ca3af">※ 교통 상황/거리·시간대에 따라 도착 시간과 배정 가능 여부가 달라질 수 있습니다.</p>
+    </section>
+
+    <!-- 인기 지역 바로가기 -->
+    <section class="region-quick container" aria-label="인기 지역 바로가기" style="margin:28px 0">
+      <h2 class="sr-only">인기 지역 바로가기</h2>
+      <nav class="chips">
+        <a class="chip" href="/regions/mapo.html">마포 출장마사지</a>
+        <a class="chip" href="/regions/gangnam.html">강남 출장마사지</a>
+        <a class="chip" href="/regions/songpa.html">송파 출장마사지</a>
+        <a class="chip" href="/regions/yongsan.html">용산 출장마사지</a>
+        <a class="chip" href="/regions/bundang.html">분당 출장마사지</a>
+        <a class="chip" href="/regions/suwon.html">수원 출장마사지</a>
+        <a class="chip" href="/regions/ilsan.html">일산 출장마사지</a>
+        <a class="chip" href="/regions/goyang.html">고양 출장마사지</a>
+        <a class="chip" href="/regions/songdo.html">송도 출장마사지</a>
+        <a class="chip" href="/regions/yeonsu.html">연수 출장마사지</a>
+      </nav>
+    </section>
+
+    <section class="container" id="faq">
+      <h3>자주 묻는 질문(FAQ)</h3>
+      <details><summary>후불제인가요?</summary><p>네, 모든 코스는 후불제로 이용하실 수 있습니다.</p></details>
+      <details><summary>어디까지 방문 가능한가요?</summary><p>서울·경기·인천 전지역을 기본으로, 상황에 따라 인접 지역도 가능합니다.</p></details>
+      <details><summary>예약은 어떻게 하나요?</summary><p>상단 전화 또는 카톡으로 연락 주시면 지역/코스 상담 후 배정해드립니다.</p></details>
+      <details><summary>불건전 서비스가 포함되나요?</summary><p>아니요. 건전하고 합법적인 관리만 제공합니다.</p></details>
+      <details><summary>출장마사지와 출장안마는 무엇이 다른가요?</summary><p>일반적으로 출장마사지는 방문 형태의 전반적인 마사지 서비스를 넓게 부르는 표현이고, 출장안마는 근육 피로를 풀어주는 관리·압 마사지에 가까운 의미로 쓰입니다. 상담 시 원하시는 스타일을 말씀해 주시면 코스를 추천해 드립니다.</p></details>
+      <details><summary>출장스웨디시 마사지는 어떤 분께 잘 맞나요?</summary><p>강한 안마보다는 부드럽게 풀어주는 힐링 위주의 마사지를 원하시는 분들께 추천드립니다. 오일을 활용한 전신 스웨디시 코스로, 편안한 숙면과 컨디션 회복에 도움을 드리는 방향으로 진행됩니다.</p></details>
+    </section>
+
+    <section class="container" id="cta" style="padding-bottom:32px">
+      <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <div>
+          <strong>지금 바로 편하게 관리 받아보세요.</strong><br/>
+          <span class="dim">24시 상담 · 후불제 · 지역 즉시 배정</span>
+        </div>
+        <div>
+          <a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a>
+          <a class="btn btn-ghost" href="#pricing">코스표 보기</a>
+        </div>
+      </div>
+    </section>
+  </main>
 </div>
-<table class="pricing-table">
-<thead>
-<tr><th>코스</th><th>60분</th><th>90분</th><th>120분</th><th>150분</th></tr>
-</thead>
-<tbody>
-<tr>
-<td data-label="코스"><strong>기본 타이</strong></td>
-<td class="price" data-label="60분">70,000원</td>
-<td class="price" data-label="90분">80,000원</td>
-<td class="price" data-label="120분">100,000원</td>
-<td class="dim" data-label="150분">-</td>
-</tr>
-<tr>
-<td data-label="코스"><strong>기본 아로마</strong></td>
-<td class="price" data-label="60분">80,000원</td>
-<td class="price" data-label="90분">90,000원</td>
-<td class="price" data-label="120분">110,000원</td>
-<td class="dim" data-label="150분">-</td>
-</tr>
-<tr>
-<td data-label="코스"><strong>감성 힐링마사지</strong></td>
-<td class="price" data-label="60분">90,000원</td>
-<td class="price" data-label="90분">100,000원</td>
-<td class="price" data-label="120분">120,000원</td>
-<td class="price" data-label="150분">150,000원</td>
-</tr>
-<tr>
-<td data-label="코스"><strong>스페셜 감성 힐링마사지</strong></td>
-<td class="price" data-label="60분">100,000원</td>
-<td class="price" data-label="90분">120,000원</td>
-<td class="price" data-label="120분">140,000원</td>
-<td class="price" data-label="150분">160,000원</td>
-</tr>
-</tbody>
-</table>
-<p class="note">* 지역/이동거리/시간대에 따라 변동될 수 있습니다.</p>
-</div>
-</section>
-<section class="container" id="service">
-<section class="container" id="service">
-<section class="container" id="compare">
-<h3>출장 코스별 어떤 차이가 있나요?</h3>
-<p>모두 방문형 마사지라는 공통점이 있지만, 관리 방향과 느낌에는 차이가 있습니다.</p>
-  <ul class="list">
-   <li><strong>출장마사지</strong> – 집·호텔·오피스텔로 관리사가 직접 방문해 진행하는 전체적인 방문형 마사지 서비스를 넓게 부르는 표현입니다.</li>
-   <li><strong>출장안마</strong> – 뭉친 부위를 중심으로 압을 주어 근육 피로를 풀어주는 관리 중심의 안마 코스에 가깝습니다.</li>
-   <li><strong>출장스웨디시</strong> – 아로마 오일을 사용해 부드럽게 미끄러지듯 진행되는 릴렉싱 중심의 스웨디시 마사지로, 휴식·힐링에 초점이 맞춰져 있습니다.</li>
-</ul>
-<section class="container" id="service">
-<h3>어떤 코스를 선택할까요?</h3>
-<p>컨디션과 원하는 느낌에 따라 아래 코스 중에서 선택해 보세요.</p>
-<ul class="list">
-<li><strong>빠르게 피로를 풀고 싶을 때 – 출장안마 코스</strong><br/>
-      장시간 운전·서서 일하는 직업, 어깨·허리 등 특정 부위가 뭉친 느낌이라면 압 위주의 안마 코스로 근육 피로를 집중적으로 풀어드립니다.</li>
-<li><strong>편안한 힐링과 숙면이 필요할 때 – 출장스웨디시 마사지</strong><br/>
-      강한 압보다는 부드럽게 풀어주는 힐링 위주의 마사지를 원하시면 오일을 활용한 스웨디시 마사지 코스를 추천드립니다.</li>
-<li><strong>전체적인 컨디션 관리가 필요할 때 – 기본 출장마사지</strong><br/>
-      전신을 고르게 풀어주는 방문형 마사지 코스로,
-      집·호텔·오피스텔 어디서나 균형 잡힌 관리를 원하실 때 적합합니다.</li>
-<li><strong>집·숙소에서 편하게 받고 싶을 때 – 홈타이 마사지</strong><br/>
-  장거리 이동이 번거롭거나 퇴근 후 바로 쉬고 싶으신 분들께 자택·호텔로 바로 방문하는 홈타이 마사지 코스를 권장드립니다.</li>
-</ul>
-  <p style="color:#9ca3af">※ 모든 코스는 방문형 마사지·안마 서비스이며, 의료행위나 불건전 서비스는 제공하지 않습니다.</p>
-</section>
-<section class="container" id="benefits">
-<h3>출장안마 가 좋은 이유</h3>
-<div class="cards">
-<div class="card"><strong>시간 절약</strong><br/>이동 없이 원하는 시간·장소에서 바로 관리</div>
-<div class="card"><strong>개인 공간</strong><br/>편안한 환경에서 집중 휴식</div>
-<div class="card"><strong>맞춤 코스</strong><br/>컨디션에 맞춘 코스/강도 조절</div>
-</div>
-<ul class="list">
-<li><strong>스트레스 완화</strong> – 근육 이완과 휴식으로 긴장 완화</li>
-<li><strong>근육통 완화</strong> – 굳은 부위의 피로감 완화 도움</li>
-<li><strong>순환 개선</strong> – 컨디션 회복에 도움</li>
-</ul>
-</section>
-<section class="container" id="howto">
-<h3>예약 및 이용 방법</h3>
-<ol class="list">
-<li><strong>연락</strong> – 전화 010-8346-1193 </li>
-<li><strong>상담</strong> – 지역/위치, 코스·시간 선택</li>
-<li><strong>배정</strong> – 관리사 배정 후 도착 안내</li>
-<li><strong>이용</strong> – 도착 후 결제(후불제), 관리 진행</li>
-</ol>
-<p><a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a></p>
-</section>
-<section class="container" id="notice">
-<h3>이용 전 안내사항</h3>
-<ul class="list">
-<li>음주 상태, 불건전 요구, 의료행위 요구 시 서비스가 제한될 수 있습니다.</li>
-<li>오일 알레르기 등 민감 사항은 사전에 알려주세요.</li>
-<li>과도한 시간 이용은 컨디션에 무리가 될 수 있으므로 권장하지 않습니다.</li>
-</ul>
-</section>
-<section class="container" id="coverage">
-<h3>서비스 가능 지역</h3>
-<p>서울(강남·서초·송파·마포·용산 등), 경기(성남·분당·수원·용인·고양·일산·평택 등), 인천(송도·연수·미추홀·영종도 등) <strong>전지역</strong> 배정 가능합니다.</p>
-<p style="color:#9ca3af">※ 교통 상황/거리·시간대에 따라 도착 시간과 배정 가능 여부가 달라질 수 있습니다.</p>
-</section>
-<!-- ✅ 홈 내부링크 허브: 인기 지역 바로가기 -->
-<section aria-label="인기 지역 바로가기" class="region-quick container" style="margin:28px 0">
-<h2 class="sr-only">인기 지역 바로가기</h2>
-<nav class="chips">
-<a class="chip" href="/regions/mapo.html">마포 출장마사지</a>
-<a class="chip" href="/regions/gangnam.html">강남 출장마사지</a>
-<a class="chip" href="/regions/songpa.html">송파 출장마사지</a>
-<a class="chip" href="/regions/yongsan.html">용산 출장마사지</a>
-<a class="chip" href="/regions/bundang.html">분당 출장마사지</a>
-<a class="chip" href="/regions/suwon.html">수원 출장마사지</a>
-<a class="chip" href="/regions/ilsan.html">일산 출장마사지</a>
-<a class="chip" href="/regions/goyang.html">고양 출장마사지</a>
-<a class="chip" href="/regions/songdo.html">송도 출장마사지</a>
-<a class="chip" href="/regions/yeonsu.html">연수 출장마사지</a>
-</nav>
-</section>
-<section class="container" id="faq">
-<h3>자주 묻는 질문(FAQ)</h3>
-<details><summary>후불제인가요?</summary><p>네, 모든 코스는 후불제로 이용하실 수 있습니다.</p></details>
-<details><summary>어디까지 방문 가능한가요?</summary><p>서울·경기·인천 전지역을 기본으로, 상황에 따라 인접 지역도 가능합니다.</p></details>
-<details><summary>예약은 어떻게 하나요?</summary><p>상단 전화 또는 카톡으로 연락 주시면 지역/코스 상담 후 배정해드립니다.</p></details>
-<details><summary>불건전 서비스가 포함되나요?</summary><p>아니요. 건전하고 합법적인 관리만 제공합니다.</p></details>
-<details><summary>출장마사지와 출장안마는 무엇이 다른가요?</summary><p>일반적으로 출장마사지는 방문 형태의 전반적인 마사지 서비스를 넓게 부르는 표현이고, 출장안마는 근육 피로를 풀어주는 관리·압 마사지에 가까운 의미로 쓰입니다. 상담 시 원하시는 스타일을 말씀해 주시면 코스를 추천해 드립니다.</p></details>
-<details><summary>출장스웨디시 마사지는 어떤 분께 잘 맞나요?</summary><p>강한 안마보다는 부드럽게 풀어주는 힐링 위주의 마사지를 원하시는 분들께 추천드립니다. 오일을 활용한 전신 스웨디시 코스로, 편안한 숙면과 컨디션 회복에 도움을 드리는 방향으로 진행됩니다.</p></details>
-</section>
-<section class="container" id="cta" style="padding-bottom:32px">
-<div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-<div><strong>지금 바로 편하게 관리 받아보세요.</strong><br/><span class="dim">24시 상담 · 후불제 · 지역 즉시 배정</span></div>
-<div>
-<a class="btn btn-neon btn-call" href="tel:01083461193">전화 010-8346-1193</a>
-<a class="btn btn-ghost" href="#pricing">코스표 보기</a>
-</div>
-</div>
-</section>
-</main>
-</div>
+
 <footer>
-<div class="container">© 2025 킹즈마사지 ·  카톡 <a aria-label="카카오 오픈채팅으로 연결" class="btn btn-kakao" href="https://open.kakao.com/me/swv2PsUh" rel="noopener" target="_blank"><svg aria-hidden="true" focusable="false" height="16" style="vertical-align:-2px" viewbox="0 0 24 24" width="16"><path d="M12 3C6.48 3 2 6.69 2 11c0 2.45 1.49 4.63 3.83 6.05L5 22l4.02-2.2c.94.18 1.93.27 2.98.27 5.52 0 10-3.69 10-8.08C22 6.69 17.52 3 12 3z"></path></svg><span> 오픈채팅</span></a></div>
+  <div class="container">
+    © 2025 킹즈마사지 ·
+    카톡
+    <a class="btn btn-kakao"
+       href="https://open.kakao.com/me/swv2PsUh"
+       target="_blank"
+       rel="noopener"
+       aria-label="카카오 오픈채팅으로 연결">
+      <svg width="16" height="16" viewBox="0 0 24 24" style="vertical-align:-2px" aria-hidden="true" focusable="false">
+        <path d="M12 3C6.48 3 2 6.69 2 11c0 2.45 1.49 4.63 3.83 6.05L5 22l4.02-2.2c.94.18 1.93.27 2.98.27 5.52 0 10-3.69 10-8.08C22 6.69 17.52 3 12 3z"></path>
+      </svg>
+      <span> 오픈채팅</span>
+    </a>
+  </div>
 </footer>
 
-<script defer="" src="/assets/cta-inject.js"></script><script defer="" src="/assets/pricing-ensure.js"></script>
-<link href="/assets/style.css?v=20251005c" rel="stylesheet"/>
+<script defer src="/assets/cta-inject.js"></script>
+<script defer src="/assets/pricing-ensure.js"></script>
+<link rel="stylesheet" href="/assets/style.css?v=20251005c"/>
 </body>
-</html>
+  </html>
