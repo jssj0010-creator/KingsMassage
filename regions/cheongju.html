@@ -25,6 +25,19 @@
 </head>
 <body>
 <body class="cheongju-page">
+  <script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    // 페이지가 로드되면 실행될 코드
+    if (document.body.classList.contains('cheongju-page')) {
+      // 전화번호 변경
+      const phoneNumberElements = document.querySelectorAll('a[href^="tel:"]');
+      phoneNumberElements.forEach((element) => {
+        element.href = 'tel:01079371293';  // 청주 지역 전화번호로 변경
+        element.textContent = '전화 010-7937-1293';  // 텍스트도 변경
+      });
+    }
+  });
+</script>
 <div class="overlay"></div>
 <header class="header">
 <div class="container nav">
