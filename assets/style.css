@@ -585,3 +585,7 @@ html{scroll-behavior:smooth}
   box-shadow: 0 8px 22px rgba(34,197,94,.30) !important;
 }
 #sticky-cta a.tel svg{ filter: none !important; }
+/* 청주 페이지에서만 하단 고정바 숨기기 */
+.cheongju-page #sticky-cta {
+  display: none !important;
+}
