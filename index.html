@@ -1,274 +1,351 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <title>[서울/경기] 출장마사지 출장안마 | 킹즈24시 </title>
-    <meta name="description" content="선입금 없는 100% 안심 후불제 출장마사지 킹즈. 서울, 경기 전 지역 30분 내 출장마사지 예약 방문 시스템. 20대 전문 관리사의 타이, 아로마, 스웨디시 출장안마 24시간 연중무휴.">
-    <meta name="keywords" content="서울출장마사지, 경기출장안마, 인천출장홈타이, 인천24시출장, 서울후불제출장마사지, 서울스웨디시출장, Kingsmsg">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "선입금이나 예약금이 있나요?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "아닙니다. 킹즈는 보이스피싱 및 사기 방지를 위해 100% 관리사 도착 후 결제하는 안전한 후불제 시스템으로만 운영됩니다."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "도착까지 시간은 얼마나 걸리나요?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "고객님 계신 곳과 가장 가까운 거리에 있는 관리사가 배정되어 보통 30분 이내에 도착합니다. (교통 상황에 따라 약간의 변동이 있을 수 있습니다.)"
-          }
-        }
-      ]
-    }
-    </script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* 모바일 앱 스타일 기본 설정 */
-        :root {
-            --primary: #FFB300; /* 신뢰와 주목을 끄는 골드/오렌지 */
-            --bg-color: #f4f5f7;
-            --box-bg: #ffffff;
-            --text-dark: #222222;
-            --text-gray: #666666;
-            --accent: #E53935; /* 레드 강조 */
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; }
-        body { background-color: #e9ecef; }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-
-        /* PC에서도 모바일처럼 보이게 하는 래퍼(Wrapper) */
-        .app-container {
-            max-width: 480px; /* 모바일 폭 제한 */
-            margin: 0 auto;
-            background-color: var(--bg-color);
-            min-height: 100vh;
-            position: relative;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            padding-bottom: 70px; /* 하단바 공간 확보 */
-        }
-
-        /* 상단 헤더 */
-        header { background: #fff; padding: 15px 20px; text-align: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #ddd; }
-        .logo { font-size: 1.4rem; font-weight: 900; color: var(--text-dark); letter-spacing: -0.5px; }
-        .logo span { color: var(--primary); }
-
-        /* 메인 배너 (영웅 이미지) */
-        .main-banner {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
-            color: #fff;
-            padding: 60px 20px 40px;
-            text-align: center;
-        }
-        .badge { display: inline-block; background: var(--accent); color: #fff; padding: 5px 12px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 15px; }
-        .main-banner h1 { font-size: 2rem; font-weight: 900; line-height: 1.3; margin-bottom: 10px; }
-        .main-banner p { font-size: 1rem; color: #eee; font-weight: 300; }
-
-        /* 퀵 메뉴 아이콘 (타임케어24 벤치마킹 요소) */
-        .quick-menu { display: flex; background: #fff; padding: 20px 10px; margin-bottom: 10px; }
-        .quick-item { flex: 1; text-align: center; }
-        .quick-icon { width: 50px; height: 50px; border-radius: 16px; background: #fff4e5; color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 8px; }
-        .quick-item:nth-child(2) .quick-icon { background: #e8f5e9; color: #2e7d32; }
-        .quick-item:nth-child(3) .quick-icon { background: #e3f2fd; color: #1565c0; }
-        .quick-item:nth-child(4) .quick-icon { background: #fce4ec; color: #c2185b; }
-        .quick-item span { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
-
-        /* 콘텐츠 블록 공통 */
-        .content-block { background: #fff; margin-bottom: 10px; padding: 30px 20px; }
-        .block-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; color: var(--text-dark); display: flex; align-items: center; gap: 8px; }
-        .block-title i { color: var(--primary); }
-
-        /* 지역 리스트 (SEO 핵심: 모든 지역을 텍스트 링크로 배출) */
-        .region-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        .region-btn { background: #f8f9fa; border: 1px solid #eee; padding: 12px 5px; text-align: center; border-radius: 8px; font-size: 0.9rem; font-weight: 600; color: var(--text-dark); transition: 0.2s; }
-        .region-btn:hover { border-color: var(--primary); color: var(--primary); background: #fffcf5; }
-
-        /* 코스 요금표 */
-        .price-list { list-style: none; }
-        .price-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px dashed #eee; }
-        .price-item:last-child { border-bottom: none; }
-        .course-info h4 { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); }
-        .course-info p { font-size: 0.8rem; color: var(--text-gray); margin-top: 4px; }
-        .course-price { font-size: 1.2rem; font-weight: 900; color: var(--accent); }
-
-        /* 구글 SEO 최적화 텍스트 영역 (본문 길이 확보용) */
-        .seo-text { font-size: 0.95rem; color: var(--text-gray); line-height: 1.7; word-break: keep-all; }
-        .seo-text strong { color: var(--text-dark); }
-
-        /* FAQ 아코디언 */
-        details { background: #f8f9fa; border-radius: 8px; margin-bottom: 10px; padding: 15px; }
-        summary { font-weight: 700; color: var(--text-dark); cursor: pointer; list-style: none; position: relative; padding-right: 20px; }
-        summary::-webkit-details-marker { display: none; }
-        summary::after { content: '\f107'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; right: 0; color: #999; }
-        details[open] summary::after { content: '\f106'; color: var(--primary); }
-        details p { margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ddd; font-size: 0.9rem; color: var(--text-gray); line-height: 1.6; }
-
-        /* 하단 고정 앱바 (가장 중요) */
-        .bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: #fff; display: flex; height: 70px; border-top: 1px solid #ddd; box-shadow: 0 -2px 10px rgba(0,0,0,0.05); z-index: 999; }
-        .nav-btn { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; color: var(--text-gray); }
-        .nav-btn i { font-size: 1.3rem; }
-        .nav-btn span { font-size: 0.75rem; font-weight: 600; }
-        .nav-btn.call-btn { background: var(--primary); color: #fff; flex: 1.5; }
-        .nav-btn.call-btn i { font-size: 1.6rem; animation: shake 2s infinite; }
-        
-        @keyframes shake { 
-            0%, 100% { transform: rotate(0deg); } 
-            25% { transform: rotate(-10deg); } 
-            75% { transform: rotate(10deg); } 
-        }
-
-        /* 푸터 */
-        footer { padding: 30px 20px; text-align: center; color: #999; font-size: 0.8rem; line-height: 1.5; }
-    </style>
-</head>
 <body>
 
 <div class="app-container">
 
+    <!-- HEADER -->
     <header>
         <div class="logo">Kings<span>msg</span></div>
     </header>
 
-    <div class="main-banner">
-        <div class="badge">100% 후불제 보증업체</div>
-        <h1>도심 속 편안한 힐링<br>출장마사지 1위</h1>
-        <p>계신 곳 어디든 30분 이내 총알 방문</p>
-    </div>
+    <main>
 
-    <div class="quick-menu">
-        <a href="#price" class="quick-item">
-            <div class="quick-icon"><i class="fa-solid fa-won-sign"></i></div>
-            <span>요금안내</span>
-        </a>
-        <a href="#course" class="quick-item">
-            <div class="quick-icon"><i class="fa-solid fa-spa"></i></div>
-            <span>코스소개</span>
-        </a>
-        <a href="#region" class="quick-item">
-            <div class="quick-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <span>서비스지역</span>
-        </a>
-        <a href="#faq" class="quick-item">
-            <div class="quick-icon"><i class="fa-solid fa-circle-question"></i></div>
-            <span>이용문의</span>
-        </a>
-    </div>
+        <!-- HERO -->
+        <section class="main-banner">
+            <div class="badge">100% 후불제 운영</div>
 
-    <div class="content-block seo-text">
-        <div class="block-title"><i class="fa-solid fa-shield-halved"></i> 킹즈 이용 안내</div>
-        <p>
-            <strong>킹즈 서울출장마사지</strong>는 서울, 경기, 인천 전 지역을 중심으로 운영되는 프리미엄 출장마사지 서비스입니다. 
-            모텔, 호텔, 원룸, 오피스텔, 자택 등 고객님이 계신 곳이라면 어디든 <strong>20대 전문 관리사</strong>가 30분 이내에 방문하여 피로를 풀어드립니다. 
-            예약금이나 선입금을 요구하는 보이스피싱 및 사기 업체와 달리 <strong>100% 현장 결제(후불제)</strong>로만 진행되므로 안심하고 이용하실 수 있습니다.
-        </p>
-    </div>
+            <h1>
+                서울출장마사지 · 출장스웨디시 · 홈타이 안내
+            </h1>
 
-    <div id="price" class="content-block">
-        <div class="block-title"><i class="fa-solid fa-gem"></i> 프로그램 & 요금</div>
-        <ul class="price-list">
-            <li class="price-item">
-                <div class="course-info">
-                    <h4>타이 마사지 (60분)</h4>
-                    <p>태국 정통 건식 마사지 + 전신 스트레칭</p>
+            <p>
+                서울·경기 주요 지역 출장마사지 예약 가능
+            </p>
+        </section>
+
+        <!-- QUICK MENU -->
+        <section class="quick-menu">
+
+            <a href="#price" class="quick-item">
+                <div class="quick-icon">
+                    <i class="fa-solid fa-won-sign"></i>
                 </div>
-                <div class="course-price">70,000원</div>
-            </li>
-            <li class="price-item">
-                <div class="course-info">
-                    <h4>타이 마사지 (90분)</h4>
-                    <p>태국 정통 건식 마사지 + 전신 스트레칭</p>
-                </div>
-                <div class="course-price">100,000원</div>
-            </li>
-            <li class="price-item">
-                <div class="course-info">
-                    <h4>힐링오일 마사지 (90분)</h4>
-                    <p>부드러운 압을 이용한 림프 순환 케어</p>
-                </div>
-                <div class="course-price">130,000원</div>
-            </li>
-            <li class="price-item">
-                <div class="course-info">
-                    <h4>VIP 힐링 코스 (120분)</h4>
-                    <p>타이 + 힐링 집중 관리 + 풋마사지</p>
-                </div>
-                <div class="course-price">160,000원</div>
-            </li>
-        </ul>
-    </div>
+                <span>요금안내</span>
+            </a>
 
-    <div id="region" class="content-block">
-        <div class="block-title"><i class="fa-solid fa-map-location-dot"></i> 방문 가능 지역</div>
-        <p class="seo-text" style="margin-bottom: 15px; font-size: 0.85rem;">각 지역을 클릭하시면 상세 안내로 이동합니다. (아래 외 지역도 문의 가능)</p>
-        
-        <div class="region-grid">
-            <a href="#" class="region-btn">강남구</a>
-            <a href="#" class="region-btn">서초구</a>
-            <a href="#" class="region-btn">송파구</a>
-            <a href="#" class="region-btn">영등포구</a>
-            <a href="#" class="region-btn">마포구</a>
-            <a href="#" class="region-btn">용산구</a>
-            <a href="#" class="region-btn">일산/고양</a>
-            <a href="#" class="region-btn">성남/분당</a>
-            <a href="#" class="region-btn">수원/동탄</a>
-        </div>
-    </div>
+            <a href="#course" class="quick-item">
+                <div class="quick-icon">
+                    <i class="fa-solid fa-spa"></i>
+                </div>
+                <span>코스소개</span>
+            </a>
 
-    <div id="faq" class="content-block">
-        <div class="block-title"><i class="fa-solid fa-comments"></i> 자주 묻는 질문</div>
-        
-        <details>
-            <summary>선입금이나 예약금이 있나요?</summary>
-            <p>아닙니다! 선입금을 요구하는 곳은 100% 사기입니다. 킹즈는 관리사가 고객님께 도착한 후 현장에서 결제하는 안전한 후불제 시스템으로만 운영됩니다.</p>
-        </details>
-        <details>
-            <summary>도착 시간은 얼마나 걸리나요?</summary>
-            <p>고객님이 계신 위치에서 가장 가까운 관리사를 배정하여 통상 30분 이내에 도착합니다. 단, 주말 피크 시간대나 기상 악화 시에는 조금 지연될 수 있으며 예약 시 정확한 소요 시간을 안내해 드립니다.</p>
-        </details>
-        <details>
-            <summary>결제는 어떻게 하나요?</summary>
-            <p>현금 결제, 계좌 이체 모두 현장에서 관리사에게 직접 결제해 주시면 됩니다.</p>
-        </details>
-    </div>
+            <a href="#region" class="quick-item">
+                <div class="quick-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <span>서비스지역</span>
+            </a>
 
+            <a href="#faq" class="quick-item">
+                <div class="quick-icon">
+                    <i class="fa-solid fa-circle-question"></i>
+                </div>
+                <span>이용문의</span>
+            </a>
+
+        </section>
+
+        <!-- SEO INTRO -->
+        <section class="content-block seo-text">
+
+            <h2 class="block-title">
+                <i class="fa-solid fa-spa"></i>
+                서울출장마사지 안내
+            </h2>
+
+            <p>
+                킹즈마사지는 서울출장마사지 및 출장스웨디시 예약 안내를 중심으로
+                서울·경기 주요 지역 출장마사지 서비스를 운영하고 있습니다.
+                강남출장마사지, 송파출장마사지, 마포출장마사지,
+                용산출장마사지 등 다양한 지역 예약 안내가 가능합니다.
+            </p>
+
+            <p>
+                출장마사지 서비스는 고객이 원하는 장소에서
+                편안하게 관리 프로그램을 이용할 수 있는 예약형 서비스이며,
+                홈타이 및 출장스웨디시 프로그램 관련 정보도 함께 확인 가능합니다.
+            </p>
+
+            <p>
+                서울출장마사지 예약 전에는 이용 지역과 예약 가능 시간을
+                먼저 확인하는 것이 중요하며,
+                프로그램 구성 및 관리 시간 안내도 함께 받을 수 있습니다.
+            </p>
+
+        </section>
+
+        <!-- PRICE -->
+        <section id="price" class="content-block">
+
+            <h2 class="block-title">
+                <i class="fa-solid fa-gem"></i>
+                프로그램 & 요금
+            </h2>
+
+            <ul class="price-list">
+
+                <li class="price-item">
+                    <div class="course-info">
+                        <h3>타이 마사지 (60분)</h3>
+                        <p>건식 중심 전신 스트레칭 관리</p>
+                    </div>
+                    <div class="course-price">70,000원</div>
+                </li>
+
+                <li class="price-item">
+                    <div class="course-info">
+                        <h3>타이 마사지 (90분)</h3>
+                        <p>집중 전신 케어 프로그램</p>
+                    </div>
+                    <div class="course-price">100,000원</div>
+                </li>
+
+                <li class="price-item">
+                    <div class="course-info">
+                        <h3>힐링 오일 마사지 (90분)</h3>
+                        <p>부드러운 압 중심 릴렉싱 관리</p>
+                    </div>
+                    <div class="course-price">130,000원</div>
+                </li>
+
+                <li class="price-item">
+                    <div class="course-info">
+                        <h3>VIP 힐링 코스 (120분)</h3>
+                        <p>집중 전신 관리 프로그램</p>
+                    </div>
+                    <div class="course-price">160,000원</div>
+                </li>
+
+            </ul>
+
+        </section>
+
+        <!-- REGION SEO -->
+        <section id="region" class="content-block">
+
+            <h2 class="block-title">
+                <i class="fa-solid fa-map-location-dot"></i>
+                서울·경기 출장마사지 지역 안내
+            </h2>
+
+            <p class="seo-text" style="margin-bottom:15px; font-size:0.9rem;">
+                각 지역 페이지에서 출장마사지 및 출장스웨디시 안내를 확인할 수 있습니다.
+            </p>
+
+            <div class="region-grid">
+
+                <a href="/regions/gangnam.html" class="region-btn">
+                    강남출장마사지
+                </a>
+
+                <a href="/regions/seocho.html" class="region-btn">
+                    서초출장마사지
+                </a>
+
+                <a href="/regions/songpa.html" class="region-btn">
+                    송파출장마사지
+                </a>
+
+                <a href="/regions/mapo.html" class="region-btn">
+                    마포출장마사지
+                </a>
+
+                <a href="/regions/yongsan.html" class="region-btn">
+                    용산출장마사지
+                </a>
+
+                <a href="/regions/yeongdeungpo.html" class="region-btn">
+                    영등포출장마사지
+                </a>
+
+                <a href="/regions/suwon.html" class="region-btn">
+                    수원출장마사지
+                </a>
+
+                <a href="/regions/seongnam.html" class="region-btn">
+                    성남출장마사지
+                </a>
+
+                <a href="/regions/ilsan.html" class="region-btn">
+                    일산출장마사지
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- BLOG SECTION -->
+        <section class="content-block">
+
+            <h2 class="block-title">
+                <i class="fa-solid fa-book-open"></i>
+                출장마사지 정보 가이드
+            </h2>
+
+            <div class="region-grid">
+
+                <a href="/blog/seoul-guide.html" class="region-btn">
+                    서울출장마사지 이용안내
+                </a>
+
+                <a href="/blog/swedish-guide.html" class="region-btn">
+                    출장스웨디시 특징
+                </a>
+
+                <a href="/blog/hometai-guide.html" class="region-btn">
+                    홈타이 프로그램 안내
+                </a>
+
+                <a href="/blog/reservation-guide.html" class="region-btn">
+                    출장마사지 예약 방법
+                </a>
+
+                <a href="/blog/oil-guide.html" class="region-btn">
+                    아로마 마사지 안내
+                </a>
+
+                <a href="/blog/faq-guide.html" class="region-btn">
+                    출장마사지 FAQ
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="content-block">
+
+            <h2 class="block-title">
+                <i class="fa-solid fa-comments"></i>
+                자주 묻는 질문
+            </h2>
+
+            <details>
+                <summary>
+                    선입금이나 예약금이 있나요?
+                </summary>
+
+                <p>
+                    킹즈마사지는 후불제 예약 시스템을 운영하며,
+                    예약 전 상담을 통해 이용 가능 여부를 안내하고 있습니다.
+                </p>
+            </details>
+
+            <details>
+                <summary>
+                    예약 가능 지역은 어디인가요?
+                </summary>
+
+                <p>
+                    서울·경기 주요 지역 출장마사지 예약 안내가 가능하며,
+                    지역별 페이지에서 상세 내용을 확인할 수 있습니다.
+                </p>
+            </details>
+
+            <details>
+                <summary>
+                    출장스웨디시와 홈타이는 어떤 차이가 있나요?
+                </summary>
+
+                <p>
+                    프로그램 구성과 관리 방식에 차이가 있으며,
+                    예약 상담 시 상세 안내를 받을 수 있습니다.
+                </p>
+            </details>
+
+        </section>
+
+        <!-- LONG SEO CONTENT -->
+        <section class="content-block seo-text">
+
+            <h2 class="block-title">
+                <i class="fa-solid fa-circle-info"></i>
+                출장마사지 서비스 정보
+            </h2>
+
+            <p>
+                서울출장마사지 서비스는 고객이 원하는 장소에서
+                편안하게 관리 프로그램을 이용할 수 있는 예약형 서비스입니다.
+                최근에는 출장스웨디시 및 홈타이 관련 검색량이 증가하면서
+                서울출장마사지 정보 페이지에 대한 관심도 함께 높아지고 있습니다.
+            </p>
+
+            <p>
+                킹즈마사지는 서울·경기 주요 지역 출장마사지 예약 안내를 운영하고 있으며,
+                강남출장마사지, 송파출장마사지, 마포출장마사지,
+                용산출장마사지 등 다양한 지역 관련 정보를 함께 제공하고 있습니다.
+            </p>
+
+            <p>
+                출장마사지 예약 전에는 이용 지역과 예약 가능 시간을
+                먼저 확인하는 것이 중요하며,
+                프로그램 구성과 관리 시간 안내도 함께 확인하는 것이 좋습니다.
+            </p>
+
+            <p>
+                출장스웨디시 및 홈타이 프로그램은 관리 방식과 구성에 차이가 있으며,
+                이용 목적에 따라 원하는 프로그램을 선택할 수 있습니다.
+            </p>
+
+            <p>
+                서울출장마사지 관련 정보를 찾는 경우에는
+                지역별 안내 페이지와 프로그램 설명 페이지를 함께 비교해보는 것이 좋으며,
+                예약 전 기본 이용 안내를 확인하는 것도 중요합니다.
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
     <footer>
-        <p>킹즈 | 24시간 연중무휴 출장마사지</p>
-        <p>※ 퇴폐 문의는 정중히 사양하며, 심한 음주, 폭언 시 서비스 이용이 불가합니다.</p>
+
+        <p>
+            킹즈마사지 | 서울출장마사지 · 출장스웨디시 안내
+        </p>
+
+        <p>
+            서울·경기 주요 지역 출장마사지 예약 정보 제공
+        </p>
+
         <br>
-        <p>&copy; 2024 Kingsmsg All Rights Reserved.</p>
+
+        <p>
+            © 2025 Kingsmsg All Rights Reserved.
+        </p>
+
     </footer>
 
+    <!-- BOTTOM CTA -->
     <div class="bottom-nav">
-        <a href="#" class="nav-btn">
+
+        <a href="/" class="nav-btn">
             <i class="fa-solid fa-house"></i>
             <span>홈으로</span>
         </a>
+
         <a href="sms:01083461193" class="nav-btn">
             <i class="fa-solid fa-comment-sms"></i>
             <span>문자예약</span>
         </a>
+
         <a href="tel:01083461193" class="nav-btn call-btn">
             <i class="fa-solid fa-phone-volume"></i>
-            <span>전화연결 (24시)</span>
+            <span>전화상담</span>
         </a>
+
     </div>
 
 </div>
 
 </body>
-</html>
